@@ -1,0 +1,240 @@
+{%- assign section_bg_color = section.settings.section_bg_color -%}
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+
+{%- assign section_settings = section.settings -%}
+
+
+{%- capture section_content -%}
+{% render 'aw-featured-logos' with 
+    section_settings: section_settings %}
+{%- endcapture -%}
+
+{%- comment -%}
+==================================
+Render wrapping Divs
+==================================
+{%- endcomment -%}
+{%- render 'aw-section-wrapper' with
+    section_custom_padding: section_custom_padding,
+    section_bg_color: section_bg_color,
+    section_type: "aw-featured-logos",
+    section_id: section.id,
+    section_content: section_content
+    -%}
+
+{% schema %}
+{
+    "name": "Featured Logos",
+    "class": "featured-logos",
+    "settings": [
+    {
+        "id":"title",
+        "type":"text",
+        "label":"Heading",
+        "default":"As Featured In"
+    },
+    {
+        "id":"subheading",
+        "type":"text",
+        "label":"Subheading ( Optional )"
+    },
+    {
+        "type":"header",
+        "content":"Heading Settings"
+    },
+    {
+        "type":"checkbox",
+        "id":"show_icon_bg",
+        "label":"Use white background for logos?",
+        "info":"Logos will have a white background if enabled",
+        "default":false
+    },
+    {
+        "type":"select",
+        "id":"heading_color",
+        "label":"Heading Color",
+        "options":[
+            {
+                "value":"sky_blue",
+                "label":"Sky Blue"
+            },
+            {
+                "value":"navy",
+                "label":"Navy Blue"
+            }
+        ]
+    },
+    {
+        "type":"header",
+        "content":"Logo Column Settings"
+    },
+    {
+        "id":"logo_col_1_image",
+        "type":"image_picker",
+        "label":"Logo Column One Image"
+    },
+    {
+        "id":"logo_col_1_image_text",
+        "type":"text",
+        "label":"Logo Column One Image Text (Optional)"
+    },
+    {
+        "id": "logo_col_1_image_text_url",
+        "type": "url",
+        "label": "Logo Column One Image Text URL (Optional)",
+        "info": "If specified, it will make the whole icon + text clickable"
+    },
+    {
+        "id":"logo_col_2_image",
+        "type":"image_picker",
+        "label":"Logo Column Two Image"
+    },
+    {
+        "id":"logo_col_2_image_text",
+        "type":"text",
+        "label":"Logo Column Two Image Text (Optional)"
+    },
+    {
+        "id": "logo_col_2_image_text_url",
+        "type": "url",
+        "label": "Logo Column Two Image Text URL (Optional)",
+        "info": "If specified, it will make the whole icon + text clickable"
+    },
+    {
+        "id":"logo_col_3_image",
+        "type":"image_picker",
+        "label":"Logo Column Three Image"
+    },
+    {
+        "id":"logo_col_3_image_text",
+        "type":"text",
+        "label":"Logo Column Three Image Text (Optional)"
+    },
+    {
+        "id": "logo_col_3_image_text_url",
+        "type": "url",
+        "label": "Logo Column Three Image Text URL (Optional)",
+        "info": "If specified, it will make the whole icon + text clickable"
+    },
+    {
+        "id":"logo_col_4_image",
+        "type":"image_picker",
+        "label":"Logo Column Four Image"
+    },
+    {
+        "id":"logo_col_4_image_text",
+        "type":"text",
+        "label":"Logo Column Four Image Text (Optional)"
+    },
+    {
+        "id": "logo_col_4_image_text_url",
+        "type": "url",
+        "label": "Logo Column Four Image Text URL (Optional)",
+        "info": "If specified, it will make the whole icon + text clickable"
+    },
+    {
+        "id":"logo_col_5_image",
+        "type":"image_picker",
+        "label":"Logo Column Five Image"
+    },
+    {
+        "id":"logo_col_5_image_text",
+        "type":"text",
+        "label":"Logo Column Five Image Text (Optional)"
+    },
+    {
+        "id": "logo_col_5_image_text_url",
+        "type": "url",
+        "label": "Logo Column Five Image Text URL (Optional)",
+        "info": "If specified, it will make the whole icon + text clickable"
+    },
+    {
+        "type":"header",
+        "content":"Color"
+    },
+    {
+        "type":"select",
+        "id":"color_scheme",
+        "label":"Color scheme",
+        "options":[
+            {
+                "value":"primary",
+                "label":"Primary"
+            },
+            {
+                "value":"secondary",
+                "label":"Secondary"
+            },
+            {
+                "value":"tertiary",
+                "label":"Tertiary"
+            },
+            {
+                "value":"quaternary",
+                "label":"Quaternary"
+            }
+        ]
+    },
+    {
+        "type":"select",
+        "id":"section_bg_color",
+        "label":"Background Color",
+        "options":[
+            {
+                "value":"aw_section_bg_white",
+                "label":"White"
+            },
+            {
+                "value":"aw_section_bg_sky_blue",
+                "label":"Sky Blue"
+            },
+            {
+                "value":"aw_section_bg_mint",
+                "label":"Mint"
+            },
+            {
+                "value":"aw_section_bg_light_gray",
+                "label":"Light Gray"
+            },
+            {
+                "value":"aw_section_bg_gradient",
+                "label":"Gradient"
+            }
+        ],
+        "default":"aw_section_bg_sky_blue"
+    },
+    {
+        "type":"header",
+        "content":"Module Spacing"
+    },
+    {
+        "type":"select",
+        "id":"section_custom_padding",
+        "label":"Section Custom Padding",
+        "options":[
+            {
+                "value":"global",
+                "label":"Global Padding Setting"
+            },
+            {
+                "value":"smaller",
+                "label":"Smaller"
+            },
+            {
+                "value":"larger",
+                "label":"Larger"
+            }
+        ],
+        "default":"global"
+    }
+    ],
+    "presets": [
+    {
+        "name": "Featured Logos",
+        "category": "Agency Wellness Layout"
+    }
+    ]
+}
+{% endschema %}
+
+

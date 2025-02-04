@@ -1,0 +1,378 @@
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_body_bg }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
+
+  {%- assign heading_font = settings.type_heading_font -%}
+  {%- assign main_font = settings.type_main_font -%}
+  {%- assign main_font_bold = main_font | font_modify: 'weight', 'bold' -%}
+  {%- assign accent_font = settings.type_accent_font -%}
+
+<link rel="preload" href="{{ 'theme.min.css' | asset_url }}" as="style">
+  <link rel="preload" href="{{ 'custom.css' | asset_url }}" as="style">
+{% if template.name == "index" %}
+<link rel="preload" href="{{ 'flickity-fade.css' | asset_url }}" as="style">
+{% endif %}
+<link rel="preload" as="font" href="{{ main_font | font_url }}" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="{{ heading_font | font_url }}" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="{{ accent_font | font_url }}" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="{{ main_font_bold | font_url }}" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ 'theme.min.js' | asset_url }}" as="script">
+{% if template.name == "index" %}
+<link rel="preload" href="{{ 'flickity.pkgd.min.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'flickity-fade.js' | asset_url }}" as="script">
+{% endif %}
+
+<style>
+  /* Adding Futura Medium Font Type */
+  @font-face {
+    font-family: "Futura";
+    font-weight: 500;
+    src: url("{{ 'FuturaStd-Medium.woff' | asset_url }}") format("woff");
+  }
+</style>
+
+{% if template.name == "index" %}
+  <style>
+    /* Hero creates a space to the side we need to hide w/ overflow hidden. */
+    html, body {
+      overflow-x: hidden;
+    }
+  </style>
+{% endif %}
+
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  {% capture seo_title %}
+    {{ page_title }}
+    {% if current_tags %}
+      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {% endif %}
+    {% if current_page != 1 %}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {% endif %}
+    {% unless page_title contains shop.name %}
+      &ndash; {{ shop.name }}
+    {% endunless %}
+  {% endcapture %}
+  <title>{{ seo_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% render 'social-meta-tags' %}
+
+  <!-- Start IE11 Compatibility -->
+  <script>
+    if (!!window.MSInputMethodContext && !!document.documentMode) {
+      // CSSVar Polyfill
+      document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\x2fscript>');
+      // Promise and CustomEvent Polyfills
+      document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CEvent%2CCustomEvent"><\x2fscript>');
+      // Fix issue with Lazysizes and SVG data-URL placeholders
+      document.addEventListener('DOMContentLoaded', function () {
+        var elsToLazyload = document.querySelectorAll('.lazyload');
+        for (var i = 0; i < elsToLazyload.length; i++) {
+          var elToLazyLoad = elsToLazyload[i];
+          elToLazyLoad.classList.remove('lazyload');
+          elToLazyLoad.removeAttribute('src');
+          elToLazyLoad.classList.add('lazyload');
+        }
+      });
+    }
+    // Redirect from shop page to collections/all - shopify doesn't support /shop redirection from server side :/
+    if (window.location.pathname == '/shop' ) {
+      window.location.replace('https://' + window.location.hostname + '/collections/all');
+    }
+  </script>
+  <!-- End IE11 Compatibility -->
+
+
+  {% render 'css-variables' %}
+  {% render 'critical-css' %}
+  {% render 'style-tags' %}
+
+  <style>
+  {{ main_font | font_face: font_display: 'swap' }}
+  {{ heading_font | font_face: font_display: 'swap' }}
+  {{ accent_font | font_face: font_display: 'swap' }}
+  {%- assign main_font_bolder = main_font | font_modify: 'weight', 'bolder' -%}
+  {%- assign main_font_italic = main_font | font_modify: 'style', 'italic' -%}
+  {%- assign main_font_bold_italic = main_font_bold | font_modify: 'style', 'italic' -%}
+  {% if main_font_bold %}
+    {{ main_font_bold | font_face: font_display: 'swap' }}
+  {% endif %}
+  {% if main_font_italic %}
+    {{ main_font_italic | font_face: font_display: 'swap' }}
+  {% endif %}
+  {% if main_font_bold_italic %}
+    {{ main_font_bold_italic | font_face: font_display: 'swap' }}
+  {% endif %}
+  {% if main_font_bolder %}
+    {{ main_font_bolder | font_face: font_display: 'swap' }}
+  {% endif %}
+  </style>
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    window.theme = {
+      data: {
+        "cartMethod": "{{ settings.ajax_cart_method }}",
+        "openModalOnAddToCart": {{ settings.open_modal_on_add_to_cart | json }}
+      },
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }},
+        cartEmpty: {{ 'cart.general.empty' | t | json }},
+        cartCookie: {{ 'cart.general.cookies_required' | t | json }},
+        cartSavings: {{ 'cart.general.savings_html' | t: price: '[savings]' | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }},
+      info: {
+        name: 'Cascade',
+      }
+    };
+  </script>
+
+  {% if template.directory == 'customers' %}
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
+  {% endif %}
+
+  {% render 'script-tags', layout: 'theme' %}
+  {{ content_for_header }}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRW9HVY1YP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NRW9HVY1YP');
+</script>
+
+{{ 'bsub.js' | asset_url | script_tag }}
+{{ 'bsub.css' | asset_url | stylesheet_tag }}
+  
+</head>
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} preload">
+    {% capture the_snippet_content %}{% render 'socialshopwave-helper' %}{% endcapture %}
+  {% unless the_snippet_content contains 'Liquid error' %}
+  {{ the_snippet_content }}
+  {% endunless %}
+
+
+
+
+
+
+
+{% comment %} Rebrand pop-up {% endcomment %} 
+{% unless page.template_suffix == "aw--product-checker" %}
+  <div tabindex="0" id="myPopup" class="popup-modal shadow checker is--visible" data-popup-modal="one">
+      
+      <div class="popup__container relative p2 lg--up--p3 full flex justify--center">
+      <div class="close" role="button" tabindex="1">X</div>
+
+      {% if settings.popup_image %}
+        <img src="{{ settings.popup_image | img_url: 'master' }}" alt="{{ settings.popup_heading }}" class="popup__image" style="
+          padding: 20px;
+          width: auto;
+          max-height: 300px;
+          margin: auto;
+        ">  
+      {% endif %}
+
+      <h2 style="color: #5e6939;" class="f--heading font-size--xl line-height--5 lg--up--font-size--xxl lg--up--line-height--6 m0 mb1">{{ settings.popup_heading }}</h2>
+    
+      <div class="line-height--3 font-size--ml mt1 mb2">
+        <p style="color: #5e6939;">{{ settings.popup_text }}</p>
+        <div style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 30px;
+        ">
+          <a class="close-btn" href="{{ settings.button_link }}" role="button" style="
+            border-radius: 0;
+            border: none;
+            padding: 12px;
+            text-transform: uppercase;
+            background-color: var(--color-aw-navy);
+            color: #fff;
+            display: block;
+            text-align: center;
+            margin-right: 5px;
+            width: 100%;
+            font-size: 14px;
+          ">{{  settings.button_label }}</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+{% endunless %}
+
+<style>
+#myPopup {
+  display: none;
+}
+
+#myPopup .popup__container {
+  max-width: 100%;
+  background-color: #efe9df;
+  color: #162317;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: fit-content;
+  z-index: 99999;
+  margin: auto;
+  align-items: center;
+}
+
+#myPopup:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#myPopup .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+</style>
+
+<script>
+// This function opens the popup
+function openPopup() {
+  console.log('openPopup was called');
+  let popupShown = localStorage.getItem('popupShown');
+  console.log('popupShown:', popupShown);
+  if (!popupShown) {
+    console.log('Popup was not shown before. Showing it now.');
+    document.getElementById('myPopup').style.display = 'block';
+    localStorage.setItem('popupShown', 'yes');
+  }
+}
+
+// This function closes the popup
+function closePopup() {
+  console.log('closePopup was called');
+  document.getElementById('myPopup').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', openPopup);
+
+// When the user clicks on the close button, close the popup
+document.querySelector('.close').addEventListener('click', closePopup);
+document.querySelector('.close-btn').addEventListener('click', closePopup);
+
+// When the user clicks outside of the popup, close it
+window.addEventListener('click', function(event) {
+  if (event.target == document.getElementById('myPopup')) {
+    closePopup();
+  }
+});
+
+// Close the popup when the 'Escape' key is pressed
+window.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closePopup();
+  }
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  {% section 'header' %}
+
+
+  <main role="main" id="MainContent">
+
+    {{ content_for_layout }}
+
+    {% if page.handle != 'diy' %}
+      {% section 'image-text-nav' %}
+    {% endif %}
+
+  </main>
+
+
+  {% section 'footer' %}
+  {% section 'popup' %}
+
+  {% comment %}
+    Ajaxify your cart with this plugin.
+    Documentation:
+      - http://shopify.com/timber#ajax-cart
+  {% endcomment %}
+  {% render 'ajax-cart-template' %}
+ 
+  {% if settings.show_scrolltop %}
+  <a id="scrollTop" href="#{{ page_title | handle }}" class="" onclick="scrollToTop();return false">{% render 'icon-chevron-up' %}</a>
+  <script>
+    function scrollToTop() {
+      var position =
+          document.body.scrollTop || document.documentElement.scrollTop;
+      if (position) {
+        window.scrollBy(0, -Math.max(1, Math.floor(position / 10)));
+        scrollAnimation = setTimeout("scrollToTop()", 30);
+      } else clearTimeout(scrollAnimation);
+    }
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("scrollTop").className = "visible";
+      } else {
+        document.getElementById("scrollTop").className = "";
+      }
+    }
+  </script>
+  {% endif %}
+{% render 'preorder-now' %}
+  
+  
+<!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'custom.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lt IE 9]><script src="{{ 'custom.js' | asset_url }}"></script><![endif]-->
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<script
+  src="{{ 'aw-product-checker.js' | asset_url }}"
+  type="module"
+/></script>
+
+{%- comment -%}If a customer object is not found then it means no user is logged in.{%- endcomment -%}
+
+{% if customer %}
+  {% unless customer.accepts_marketing %}
+    {% render 'aw-product-checker-popup-blocker-accept-marketing' with
+    popup_title : popup_title,
+    popup_text  : popup_text %}
+  {% endunless %}
+{% else %}
+  {% render 'aw-product-checker-popup-blocker' with
+  popup_title : popup_title,
+  popup_text  : popup_text %}
+{% endif %}
+
+
+{{ 'aw-product-checker.css' | asset_url | stylesheet_tag }}
+{% capture section_content %}
+  <div class="product-checker-outer-wrapper">
+    <div class="product-checker--narrow-wrapper">
+      <div class="product-checker--light-blue-overline"></div>
+      <h2 class="f--heading product-checker__heading aw-text--navy">{{ title }}</h2>
+      <div class="font-size__basic product-checker--text">
+          {{ description }}
+      </div>
+      <div class="searchbox input" contenteditable="true"></div>
+      {% if copyright_text %}
+        <p class="font-size__basic copyright-text">{{ copyright_text }}</p>
+      {% endif %}
+    </div>
+    <div class="js-ingredients-table--wrap"></div>
+  </div>
+{% endcapture %}
+
+
+{{ section_content }}

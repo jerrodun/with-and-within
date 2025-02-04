@@ -1,0 +1,111 @@
+
+
+{% assign section_color = 'primary' %}
+
+
+
+
+
+<section class="page section-with-padding color--{{ section_color }}-text bg--{{ section_color }}-background bg--white">
+
+  <div class="max-site-width px2 lg--up--px3">
+
+
+
+    <div class="max-width--2 lg--up--max-width--4 mx--auto">
+
+
+
+      <div class="grid">
+
+        <div class="grid__item lg--up--one-half">
+
+
+
+          <h1 class="f--heading font-size__heading">{{ 'customer.register.title' | t }}</h1>
+
+
+
+          <div class="font-size__basic">
+
+            <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+
+          </div>
+
+
+
+        </div>
+
+        <div class="grid__item lg--up--one-half mt3 lg--up--mt0">
+
+
+
+          {% render "customer-fields", form_id: "WBt8Nk" %}
+
+
+
+
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  input {
+    border: 1px solid #000;
+    padding: 7px;
+    margin-top: 8px;
+  }
+  button.cf-cancel.cf-button.btn.button {
+    display: none;
+  }
+  button.cf-submit-form.cf-button.btn.button {
+    background-color: #5e6939;
+    color: #efe9df;
+    text-transform: uppercase;
+    border: none;
+    padding: 16px;
+    transition: all .3s ease-in-out;
+    text-align: center;
+  }
+</style>
+
+{% comment %}
+<script>
+  const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  const passwordEl = document.querySelector("input[type='password']")
+  const submitEl = document.querySelector("input[type='submit']")
+
+  let passwordGenerated = ""
+  let passwordLength = 15
+ 
+
+  for (let i = 0; i <= passwordLength; i++) {
+   let random = Math.floor(Math.random() * chars.length)
+   passwordGenerated += chars.substring(random, random +1);
+  }
+
+  passwordEl.value = passwordGenerated
+
+  submitEl.addEventListener("click", function() {
+    setTimeout(function(){
+      window.location.href = 'https://skinsalvationsf.com/account/logout'
+    }, 1000)
+  })
+</script>
+
+<style>
+  .hide-password {
+    display: none;
+  }
+</style> 
+{% endcomment %}
+

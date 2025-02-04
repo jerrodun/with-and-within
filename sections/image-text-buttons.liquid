@@ -1,0 +1,169 @@
+{%- assign section_color = section.settings.color_scheme -%}
+
+{%- assign gradient_bg = section.settings.gradient_bg -%}
+
+{%- assign heading = section.settings.heading -%}
+{%- assign text = section.settings.text -%}
+{%- assign button1_text = section.settings.button1_text -%}
+{%- assign button1_url = section.settings.button1_url -%}
+{%- assign button2_text = section.settings.button2_text -%}
+{%- assign button2_url = section.settings.button2_url -%}
+{%- assign feature_image = section.settings.feature_image -%}
+{%- assign bottom_image = section.settings.bottom_image -%}
+
+<section class="image-text-buttons section-with-padding color--{{ section_color }}-text lg--up--color--{{ text_color_overlay }}-text {% if gradient_bg %}bg--gradient{% else %} bg--{{ section_color }}-background"{% endif %} data-section-type="newsletter" data-section-id="{{ section.id }}">
+  <div class="max-site-width px2 lg--up--px3">
+    <div class="grid flex flex--column md--up--flex--row">
+
+      <div class="one-whole md--up--one-half">
+        <div class="image-text-buttons__image">
+          {% if section.settings.feature_image  %}
+            {% render 'responsive-image' with
+              image: feature_image,
+              max_width: 619,
+              max_height: 684,
+              section_color: section_color,
+            %}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="one-whole md--up--one-half mt3">
+        <div class="lg--up--table">
+
+          <div class="lg--up--table-cell image-text-buttons__container">
+
+            <div class="mt1 image-text-buttons__text">
+              {% if heading != blank %}
+                <h2 class="image-text-buttons__text--heading m0 color--{{ section_color }}-meta">{{ heading }}</h2>
+              {% endif %}
+              {% if text != blank %}
+                <div class="richtext font-size__basic mt3">
+                  {{ text }}
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="image-text-buttons_buttons">
+              {% if button1_url != blank %}
+                <a class="mt1 inline-block font-size__basic f--accent aw-btn--tertiary" href="{{ button1_url }}" target="_blank" aria-label="link - new window">
+                  {{ button1_text }}
+                </a>
+              {% endif %}
+              {% if button2_url != blank %}
+                <a class="mt1 inline-block font-size__basic f--accent aw-btn--tertiary" href="{{ button2_url }}" target="_blank" aria-label="link - new window">
+                  {{ button2_text }}
+                </a>
+              {% endif %}
+            </div>
+
+          </div>
+
+        </div>
+
+        {% if section.settings.bottom_image  %}
+          <div class="image-text-buttons__bottom-image mt3">
+            {% render 'responsive-image' with
+              image: bottom_image,
+              max_width: 516,
+              max_height: 215,
+              section_color: section_color,
+            %}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image w/ text & Buttons",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading goes here"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Text goes here</p>"
+    },
+    {
+      "type":      "header",
+      "content":   "Buttons"
+    },
+    {
+      "type": "url",
+      "id": "button1_url",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "button1_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button2_url",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "Button text"
+    },
+    {
+      "type":      "header",
+      "content":   "Optional Bottom Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_image",
+      "label": "Image"
+    },
+    {
+      "type":      "header",
+      "content":   "Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "gradient_bg",
+      "label": "Gradient Background",
+      "default": false
+    },
+    {
+      "type":      "header",
+      "content":   "Colors"
+    },
+    {
+       "type": "select",
+       "id": "color_scheme",
+       "label": "Color scheme",
+       "options": [
+          { "value": "primary", "label": "Primary"},
+          { "value": "secondary", "label": "Secondary"},
+          { "value": "tertiary", "label": "Tertiary"},
+          { "value": "quaternary", "label": "Quaternary"}
+       ],
+       "default": "secondary"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image w/ text & buttons",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,203 @@
+.product-checker--narrow-wrapper {
+  max-width: 700px;
+  margin: 0px auto;
+}
+
+.product-checker__heading {
+  font-size: 2.125rem;
+  line-height: 1.08;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 990px) {
+    .product-checker__heading {
+      font-size: 3rem;
+    }
+
+    .product-checker--light-blue-overline {
+      margin-bottom: 45px;
+    }
+}
+
+.product-checker--light-blue-overline {
+  height: 10px;
+  width: 100%;
+  background-color: var( --color-aw-light-blue-hue);
+  margin-bottom: 30px;
+}
+
+.product-checker--text {
+  margin-bottom: 20px;
+}
+
+.js-ingredients-table--wrap {
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 875px;
+}
+
+.js-ingredients-table--wrap::-webkit-scrollbar {
+	width: 25px;
+	background-color: #F5F5F5;
+}
+
+.js-ingredients-table--wrap::-webkit-scrollbar-thumb {
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #C4C4C4;
+}
+
+.highlightWord {
+  background: #ffc280;
+}
+
+.searchbox {
+  color: #888;
+}
+
+.searchbox.wrapper {
+  background: #fafafa;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.searchbox.wrapper + .copyright-text {
+  margin-bottom: 45px;
+}
+
+@media (min-width: 990px) {
+  .searchbox.wrapper + .copyright-text {
+    margin-bottom: 90px;
+  }
+}
+
+.searchbox .input {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  border: 3px solid #808c24;
+ 
+}
+.searchbox .display {
+  position: absolute;
+  top: 0;
+}
+.searchbox div {
+  padding: 10px;
+  outline: 0;
+  min-width: 2px;
+  min-height: 5em;
+}
+.searchbox div * {
+  display: inline;
+}
+.searchbox div br {
+  display: none;
+}
+
+.ingredients-table {
+  border-collapse: collapse;
+  --green: #dff0d8;
+  --yellow: #fcf8e3;
+  --red: #f2dede;
+}
+
+.ingredients-table td button {
+    border-radius: 0px;
+    border: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-width: 189px;
+    text-transform: uppercase;
+    background-color: var(--color-aw-navy);
+    color: #fff;
+    display: block;
+  }
+
+.ingredients-table td button:hover {
+  background-color: #808c24;
+}
+
+.ingredients-table > thead {
+  background-color: var( --color-aw-light-blue-hue);
+}
+
+.ingredients-table > thead tr th {
+  font-weight: 500;
+  padding: 20px;
+  width: 26%;
+  text-align: left;
+  font-size: 1.5rem;
+  letter-spacing: -0.020833333333333332em;
+  line-height: 1.1;
+}
+
+.ingredients-table > thead tr th:nth-child(-n+3) {
+  width: 16%;
+}
+
+.ingredients-table--letter-heading {
+  background-color: var(--color-aw-navy);
+  font-size: 1.5em;
+  color: #000;
+  font-weight: normal;
+  text-align: left;
+  height: 55px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ingredients-table__row td {
+  height: 66px;
+  padding: 0px 20px;
+}
+
+.ingredients-table td {
+  color: #54585B;
+}
+
+.rating-color--green { background: var(--green); }
+.rating-color--yellow{ background: var(--yellow); }
+.rating-color--red{ background: var(--red); }
+
+.ingredient-details__row > td { padding: 0 }
+.ingredient-details{
+  display: none;
+  padding: 10px;
+}
+.ingredient-details table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.ingredient-details table th,
+.ingredient-details table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.ingredient-details th {
+  color: gray;
+}
+
+.ingredient-details td {
+  border: 1px solid #ddd;
+}
+
+td[data-ss-rating="0"],
+td[data-ss-rating="0-1"] {
+  color: green;
+}
+td[data-ss-rating="1"],
+td[data-ss-rating="2"] {
+  color: #fcd002;
+}
+td[data-ss-rating="3"],
+td[data-ss-rating="4"],
+td[data-ss-rating="5"] {
+  color: red;
+}

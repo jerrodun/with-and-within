@@ -1,0 +1,30 @@
+{% if section_custom_padding == 'smaller' %}
+  {% assign section_custom_padding = 'section-with-padding--smaller' %}
+{% elsif section_custom_padding == 'larger' %}
+  {% assign section_custom_padding = 'section-with-padding--larger' %}
+{% else %}
+  {% assign section_custom_padding = null %}
+{% endif %}
+
+{% if section_padding_top_none %}
+{% assign padding_top_class = 'pt0' %}
+{% else %}
+{% assign padding_top_class = '' %}
+{% endif %}
+
+{% if section_padding_bottom_none %}
+{% assign padding_bottom_class = 'pb0' %}
+{% else %}
+{% assign padding_bottom_class = '' %}
+{% endif %}
+
+<section class="section-with-padding {{ section_custom_padding }} {{ padding_top_class }} {{ padding_bottom_class }} {{ section_bg_color }} relative" data-section-type="{{ section_type }}" data-section-id="{{ section_id }}" >
+
+    {% if section.settings.section_bg_color == 'aw_section_bg_gradient' %}
+    <div class="aw-bg-gradient-opacity-absolute-element"></div>
+    {% endif %}
+    <div class="max-site-width px2 lg--up--px3 relative">
+        {{ section_content }}
+    </div>
+
+</section>

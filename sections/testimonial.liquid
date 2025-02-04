@@ -1,0 +1,79 @@
+{%- assign section_color = section.settings.color_scheme -%}
+
+<section class="testimonial section-with-padding color--{{ section_color }}-text bg--{{ section_color }}-background" data-section-type="custom" data-section-id="{{ section.id }}">
+  <div class="max-site-width lg--up--px3">
+
+
+        <div class="flex justify--center items--center">
+          <div class="testimonial__container text-center">
+
+            {% if section.settings.heading  %}
+              <p class="testimonial__heading color--{{ section_color }}-meta">{{ section.settings.heading }}</p>
+            {% endif %}
+
+            {% if section.settings.quote != blank %}
+              <div class="testimonial__quote">
+                <p class="ml2 testimonial__quote--text">
+                  <span class="italic">"</span>{{ section.settings.quote }}<span class="italic">"</span>
+                </p>
+              
+                {% if section.settings.author %}
+                  <p class="testimonial__quote--author text-uppercase">
+                    - {{ section.settings.author }}
+                  </p>
+                {% endif %}
+
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonial",
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote"
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author"
+    },
+    {
+      "type":      "header",
+      "content":   "Color"
+    },
+    {
+       "type": "select",
+       "id": "color_scheme",
+       "label": "Color scheme",
+       "options": [
+          { "value": "primary", "label": "Primary"},
+          { "value": "secondary", "label": "Secondary"},
+          { "value": "tertiary", "label": "Tertiary"},
+          { "value": "quaternary", "label": "Quaternary"}
+        ],
+        "default": "secondary"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial",
+      "category": "Advanced Layout"
+    }
+  ]
+}
+{% endschema %}

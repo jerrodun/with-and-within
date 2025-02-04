@@ -1,0 +1,337 @@
+<style>
+
+  .pos-relative {
+    position: relative;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .body-blackout {
+    position: fixed;
+    z-index: 1010;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none;
+  }
+
+  .body-blackout.is-blacked-out {
+    display: block;
+  }
+
+  .popup-trigger {
+    display: inline-block;
+  }
+
+  .popup-modal {
+    max-width: 425px;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 300ms ease-in-out;
+    z-index: 1011;
+  }
+
+  .popup-modal form,
+  .popup-modal form input {
+    width: 100%;
+  }
+
+
+  .popup__container {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .popup-modal.is--visible {
+    position: fixed;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .popup-modal__close {
+    position: fixed;
+    position: absolute;
+    font-size: 1.2rem;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+  }
+
+  .modal-back-up-link {
+    text-decoration: underline;
+    display: block;
+    margin-top: 30px;
+  } 
+
+</style>
+
+
+
+<!-- body overlay -->
+<div class="body-blackout" arial-modal="true" role="dialog"></div>
+
+<!-- Modals Triggers -->
+<button
+  type="button"
+  class="btn btn-sm btn-primary shadow p-2 px-3 popup-trigger hide"
+  data-popup-trigger="one" aria-hidden="true">
+  Popup Trigger Form
+</button>
+
+<button
+  type="button"
+  class="btn btn-sm btn-primary shadow p-2 px-3 popup-trigger hide"
+  data-popup-trigger="two" aria-hidden="true">
+  Popup Trigger Notice
+</button>
+
+<button
+  type="button"
+  class="btn btn-sm btn-primary shadow p-2 px-3 popup-trigger hide"
+  data-popup-trigger="three" aria-hidden="true">
+  Popup Trigger Notice - Already Subscribed
+</button>
+
+<button type="button" aria-hidden="true" class="close-modal hide">Close Modal</button>
+
+<script>
+
+  /*
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  */
+
+  (function(){
+    document.addEventListener('DOMContentLoaded', () => {
+
+      window.hasReachedSection = false;
+
+      const modalTriggers = document.querySelectorAll('.popup-trigger');
+      // const modalCloseTrigger = document.querySelector('.popup-modal__close');
+      const bodyBlackout = document.querySelector('.body-blackout');
+      const bodyEl = document.querySelector('body');
+      const closeModalBtn = document.querySelector('button.close-modal');
+      const goBackUpLink = document.querySelector('a#pop-up-blocker-go-back-up-link');
+
+      goBackUpLink.addEventListener('click', () => {
+        const popupModal = document.querySelector('[data-popup-modal="one"]');
+        console.log(popupModal);
+        popupModal.classList.remove('is--visible');
+        bodyBlackout.classList.remove('is-blacked-out');
+        bodyEl.classList.remove('pos-relative', 'overflow-hidden');
+        window.scrollTo(0, 0);
+        window.hasReachedSection = false;
+      });
+
+      modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const { popupTrigger } = trigger.dataset
+          const popupModal = document.querySelector(`[data-popup-modal="${popupTrigger}"]`)
+
+          popupModal.classList.add('is--visible')
+          bodyBlackout.classList.add('is-blacked-out')
+          bodyEl.classList.add('pos-relative', 'overflow-hidden')
+
+          closeModalBtn.addEventListener('click', () => {
+            popupModal.classList.remove('is--visible')
+            bodyBlackout.classList.remove('is-blacked-out')
+            bodyEl.classList.remove('pos-relative', 'overflow-hidden')
+          })
+        })
+      });
+
+      window.addEventListener("scroll", function(event) {
+        let productCheckerSection = document.querySelector('.cascade-section-bg.product-checker');
+        if (!window.hasReachedSection) {
+          if (window.scrollY > (productCheckerSection.offsetTop)) {
+              document.querySelector('button[data-popup-trigger="one"]').click();
+              window.hasReachedSection = true;
+          }
+        }
+      });
+    });
+})();
+
+</script>
+
+
+<div class="popup-modal shadow" data-popup-modal="two">
+
+  <div class="popup__container relative p2 lg--up--p3 full flex justify--center">
+
+    <p class="form--success f--main">You have successfully subscribed to our newsletter!</p>
+
+  </div>
+
+</div>
+
+<div class="popup-modal shadow" data-popup-modal="three">
+
+  <div class="popup__container relative p2 lg--up--p3 full flex justify--center">
+
+    <p class="form--success f--main">You are already subscribed to our newsletter, thank you!</p>
+
+  </div>
+
+</div>
+
+<!-- Modals -->
+<div tabindex="0" aria-modal="true" role="dialog" class="popup-modal shadow checker" data-popup-modal="one">
+
+    <div class="popup__container relative p2 lg--up--p3 full flex justify--center">
+
+    <h2 class="f--heading font-size--xl line-height--5 lg--up--font-size--xxl lg--up--line-height--6 m0 mb1">Welcome to the world famous skinSALVATION product checker.</h2>
+  
+    <div class="line-height--3 font-size--ml mt1 mb2">
+      <p>Hi there, please subscribe to our email newsletter to access the free product checker tool. Thanks!</p>
+
+      {% form 'customer' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <p class="form--success f--main">{{ 'general.newsletter_form.confirmation' | t }}</p>
+        {% else %}
+          <div class="input-group">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <label for="Email" class="hide">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+            <input type="email"
+              name="contact[email]"
+              id="Email"
+              class="input-group-field px2 py1 bg--transparent border--{{ section_color }}-text color--{{ section_color }}-text"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+              placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+              autocorrect="off"
+              autocapitalize="off">
+            <span class="input-group-btn">
+              <button type="submit" class="btn border--none newsletter__submit px2 py1 bg--{{ section_color }}-text border--{{ section_color }}-text color--{{ section_color }}-text--overlay hover-bg-border--{{ section_color }}" name="commit" id="Subscribe">
+                <span class="newsletter__submit">{{ 'general.newsletter_form.submit' | t }}</span>
+              </button>
+            </span>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+
+
+
+
+    <!-- {% form 'customer', id: "newsletter-form-popup-blocker" %}
+
+    {% if form.errors != nil %}
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          let productCheckerSection = document.querySelector('.cascade-section-bg.product-checker');
+          document.querySelector('button[data-popup-trigger="one"]').click();
+        });
+      </script>
+      {{ form.errors | default_errors }}
+    {% endif %}
+
+      {% if form.posted_successfully?  %}
+        <p class="form--success f--main">{{ 'general.newsletter_form.confirmation' | t }}</p>
+      {% else %}
+
+      <div class="input-group">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label for="Email" class="hide">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+        <input type="email"
+          name="contact[email]"
+          id="Email"
+          class="input-group-field px2 py1 bg--transparent border--navy color--{{ section_color }}-text font-size--s"
+          value="{% if customer %}{{ customer.email }}{% endif %}"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off">
+        <span class="input-group-btn">
+          <button type="submit" class="btn border--none newsletter__submit px2 py1 font-size--s aw-btn--navy-lowercase" name="commit" id="Subscribe-popup-blocker-newsletter">
+            <span class="newsletter__submit">{{ 'general.newsletter_form.submit' | t }}</span>
+          </button>
+        </span>
+      </div>
+
+       <p class="form--success f--main" id="newsletter-already-subbed-msg" style="display: none;"></p>
+
+      {% endif %}
+
+      {% if form.errors == nil %}
+        <script>
+          if (window.location.search.includes('?contact%5Btags%5D=newsletter&form_type=customer') && getCookie('user-newsletter-subscribed') == '') {
+            window.addEventListener('DOMContentLoaded', () => {
+              let productCheckerSection = document.querySelector('.cascade-section-bg.product-checker');
+              setCookie('user-newsletter-subscribed', true, 1000);
+              document.querySelector('button[data-popup-trigger="three"]').click();
+              setTimeout(() => {
+                document.querySelector('button.close-modal').click();
+                productCheckerSection.scrollIntoView();
+              }, 3000);
+            });
+          }
+        </script>
+      {% endif %}
+
+      {% if form.posted_successfully?  %}
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            let productCheckerSection = document.querySelector('.cascade-section-bg.product-checker');
+            setCookie('user-newsletter-subscribed', true, 1000);
+            document.querySelector('button[data-popup-trigger="two"]').click();
+            // close modal after 3 seconds
+            setTimeout(() => {
+              document.querySelector('button.close-modal').click();
+              productCheckerSection.scrollIntoView();
+            }, 3000);
+          });
+        </script>
+      {% endif %}
+
+    {% endform %} -->
+    <!-- <span class="modal-back-up-link" style="text-decoration: auto;">Please check your email to confirm opt-in</span> -->
+    <a href="javascript:void" class="modal-back-up-link" id="pop-up-blocker-go-back-up-link">Go back up</a>
+
+  </div>
+
+</div>
+
+<style>
+button#Subscribe {
+    background-color: #5e6939;
+    color: #efe9df;
+    border: none;
+    height: 47px;
+}
+input#Email {
+  border: 1px solid #000;
+}
+p {
+  margin-bottom: 25px;
+}
+</style>

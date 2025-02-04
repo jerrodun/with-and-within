@@ -1,0 +1,302 @@
+{%- assign section_color = section.settings.color_scheme -%}
+
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+
+{% if section_custom_padding == 'smaller' %}
+  {% assign section_custom_padding = 'section-with-padding--smaller' %}
+{% elsif section_custom_padding == 'larger' %}
+  {% assign section_custom_padding = 'section-with-padding--larger' %}
+{% else %}
+  {% assign section_custom_padding = null %}
+{% endif %}
+
+<section class="image-text-nav image-text-nav--dyi richtext section-with-padding {{ section_custom_padding }} color--{{ section_color }}-text bg--{{ section_color }}-background" data-section-id="{{ section.id }}">
+    <div class="max-site-width lg--up--px3">
+        <div class="grid--full image-text-nav--outer-flex-wrapper ">
+
+            <div class="grid__item one-whole lg--up--one-twelfth image-text-nav--image">
+                {% assign image = section.settings.image %}
+                {% if section.settings.image %}
+                    {% render 'responsive-image' with
+                    image: section.settings.image,
+                    max_width: 80,
+                    max_height: 80,
+                    section_color: section_color,
+                    %}
+                {% else %}
+                    <div class="placeholder-img-wrapper bg--{{ section_color }}-placeholder">
+                    <div class="relative"
+                        style="padding-top: 66.6%;">
+                        {{ 'image' | placeholder_svg_tag }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="grid__item one-whole lg--up--eleven-twelfths">
+
+              <div class="image-text-nav--content-wrapper">
+
+                <div class="image-text-nav--title">
+                  {% if section.settings.title  %}
+                  <h2 class="f--heading font-size__heading aw-text--black mt1">{{ section.settings.title }}</h2>
+                  {% endif %}
+                </div>
+
+
+                {% if section.settings.description  %}
+                <div class="mt1 aw-text--black font-size__basic">{{ section.settings.description }}</div>
+                {% endif %}
+
+                <div class="grid--full grid--cols-of-links">
+
+                  <div class="grid__item one-whole md--up--one-third grid__item--col-of-links">
+
+                    {% for block in section.blocks %}
+
+                      {% if block.type == 'links_first_col_title' %}
+                      <h3 class="aw-text--sky-blue col-of-links__title"> {{ block.settings.col_title }} </h3>
+                      {% endif %}
+
+                      {% if block.type == 'links_first_col_desc' %}
+                      <div class="mt1 aw-text--black font-size__basic"> {{ block.settings.col_description }} </div>
+                      {% endif %}
+
+                      {% if block.type == 'links_first_col' %}
+                      <div class="image-text-nav--links"><a class="inline-block aw-btn--text font-size--sm md--up--font-size--m" href="{{ block.settings.link_url }}" >
+                        {{ block.settings.link_text }}
+                      </a></div>
+                      {% endif %}
+
+                    {% endfor %}
+                  </div>
+
+                  <div class="grid__item one-whole md--up--one-third grid__item--col-of-links">
+
+                    {% for block in section.blocks %}
+
+                      {% if block.type == 'links_second_col_title' %}
+                      <h3 class="aw-text--sky-blue col-of-links__title"> {{ block.settings.col_title }} </h3>
+                      {% endif %}
+
+                      {% if block.type == 'links_second_col_desc' %}
+                      <div class="mt1 aw-text--black font-size__basic"> {{ block.settings.col_description }} </div>
+                      {% endif %}
+
+                      {% if block.type == 'links_second_col' %}
+                      <div class="image-text-nav--links"><a class="inline-block aw-btn--text font-size--sm md--up--font-size--m" href="{{ block.settings.link_url }}" >
+                        {{ block.settings.link_text }}
+                      </a></div>
+                      {% endif %}
+
+                    {% endfor %}
+                  </div>
+
+                  <div class="grid__item one-whole md--up--one-third grid__item--col-of-links">
+
+                    {% for block in section.blocks %}
+
+                      {% if block.type == 'links_third_col_title' %}
+                      <h3 class="aw-text--sky-blue col-of-links__title"> {{ block.settings.col_title }} </h3>
+                      {% endif %}
+
+                      {% if block.type == 'links_third_col_desc' %}
+                      <div class="mt1 aw-text--black font-size__basic"> {{ block.settings.col_description }} </div>
+                      {% endif %}
+
+                      {% if block.type == 'links_third_col' %}
+                      <div class="image-text-nav--links"><a class="inline-block aw-btn--text font-size--sm md--up--font-size--m" href="{{ block.settings.link_url }}" >
+                        {{ block.settings.link_text }}
+                      </a></div>
+                      {% endif %}
+
+                    {% endfor %}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Heading w/ image & links",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "id": "description",
+      "type": "richtext",
+      "label": "Description"
+    },
+    {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+    },
+    {
+      "type":      "header",
+      "content":   "Color"
+    },
+    {
+       "type": "select",
+       "id": "color_scheme",
+       "label": "Color scheme",
+       "options": [
+          { "value": "primary", "label": "Primary"},
+          { "value": "secondary", "label": "Secondary"},
+          { "value": "tertiary", "label": "Tertiary"},
+          { "value": "quaternary", "label": "Quaternary"}
+       ],
+       "default": "quaternary"
+    },
+    {
+      "type":      "header",
+      "content":   "Module Spacing"
+    },
+    {
+      "type": "select",
+      "id": "section_custom_padding",
+      "label": "Section Custom Padding",
+      "options": [
+         { "value": "global", "label": "Global Padding Setting"},
+         { "value": "smaller", "label": "Smaller"},
+         { "value": "larger", "label": "Larger"}
+      ],
+      "default": "global"
+   }
+  ],
+  "blocks": [
+    {
+      "type": "links_first_col_title",
+      "name": "First Column Title",
+      "limit": 1,
+      "settings": [
+        {
+            "id": "col_title",
+            "type": "text",
+            "label": "Column Title"
+        }
+      ]
+    },
+    {
+      "type": "links_second_col_title",
+      "name": "Second Column Title",
+      "limit": 1,
+      "settings": [
+        {
+            "id": "col_title",
+            "type": "text",
+            "label": "Column Title"
+        }
+      ]
+    },
+    {
+      "type": "links_third_col_title",
+      "name": "Third Column Title",
+      "limit": 1,
+      "settings": [
+        {
+            "id": "col_title",
+            "type": "text",
+            "label": "Column Title"
+        }
+      ]
+    },
+    {
+      "type": "links_first_col_desc",
+      "name": "First Column Description",
+      "limit": 1,
+      "settings": [
+        {
+            "id": "col_description",
+            "type": "richtext",
+            "label": "Column Description"
+        }
+      ]
+    },
+    {
+      "type": "links_second_col_desc",
+      "name": "Second Column Description",
+      "limit": 1,
+      "settings": [
+        {
+            "id": "col_description",
+            "type": "richtext",
+            "label": "Column Description"
+        }
+      ]
+    },
+    {
+      "type": "links_third_col_desc",
+      "name": "Third Column Description",
+      "limit": 1,
+      "settings": [
+        {
+            "id": "col_description",
+            "type": "richtext",
+            "label": "Column Description"
+        }
+      ]
+    },
+    {
+      "type": "links_first_col",
+      "name": "First Column Link",
+      "limit": 2,
+      "settings": [
+        {
+          "id": "link_url",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+            "id": "link_text",
+            "type": "text",
+            "label": "Link text"
+        }
+      ]
+    },
+    {
+      "type": "links_second_col",
+      "name": "Second Column Link",
+      "limit": 2,
+      "settings": [
+        {
+          "id": "link_url",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+            "id": "link_text",
+            "type": "text",
+            "label": "Link text"
+        }
+      ]
+    },
+    {
+      "type": "links_third_col",
+      "name": "Third Column Link",
+      "limit": 2,
+      "settings": [
+        {
+          "id": "link_url",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+            "id": "link_text",
+            "type": "text",
+            "label": "Link text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,169 @@
+
+{% if should_swap_column_order  %}
+    {% assign swap_col_order_class = 'image-text-buttons--col-swapped' %}
+{% else %}
+    {% assign swap_col_order_class = '' %}
+{% endif %}
+
+<script>
+  function toggleOnClick(el) {
+    el.classList.toggle('toggled');
+  }
+</script>
+
+{% if should_use_slider_for_photos != true %}
+  {% capture onclick_attribute %}
+    onclick="toggleOnClick(this)"
+  {% endcapture %}
+{% else %}
+  {% assign has_inner_slider_class = 'has-inner-slider' %}
+{% endif %}
+
+<div class="image-text-buttons image-text-buttons--before-and-after color--{{ section_color }}-text lg--up--color--{{ text_color_overlay }}-text">
+    <div class="grid--full flex flex--column md--up--flex--row {{ swap_col_order_class }}">
+        <div class="image-text-buttons--col one-whole md--up--one-half">
+        <div class="image-text-buttons__image image-text-buttons_image--before-after-state {{ has_inner_slider_class }} relative" {{ onclick_attribute }}>
+
+          {% if should_use_slider_for_photos != true %}
+
+            <div class="image-wrapper image-wrapper--before">
+            {% if before_state_img  %}
+                {% render 'responsive-image' with
+                image: before_state_img,
+                max_width: 495,
+                max_height: 517,
+                section_color: section_color,
+                %}
+            {% endif %}
+            </div>
+
+            <div class="image-wrapper image-wrapper--after">
+            {% if after_state_img  %}
+            {% render 'responsive-image' with
+                image: after_state_img,
+                max_width: 495,
+                max_height: 517,
+                section_color: section_color,
+            %}
+            {% endif %}
+            </div>
+
+            <div class="image--before-and-after-label image--before-and-after-label--before">
+            <span class="before-label">
+                before
+            </span>
+            <span class="before-label-mobile">
+                tap for after
+            </span>
+            </div>
+
+            <div class="image--before-and-after-label image--before-and-after-label--after">
+            <span class="after-label">
+                after
+            </span>
+            <span class="after-label-mobile">
+                tap for before
+            </span>
+            </div>
+
+            {% else %}
+
+            <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "pageDots": true, "prevNextButtons": false }'>
+              {% if after_state_img %}
+                <div class="carousel-cell" style="width: 100%;">
+                  {% render 'responsive-image' with
+                    image: after_state_img,
+                    max_width: 495,
+                    max_height: 517,
+                    section_color: section_color
+                %}
+                <div class="image--before-and-after-label image--before-and-after-label--after">
+                  <span class="after-label">
+                      after
+                  </span>
+                  </div>
+                </div>
+              {% endif %}
+              {% if before_state_img %}
+                <div class="carousel-cell" style="width: 100%;">
+                  {% render 'responsive-image' with
+                    image: before_state_img,
+                    max_width: 495,
+                    max_height: 517,
+                    section_color: section_color
+                %}
+                <div class="image--before-and-after-label image--before-and-after-label--before">
+                  <span class="before-label">
+                      before
+                  </span>
+                  </div>
+                </div>
+              {% endif %}
+              {% if third_img %}
+                <div class="carousel-cell" style="width: 100%;">
+                  {% render 'responsive-image' with
+                    image: third_img,
+                    max_width: 495,
+                    max_height: 517,
+                    section_color: section_color
+                %}
+                </div>
+              {% endif %}
+            </div>
+
+          {% endif %}
+
+        </div>
+        </div>
+
+        <div class="image-text-buttons--col one-whole md--up--one-half">
+        <div class="">
+
+            <div class="image-text-buttons__container">
+
+            <div class="image-text-buttons__text">
+
+                {% if heading != blank %}
+                <h2 class="image-text-buttons__text--heading image-text-buttons__text--heading-{{ heading_font_size }} image-text-buttons__text--heading-color-{{ heading_text_color }} m0 color--{{ section_color }}-meta">{{ heading }}</h2>
+                {% endif %}
+                {% if text != blank %}
+                <div class="richtext font-size__basic mt2">
+                    {{ text }}
+                </div>
+                {% endif %}
+
+                <p class="set-of-links__label">{{ set_of_links_title }}</p>
+
+                <div class="set-of-links">
+                {{ set_of_links }}
+                </div>
+
+                <p class="colored-text__label">{{ colored_text_title }}</p>
+
+                <div class="colored-text">
+                {{ colored_text }}
+                </div>
+
+            </div>
+
+            <div class="image-text-buttons_buttons {{ buttons_top_spacing }}">
+                {% if button1_url != blank %}
+                <a class="inline-block font-size__basic f--accent aw-btn--{{ buttons_style_type }}" href="{{ button1_url }}" target="_blank" aria-label="link - new window">
+                    {{ button1_text }}
+                </a>
+                {% endif %}
+                {% if button2_url != blank %}
+                <a class="inline-block font-size__basic f--accent aw-btn--{{ buttons_style_type }}" href="{{ button2_url }}" target="_blank" aria-label="link - new window">
+                    {{ button2_text }}
+                </a>
+                {% endif %}
+            </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+</div>

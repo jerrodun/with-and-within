@@ -1,0 +1,2632 @@
+{%- render 'cascade-custom' -%}
+
+{% schema %}
+{
+	"name":"Agency Wellness",
+	"settings":[
+		{
+			"type":"select",
+			"id":"general_page_padding",
+			"label":"Page Module Spacing",
+			"info":"Global option gets the value from the global theme settings",
+			"options":[
+				{
+					"value":"global",
+					"label":"Global"
+				},
+				{
+					"value":"smaller",
+					"label":"Smaller"
+				},
+				{
+					"value":"larger",
+					"label":"Larger"
+				}
+			]
+		}
+	],
+	"blocks":[
+		{
+			"type":"image",
+			"name":"Image",
+			"settings":[
+				{
+					"type":"image_picker",
+					"id":"image",
+					"label":"Image"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				},
+				{
+					"type": "header",
+					"content": "Size"
+				  },
+				  {
+					"type": "select",
+					"id": "block_width_mobile",
+					"options": [
+					  { "value": "half", "label": "Half width"},
+					  { "value": "full", "label": "Full width"}
+					],
+					"label": "Mobile"
+				  },
+				  {
+					"type": "select",
+					"id": "block_width",
+					"options": [
+					  { "value": "half", "label": "Half width"},
+					  { "value": "full", "label": "Full width"}
+					],
+					"label": "Desktop"
+				  }
+			]
+		},
+		{
+			"type":"image_text_overlay",
+			"name":"Image with Text Overlay",
+			"settings":[
+				{
+					"type":"image_picker",
+					"id":"image",
+					"label":"Image"
+				},
+				{
+					"type":"text",
+					"id":"heading",
+					"label":"Heading",
+					"default":"Image with Text"
+				},
+				{
+					"type":"url",
+					"id":"cta_url",
+					"label":"Optional: Call to action link"
+				},
+				{
+					"type":"text",
+					"id":"cta_text",
+					"label":"Call to action link text",
+					"default":"Shop Now"
+				},
+				{
+					"type":"select",
+					"id":"section_color",
+					"label":"Text color",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary text"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary text"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary text"
+						},
+						{
+							"value":"white",
+							"label":"White"
+						}
+					]
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"heading",
+			"name":"Heading",
+			"settings":[
+				{
+					"id":"heading",
+					"type":"text",
+					"label":"Heading",
+					"default":"Heading or impact text goes here."
+				},
+				{
+					"type":"select",
+					"id":"text_align",
+					"label":"Text alignment",
+					"options":[
+						{
+							"value":"text-align--left",
+							"label":"Left"
+						},
+						{
+							"value":"text-align--center",
+							"label":"Center"
+						},
+						{
+							"value":"text-align--right",
+							"label":"Right"
+						}
+					],
+					"default":"text-align--left"
+				},
+				{
+					"type":"select",
+					"id":"font_size",
+					"label":"Font size",
+					"options":[
+						{
+							"value":"default",
+							"label":"Default"
+						},
+						{
+							"value":"large",
+							"label":"Large"
+						}
+					],
+					"default":"default"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"heading_text_color",
+					"label":"Heading Text Color",
+					"options":[
+						{
+							"value":"aw_section_text_sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"aw_section_text_navy",
+							"label":"Navy"
+						}
+					],
+					"default":"aw_section_text_sky_blue"
+				},
+				{
+					"type": "header",
+					"content": "Size"
+				  },
+				  {
+					"type": "select",
+					"id": "block_width_mobile",
+					"options": [
+					  { "value": "half", "label": "Half width"},
+					  { "value": "full", "label": "Full width"}
+					],
+					"label": "Mobile"
+				  },
+				  {
+					"type": "select",
+					"id": "block_width",
+					"options": [
+					  { "value": "half", "label": "Half width"},
+					  { "value": "full", "label": "Full width"}
+					],
+					"label": "Desktop"
+				  },
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				},
+        {
+          "type": "checkbox",
+          "id": "section_padding_top_none",
+          "label": "No Padding Top",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "section_padding_bottom_none",
+          "label": "No Padding Bottom",
+          "default": false
+        }
+			]
+		},
+		{
+			"type":"rich_text",
+			"name":"Heading with text",
+			"settings":[
+				{
+					"type":"header",
+					"content":"Heading"
+				},
+				{
+					"id":"heading",
+					"type":"text",
+					"label":"Heading",
+					"default":"Heading or impact text goes here."
+				},
+				{
+					"type":"header",
+					"content":"Text"
+				},
+				{
+					"id":"rich_text",
+					"type":"richtext",
+					"label":"Text",
+					"default":"<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+				},
+				{
+					"type":"header",
+					"content":"Call to Action"
+				},
+				{
+					"type":"url",
+					"id":"cta_url",
+					"label":"Optional: Call to action link"
+				},
+				{
+					"type":"text",
+					"id":"cta_text",
+					"label":"Call to action link text",
+					"default":"Shop now"
+				},
+				{
+					"type":"select",
+					"id":"text_align",
+					"label":"Text alignment",
+					"options":[
+						{
+							"value":"text-align--left",
+							"label":"Left"
+						},
+						{
+							"value":"text-align--center",
+							"label":"Center"
+						},
+						{
+							"value":"text-align--right",
+							"label":"Right"
+						}
+					],
+					"default":"text-align--left"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"select",
+					"id":"heading_text_color",
+					"label":"Heading Text Color",
+					"options":[
+						{
+							"value":"aw_section_text_sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"aw_section_text_navy",
+							"label":"Navy"
+						}
+					],
+					"default":"aw_section_text_sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"text",
+			"name":"Text",
+			"settings":[
+				{
+					"id":"rich_text",
+					"type":"richtext",
+					"label":"Text",
+					"default":"<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+				},
+				{
+					"type":"header",
+					"content":"Call to Action"
+				},
+				{
+					"type":"url",
+					"id":"cta_url",
+					"label":"Optional: Call to action link"
+				},
+				{
+					"type":"text",
+					"id":"cta_text",
+					"label":"Call to action link text",
+					"default":"Shop now"
+				},
+				{
+					"type":"select",
+					"id":"text_align",
+					"label":"Text alignment",
+					"options":[
+						{
+							"value":"text-align--left",
+							"label":"Left"
+						},
+						{
+							"value":"text-align--center",
+							"label":"Center"
+						},
+						{
+							"value":"text-align--right",
+							"label":"Right"
+						}
+					],
+					"default":"text-align--left"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type": "header",
+					"content": "Size"
+				  },
+				  {
+					"type": "select",
+					"id": "block_width_mobile",
+					"options": [
+					  { "value": "half", "label": "Half width"},
+					  { "value": "full", "label": "Full width"}
+					],
+					"label": "Mobile"
+				  },
+				  {
+					"type": "select",
+					"id": "block_width",
+					"options": [
+					  { "value": "half", "label": "Half width"},
+					  { "value": "full", "label": "Full width"}
+					],
+					"label": "Desktop"
+				  },
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"video",
+			"name":"Video",
+			"settings":[
+				{
+					"id":"video_url",
+					"type":"video_url",
+					"label":"Video link",
+					"accept":[
+						"youtube",
+						"vimeo"
+					],
+					"info":"Accepts URLs from YouTube or Vimeo",
+					"default":"https://www.youtube.com/watch?v=_9VUPq3SxOc"
+				},
+				{
+					"type":"checkbox",
+					"id":"use_high_res_image",
+					"label":"Use high resolution image",
+					"info":"Not all YouTube videos have high resolution images, disable this to use default image size.",
+					"default":true
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"product_feature",
+			"name":"Product - Feature",
+			"settings":[
+				{
+					"type":"product",
+					"id":"product",
+					"label":"Choose product:"
+				},
+				{
+					"type":"checkbox",
+					"id":"enable_payment_button",
+					"label":"Show dynamic checkout button",
+					"info":"Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+					"default":true
+				},
+				{
+					"type":"checkbox",
+					"id":"show_quantity",
+					"label":"Show quantity"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"product_simple",
+			"name":"Product - Simple",
+			"settings":[
+				{
+					"type":"product",
+					"id":"product",
+					"label":"Choose product:"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"collection",
+			"name":"Collection",
+			"settings":[
+				{
+					"type":"collection",
+					"id":"collection",
+					"label":"Choose collection:"
+				},
+				{
+					"type":"select",
+					"id":"text_color",
+					"label":"Text color",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary text"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary text"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary text"
+						},
+						{
+							"value":"white",
+							"label":"White"
+						}
+					]
+				},
+				{
+					"type":"checkbox",
+					"id":"show_collection_link",
+					"label":"Show link to collection",
+					"default":true
+				},
+				{
+					"id":"cta_text",
+					"type":"text",
+					"label":"Link text",
+					"default":"Shop now"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"article",
+			"name":"Article",
+			"settings":[
+				{
+					"type":"article",
+					"id":"article",
+					"label":"Article"
+				},
+				{
+					"type":"checkbox",
+					"id":"show_excerpt",
+					"label":"Show excerpt",
+					"default":true,
+					"info":"Will show excerpt if article has one"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"type":"section_break",
+			"name":"Section Break"
+		},
+		{
+			"type":"custom_html",
+			"name":"Custom HTML",
+			"settings":[
+				{
+					"id":"html",
+					"type":"html",
+					"label":"Custom HTML",
+					"default":"<p>Add your custom HTML here.</p>"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"name":"Image w/ text & Buttons",
+			"type":"block_img_text_buttons",
+			"settings":[
+				{
+					"type":"checkbox",
+					"id":"should_swap_column_order",
+					"label":"Swap Column Order",
+					"default":false
+				},
+				{
+					"type":"image_picker",
+					"id":"feature_image",
+					"label":"Image"
+				},
+				{
+					"type":"header",
+					"content":"Heading & Text Settings"
+				},
+				{
+					"type":"checkbox",
+					"id":"show_heading_under_image",
+					"label":"Show heading under Image?",
+					"info":"Displays a secondary heading element & text under this module's featured image."
+				},
+				{
+					"type":"select",
+					"id":"heading_font_size",
+					"label":"Heading Font Size",
+					"options":[
+						{
+							"value":"larger",
+							"label":"Larger"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						}
+					],
+					"default":"smaller"
+				},
+				{
+					"type":"text",
+					"id":"overline_heading",
+					"label":"Overline Heading",
+					"default":"Overline heading goes here"
+				},
+				{
+					"type":"select",
+					"id":"heading_text_color",
+					"label":"Heading Text Color",
+					"options":[
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"navy",
+							"label":"Navy"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"text",
+					"id":"heading",
+					"label":"Heading",
+					"default":"Heading goes here"
+				},
+				{
+					"type":"richtext",
+					"id":"text",
+					"label":"Text",
+					"default":"<p>Text goes here</p>"
+				},
+				{
+					"type": "html",
+					"id": "html",
+					"label": "html"
+				},
+				{
+					"type":"text",
+					"id":"heading_secondary",
+					"label":"Secondary Heading ( Optional - Under Featured Image )",
+					"default":"Heading goes here"
+				},
+				{
+					"type":"richtext",
+					"id":"text_secondary",
+					"label":"Secondary Text ( Optional - Under Featured Image )",
+					"default":"<p>Text goes here</p>"
+				},
+				{
+					"type":"header",
+					"content":"Buttons"
+				},
+				{
+					"type":"select",
+					"id":"buttons_top_spacing",
+					"label":"Button Top Spacing",
+					"options":[
+						{
+							"value":"regular_spaced",
+							"label":"Regular"
+						},
+						{
+							"value":"spaced_increased",
+							"label":"Spaced"
+						}
+					],
+					"default":"regular_spaced"
+				},
+				{
+					"type":"select",
+					"id":"buttons_style_type",
+					"label":"Button Style Type",
+					"options":[
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"gold",
+							"label":"Gold"
+						},
+						{
+							"value":"navy",
+							"label":"Navy"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"url",
+					"id":"button1_url",
+					"label":"Link"
+				},
+				{
+					"type":"text",
+					"id":"button1_text",
+					"label":"Button text"
+				},
+				{
+					"type":"url",
+					"id":"button2_url",
+					"label":"Link"
+				},
+				{
+					"type":"text",
+					"id":"button2_text",
+					"label":"Button text"
+				},
+				{
+					"type":"header",
+					"content":"Optional Bottom Image"
+				},
+				{
+					"type":"image_picker",
+					"id":"bottom_image",
+					"label":"Image",
+					"info": "Appears at the bottom of the text"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"select",
+					"id":"color_scheme",
+					"label":"Color scheme",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary"
+						},
+						{
+							"value":"quaternary",
+							"label":"Quaternary"
+						}
+					],
+					"default":"secondary"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"name":"Before & After Img + Text",
+			"type":"before_after_img_text",
+			"settings":[
+				{
+					"type":"checkbox",
+					"id":"should_swap_column_order",
+					"label":"Swap Column Order",
+					"default":false
+				},
+				{
+					"type":"checkbox",
+					"id":"should_use_slider_for_photos",
+					"label":"Enable Slider for Photos?",
+					"default":false
+				},
+				{
+					"type":"image_picker",
+					"id":"before_img",
+					"label":"Before - Image"
+				},
+				{
+					"type":"image_picker",
+					"id":"after_img",
+					"label":"After - Image"
+				},
+				{
+					"type":"image_picker",
+					"id":"third_img",
+					"label":"Third Image (Optional)"
+				},
+				{
+					"type":"header",
+					"content":"Heading & Text Settings"
+				},
+				{
+					"type":"select",
+					"id":"heading_font_size",
+					"label":"Heading Font Size",
+					"options":[
+						{
+							"value":"larger",
+							"label":"Larger"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						}
+					],
+					"default":"smaller"
+				},
+				{
+					"type":"select",
+					"id":"heading_text_color",
+					"label":"Heading Text Color",
+					"options":[
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"navy",
+							"label":"Navy"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"text",
+					"id":"heading",
+					"label":"Heading",
+					"default":"Heading goes here"
+				},
+				{
+					"type":"richtext",
+					"id":"text",
+					"label":"Text",
+					"default":"<p>Text goes here</p>"
+				},
+				{
+					"type":"header",
+					"content":"More content settings"
+				},
+				{
+					"type":"text",
+					"id":"set_of_links_title",
+					"label":"Set of Links Title",
+					"default":"Set of links title"
+				},
+				{
+					"type":"richtext",
+					"id":"set_of_links",
+					"label":"Set of Links",
+					"info":"Add every link in a new row",
+					"default":"<p>Link goes here</p>"
+				},
+				{
+					"type":"text",
+					"id":"colored_text_title",
+					"label":"Colored Text Title",
+					"default":"Colored Text Title"
+				},
+				{
+					"type":"richtext",
+					"id":"colored_text",
+					"label":"Colored Text"
+				},
+				{
+					"type":"header",
+					"content":"Buttons"
+				},
+				{
+					"type":"select",
+					"id":"buttons_top_spacing",
+					"label":"Button Top Spacing",
+					"options":[
+						{
+							"value":"regular_spaced",
+							"label":"Regular"
+						},
+						{
+							"value":"spaced_increased",
+							"label":"Spaced"
+						}
+					],
+					"default":"regular_spaced"
+				},
+				{
+					"type":"select",
+					"id":"buttons_style_type",
+					"label":"Button Style Type",
+					"options":[
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"gold",
+							"label":"Gold"
+						},
+						{
+							"value":"navy",
+							"label":"Navy"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"url",
+					"id":"button1_url",
+					"label":"Link"
+				},
+				{
+					"type":"text",
+					"id":"button1_text",
+					"label":"Button text"
+				},
+				{
+					"type":"header",
+					"content":"Colors"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"select",
+					"id":"color_scheme",
+					"label":"Color scheme",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary"
+						},
+						{
+							"value":"quaternary",
+							"label":"Quaternary"
+						}
+					],
+					"default":"secondary"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"name":"Columns of Text",
+			"type":"columns_of_text",
+			"settings":[
+				{
+					"type":"text",
+					"id":"first_col_title",
+					"label":"First Column Title"
+				},
+				{
+					"type":"textarea",
+					"id":"first_col_text",
+					"label":"First Column Text"
+				},
+				{
+					"type":"text",
+					"id":"second_col_title",
+					"label":"Second Column Title"
+				},
+				{
+					"type":"textarea",
+					"id":"second_col_text",
+					"label":"Second Column Text"
+				},
+				{
+					"type":"text",
+					"id":"third_col_title",
+					"label":"Third Column Title"
+				},
+				{
+					"type":"textarea",
+					"id":"third_col_text",
+					"label":"Third Column Text"
+				},
+				{
+					"type":"text",
+					"id":"fourth_col_title",
+					"label":"Fourth Column Title"
+				},
+				{
+					"type":"textarea",
+					"id":"fourth_col_text",
+					"label":"Fourth Column Text"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"name":"Testimonial",
+			"type":"testimonial",
+			"settings":[
+				{
+					"id":"heading",
+					"type":"text",
+					"label":"Heading"
+				},
+				{
+					"type":"textarea",
+					"id":"quote",
+					"label":"Quote"
+				},
+				{
+					"type":"text",
+					"id":"author",
+					"label":"Author"
+				},
+				{
+					"type":"header",
+					"content":"Color"
+				},
+				{
+					"type":"select",
+					"id":"color_scheme",
+					"label":"Color scheme",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary"
+						},
+						{
+							"value":"quaternary",
+							"label":"Quaternary"
+						}
+					],
+					"default":"secondary"
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"name":"Rich text",
+			"type":"richtext",
+			"settings":[
+				{
+					"type":      "header",
+					"content":   "Title Settings"
+				},
+				{
+					"type": "checkbox",
+					"id": "is_title_full_width",
+					"label": "Display title in a full width container.",
+					"info": "When this option is checked the title will display above the text columns.",
+					"default": false
+				},
+				{
+					"id":"title",
+					"type":"text",
+					"label":"Heading",
+					"default":"Title"
+				},
+				{
+					"type":"url",
+					"id":"cta_url",
+					"label":"First Call to action link"
+				},
+				{
+					"type":"text",
+					"id":"cta_text",
+					"label":"First Call to action button text"
+				},
+				{
+					"type":"url",
+					"id":"cta_url_after_text",
+					"label":"After text call to action link"
+				},
+				{
+					"type":"text",
+					"id":"cta_text_after_text",
+					"label":"After text call to action button text"
+				},
+				{
+					"type": "url",
+					"id": "cta_url_after_text_2",
+					"label": "After text call to action link"
+				},
+				{
+					"type": "text",
+					"id": "cta_text_after_text_2",
+					"label": "After text call to action button text"
+				},
+				{
+					"type":"checkbox",
+					"id":"show_first_cta",
+					"label":"Show first call to action button?",
+					"default":false
+				},
+				{
+					"type":"header",
+					"content":"Rich Text Columns"
+				},
+				{
+					"id":"richtext_1",
+					"type":"richtext",
+					"label":"Column 1 Text",
+					"default":"<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+				},
+				{
+					"id":"richtext_2",
+					"type":"richtext",
+					"label":"Column 2 Text",
+					"default":"<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+				},
+				{
+					"id":"richtext_3",
+					"type":"richtext",
+					"label":"Column 3 Text",
+					"default":"<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+				},
+				{
+					"type":"header",
+					"content":"Color"
+				},
+				{
+					"type":"select",
+					"id":"color_scheme",
+					"label":"Color scheme",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary"
+						},
+						{
+							"value":"quaternary",
+							"label":"Quaternary"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+		{
+			"name":"Featured Logos",
+			"type":"featured_logos",
+			"settings":[
+				{
+					"id":"title",
+					"type":"text",
+					"label":"Heading",
+					"default":"As Featured In"
+				},
+				{
+					"id":"subheading",
+					"type":"text",
+					"label":"Subheading ( Optional )"
+				},
+				{
+					"type":"header",
+					"content":"Heading Settings"
+				},
+				{
+					"type":"checkbox",
+					"id":"show_icon_bg",
+					"label":"Use white background for logos?",
+					"info":"Logos will have a white background if enabled",
+					"default":false
+				},
+				{
+					"type":"select",
+					"id":"heading_color",
+					"label":"Heading Color",
+					"options":[
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"navy",
+							"label":"Navy Blue"
+						}
+					]
+				},
+				{
+					"type":"header",
+					"content":"Logo Column Settings"
+				},
+				{
+					"id":"logo_col_1_image",
+					"type":"image_picker",
+					"label":"Logo Column One Image"
+				},
+				{
+					"id":"logo_col_1_image_text",
+					"type":"text",
+					"label":"Logo Column One Image Text (Optional)"
+				},
+				{
+					"id": "logo_col_1_image_text_url",
+					"type": "url",
+					"label": "Logo Column One Image Text URL (Optional)",
+					"info": "If specified, it will make the whole icon + text clickable"
+				},
+				{
+					"id":"logo_col_2_image",
+					"type":"image_picker",
+					"label":"Logo Column Two Image"
+				},
+				{
+					"id":"logo_col_2_image_text",
+					"type":"text",
+					"label":"Logo Column Two Image Text (Optional)"
+				},
+				{
+					"id": "logo_col_2_image_text_url",
+					"type": "url",
+					"label": "Logo Column Two Image Text URL (Optional)",
+					"info": "If specified, it will make the whole icon + text clickable"
+				},
+				{
+					"id":"logo_col_3_image",
+					"type":"image_picker",
+					"label":"Logo Column Three Image"
+				},
+				{
+					"id":"logo_col_3_image_text",
+					"type":"text",
+					"label":"Logo Column Three Image Text (Optional)"
+				},
+				{
+					"id": "logo_col_3_image_text_url",
+					"type": "url",
+					"label": "Logo Column Three Image Text URL (Optional)",
+					"info": "If specified, it will make the whole icon + text clickable"
+				},
+				{
+					"id":"logo_col_4_image",
+					"type":"image_picker",
+					"label":"Logo Column Four Image"
+				},
+				{
+					"id":"logo_col_4_image_text",
+					"type":"text",
+					"label":"Logo Column Four Image Text (Optional)"
+				},
+				{
+					"id": "logo_col_4_image_text_url",
+					"type": "url",
+					"label": "Logo Column Four Image Text URL (Optional)",
+					"info": "If specified, it will make the whole icon + text clickable"
+				},
+				{
+					"id":"logo_col_5_image",
+					"type":"image_picker",
+					"label":"Logo Column Five Image"
+				},
+				{
+					"id":"logo_col_5_image_text",
+					"type":"text",
+					"label":"Logo Column Five Image Text (Optional)"
+				},
+				{
+					"id": "logo_col_5_image_text_url",
+					"type": "url",
+					"label": "Logo Column Five Image Text URL (Optional)",
+					"info": "If specified, it will make the whole icon + text clickable"
+				},
+				{
+					"type":"header",
+					"content":"Color"
+				},
+				{
+					"type":"select",
+					"id":"color_scheme",
+					"label":"Color scheme",
+					"options":[
+						{
+							"value":"primary",
+							"label":"Primary"
+						},
+						{
+							"value":"secondary",
+							"label":"Secondary"
+						},
+						{
+							"value":"tertiary",
+							"label":"Tertiary"
+						},
+						{
+							"value":"quaternary",
+							"label":"Quaternary"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"section_bg_color",
+					"label":"Background Color",
+					"options":[
+						{
+							"value":"white",
+							"label":"White"
+						},
+						{
+							"value":"sky_blue",
+							"label":"Sky Blue"
+						},
+						{
+							"value":"mint",
+							"label":"Mint"
+						},
+						{
+							"value":"light_gray",
+							"label":"Light Gray"
+						},
+						{
+							"value":"gradient",
+							"label":"Gradient"
+						}
+					],
+					"default":"sky_blue"
+				},
+				{
+					"type":"header",
+					"content":"Module Spacing"
+				},
+				{
+					"type":"select",
+					"id":"section_custom_padding",
+					"label":"Section Custom Padding",
+					"options":[
+						{
+							"value":"global",
+							"label":"Global Padding Setting"
+						},
+						{
+							"value":"smaller",
+							"label":"Smaller"
+						},
+						{
+							"value":"larger",
+							"label":"Larger"
+						}
+					],
+					"default":"global"
+				}
+			]
+		},
+    {
+      "name": "Image w/ Title & Text",
+      "type": "image_title_text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "section_bg_color",
+          "label": "Background Color",
+          "options": [
+              { "value": "white", "label": "White"},
+              { "value": "sky_blue", "label": "Sky Blue"},
+              { "value": "mint", "label": "Mint"},
+              { "value": "light_gray", "label": "Light Gray"},
+              { "value": "gradient", "label": "Gradient"}
+          ],
+          "default": "white"
+        },
+        {
+          "type":"header",
+          "content":"Module Spacing"
+        },
+        {
+          "type":"select",
+          "id":"section_custom_padding",
+          "label":"Section Custom Padding",
+          "options":[
+            {
+              "value":"global",
+              "label":"Global Padding Setting"
+            },
+            {
+              "value":"smaller",
+              "label":"Smaller"
+            },
+            {
+              "value":"larger",
+              "label":"Larger"
+            }
+          ],
+          "default":"global"
+        },
+		{
+			"type": "checkbox",
+			"id": "section_padding_top_none",
+			"label": "No Padding Top",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"id": "section_padding_bottom_none",
+			"label": "No Padding Bottom",
+			"default": false
+		}
+      ]
+    },
+    {
+      "name":"Map",
+      "type":"map",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Our store"
+        },
+        {
+          "id": "description",
+          "type": "richtext",
+          "label": "Description"
+        },
+        {
+          "id": "map_address",
+          "type": "text",
+          "label": "Map address",
+          "info": "Google Maps will find the exact location",
+          "default": "80 Spadina Ave, Toronto"
+        },
+        {
+          "id": "link_url1",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+          "id": "link_text1",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "id": "link_url2",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+          "id": "link_text2",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "id": "api_key",
+          "type": "text",
+          "label": "Google Maps API key",
+          "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
+        },
+        {
+          "type": "image_picker",
+          "id": "map_image",
+          "label": "Image",
+          "info": "Used if no Google Maps API key is provided."
+        },
+        {
+          "type": "header",
+          "content": "Color"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "options": [
+              { "value": "primary", "label": "Primary"},
+              { "value": "secondary", "label": "Secondary"},
+              { "value": "tertiary", "label": "Tertiary"},
+              { "value": "quaternary", "label": "Quaternary"}
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Two Columns Text",
+      "type":"two_columns_text",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Menu of Services"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Button link",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Button text",
+          "default": "Make an Appointment"
+        },
+        {
+          "id": "item_title_1",
+          "type": "text",
+          "label": "Item Heading 1",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_1",
+          "type": "richtext",
+          "label": "Text 1",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_1",
+          "type": "text",
+          "label": "Price 1",
+          "default": "85"
+        },
+        {
+          "id": "item_title_2",
+          "type": "text",
+          "label": "Item Heading 2",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_2",
+          "type": "richtext",
+          "label": "Text 2",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_2",
+          "type": "text",
+          "label": "Price 2",
+          "default": "85"
+        },
+        {
+          "id": "item_title_3",
+          "type": "text",
+          "label": "Item Heading 3",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_3",
+          "type": "richtext",
+          "label": "Text 3",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_3",
+          "type": "text",
+          "label": "Price 3",
+          "default": "85"
+        },
+        {
+          "id": "item_title_4",
+          "type": "text",
+          "label": "Item Heading 4",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_4",
+          "type": "richtext",
+          "label": "Text 4",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_4",
+          "type": "text",
+          "label": "Price 4",
+          "default": "85"
+        },
+        {
+          "id": "item_title_5",
+          "type": "text",
+          "label": "Item Heading 5",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_5",
+          "type": "richtext",
+          "label": "Text 5",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_5",
+          "type": "text",
+          "label": "Price 5",
+          "default": "85"
+        },
+        {
+          "id": "item_title_6",
+          "type": "text",
+          "label": "Item Heading 6",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_6",
+          "type": "richtext",
+          "label": "Text 6",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_6",
+          "type": "text",
+          "label": "Price 6",
+          "default": "85"
+        },
+        {
+          "id": "item_title_7",
+          "type": "text",
+          "label": "Item Heading 7",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_7",
+          "type": "richtext",
+          "label": "Text 7",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_7",
+          "type": "text",
+          "label": "Price 7",
+          "default": "85"
+        },
+        {
+          "id": "item_title_8",
+          "type": "text",
+          "label": "Item Heading 8",
+          "default": "Title"
+        },
+        {
+          "id": "richtext_8",
+          "type": "richtext",
+          "label": "Text 8",
+          "default": "<p>Description of service orem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim </p>"
+        },
+        {
+          "id": "item_price_8",
+          "type": "text",
+          "label": "Price 8",
+          "default": "85"
+        },
+        {
+          "type":      "header",
+          "content":   "Color"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "options": [
+              { "value": "primary", "label": "Primary"},
+              { "value": "secondary", "label": "Secondary"},
+              { "value": "tertiary", "label": "Tertiary"},
+              { "value": "quaternary", "label": "Quaternary"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "section_bg_color",
+          "label": "Background Color",
+          "options": [
+            { "value": "white", "label": "White"},
+            { "value": "sky_blue", "label": "Sky Blue"},
+            { "value": "navy", "label": "Navy Blue"},
+            { "value": "mint", "label": "Mint"}
+          ]
+        },
+        {
+          "type":      "header",
+          "content":   "Module Spacing"
+        },
+        {
+          "type": "select",
+          "id": "section_custom_padding",
+          "label": "Section Custom Padding",
+          "options": [
+            { "value": "global", "label": "Global Padding Setting"},
+            { "value": "smaller", "label": "Smaller"},
+            { "value": "larger", "label": "Larger"}
+          ],
+          "default": "global"
+        }
+      ]
+    },
+    {
+      "name": "Product Checker",
+      "type":"product_checker",
+      "settings": [
+        {
+            "id":"title",
+            "type":"text",
+            "label":"Heading",
+            "default":"The almighty product checker"
+        },
+        {
+            "id":"description",
+            "type":"richtext",
+            "label":"Description",
+            "default":"<p>For this search box to work, ingredients pasted into the box MUST BE TYPED EXACTLY as they appear in our database. Because of the plethora of ways manufacturers can list ingredients, we recommend double checking each ingredient on your product against the entire list by scrolling down to find it, or using the (command + f) feature to quickly search the list.</p><p>With all this in mind, use the search box by copying and pasting a comma-separated list of ingredients here:</p>"
+        },
+        {
+          "id": "copyright_text",
+          "type": "textarea",
+          "label": "Copyright Text",
+          "default": "Updated & copyright © 2021 skinSALVATION skincare inc.",
+          "info": "Shows under searchbox"
+        },
+        {
+          "type": "header",
+          "content": "Blocking Popup Options"
+        },
+        {
+          "id":"popup_title",
+          "type":"text",
+          "label":"Popup Title",
+          "default":"Lorem ipsum asimet."
+        },
+        {
+          "id":"popup_text",
+          "type":"text",
+          "label":"Popup Text",
+          "default":"Sign up to our newsletter to access the product checker tool."
+        }
+      ]
+    },
+		{
+			"name":"Start Cascading Section",
+			"type":"start_cascading_section",
+			"settings": [
+			{
+				"type":"select",
+				"id":"section_bg_color",
+				"label":"Background Color",
+				"options":[
+					{
+						"value":"white",
+						"label":"White"
+					},
+					{
+						"value":"sky_blue",
+						"label":"Sky Blue"
+					},
+					{
+						"value":"mint",
+						"label":"Mint"
+					},
+					{
+						"value":"light_gray",
+						"label":"Light Gray"
+					},
+					{
+						"value":"gradient",
+						"label":"Gradient"
+					}
+				],
+				"default":"sky_blue"
+			},
+			{
+				"type": "select",
+				"id": "first_item",
+				"label": "First block position",
+				"options": [
+				   { "value": "left", "label": "Top left"},
+				   { "value": "right", "label": "Top right"}
+				]
+			 },
+			{
+				"type":"header",
+				"content":"Module Spacing"
+			},
+			{
+				"type":"select",
+				"id":"section_custom_padding",
+				"label":"Section Custom Padding",
+				"options":[
+					{
+						"value":"global",
+						"label":"Global Padding Setting"
+					},
+					{
+						"value":"smaller",
+						"label":"Smaller"
+					},
+					{
+						"value":"larger",
+						"label":"Larger"
+					}
+				],
+				"default":"global"
+			}
+			]
+		},
+		{
+			"name":"End Cascading Section",
+			"type":"end_cascading_section"
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,127 @@
+{%- assign section_color = section.settings.color_scheme -%}
+{%- assign section_bg_color = section.settings.section_bg_color -%}
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+
+{% if section_custom_padding == 'smaller' %}
+  {% assign section_custom_padding = 'section-with-padding--smaller' %}
+{% elsif section_custom_padding == 'larger' %}
+  {% assign section_custom_padding = 'section-with-padding--larger' %}
+{% else %}
+  {% assign section_custom_padding = null %}
+{% endif %}
+
+<section class="aw-two-cols-text section-with-padding {{ section_custom_padding }} color--{{ section_color }}-text bg--{{ section_color }}-background {{ section_bg_color }}" data-section-type="richtext" data-section-id="{{ section.id }}">
+  <div class="max-site-width px2 lg--up--px3 aw-two-cols-text__wrapper">
+    {% if section.settings.title  %}
+      <h2 class="f--heading font-size--xxl mb3 dark-blue">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="grid">
+      {% for block in section.blocks %}
+        <div class="grid__item md--up--one-half font-size__basic">
+          <h2 class="font-size--l-bump mb1 headline-blue">{{ block.settings.item_title }}</h2>
+          {{ block.settings.richtext }}
+          <div class="mb2 dark-gray text-align--right mr2">{{ block.settings.item_price }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.cta_url %}
+      <div class="flex justify--center aw-two-cols-text__button">
+        <a class="inline-block aw-btn--navy text-inherit font-size__basic " href="{{ section.settings.cta_url }}" >
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Two Columns Text",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text"
+    },
+    {
+      "type":      "header",
+      "content":   "Color"
+    },
+    {
+       "type": "select",
+       "id": "color_scheme",
+       "label": "Color scheme",
+       "options": [
+          { "value": "primary", "label": "Primary"},
+          { "value": "secondary", "label": "Secondary"},
+          { "value": "tertiary", "label": "Tertiary"},
+          { "value": "quaternary", "label": "Quaternary"}
+       ]
+    },
+    {
+       "type": "select",
+       "id": "section_bg_color",
+       "label": "Background Color",
+       "options": [
+        { "value": "aw_section_bg_white", "label": "White"},
+        { "value": "aw_section_bg_sky_blue", "label": "Sky Blue"},
+        { "value": "aw_section_bg_navy", "label": "Navy Blue"},
+        { "value": "aw_section_bg_mint", "label": "Mint"}
+       ]
+    },
+    {
+      "type":      "header",
+      "content":   "Module Spacing"
+    },
+    {
+      "type": "select",
+      "id": "section_custom_padding",
+      "label": "Section Custom Padding",
+      "options": [
+         { "value": "global", "label": "Global Padding Setting"},
+         { "value": "smaller", "label": "Smaller"},
+         { "value": "larger", "label": "Larger"}
+      ],
+      "default": "global"
+   }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Rich text",
+      "settings": [
+        {
+          "id": "item_title",
+          "type": "text",
+          "label": "Item Heading",
+          "default": "Title"
+        },
+        {
+          "id": "richtext",
+          "type": "richtext",
+          "label": "Text"
+        },
+        {
+          "id": "item_price",
+          "type": "text",
+          "label": "Price"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

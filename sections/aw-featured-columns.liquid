@@ -1,0 +1,176 @@
+
+{% capture section_content %}
+
+    <div class="featured-columns">
+
+        <div class="grid--full featured-columns--grid">
+
+          {% for block in section.blocks %}
+
+          {%- comment -%}Column Variables{%- endcomment -%}
+          {% assign icon_img = block.settings.icon %}
+          {% assign title = block.settings.title %}
+          {% assign text = block.settings.text %}
+          {% assign cta_text = block.settings.cta_text %}
+          {% assign cta_url = block.settings.cta_url %}
+
+          {% if show_bg_gradient %}
+            {% assign bg_gradient_class = 'aw_section_bg_gradient' %}
+          {% else %}
+            {% assign bg_gradient_class = nil %}
+          {% endif %}
+
+            <a href="{{ cta_url }}" class="grid__item featured-columns__grid-item one-whole lg--up--four-twelfths {{ bg_gradient_class }} relative">
+
+              <div class="aw-bg-gradient-opacity-absolute-element"></div>
+
+              <div class="featured-column__content-wrapper bg--white relative text-align--center">
+
+                {% if block.settings.icon_svg != blank %}
+                  <img src="{{ block.settings.icon_svg }}" class="featured-column__img" alt="Featured column icon">
+                {% else %}
+                  <img src="{{ icon_img | img_url }}" class="featured-column__img" alt="Featured column icon">
+                {% endif %}
+
+                <h2 class="featured-column__title"> {{ title }} </h2>
+
+                <p class="featured-column__text font-size__basic--larger"> {{ text }} </p>
+
+                <span class="featured-column__cta font-size__basic--larger aw-btn--text"> {{ cta_text }} </span>
+
+              </div>
+
+            </a>
+
+          {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endcapture %}
+
+{%- assign section_bg_color = section.settings.section_bg_color -%}
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+
+
+{%- comment -%}
+==================================
+Render wrapping Divs
+==================================
+{%- endcomment -%}
+{% render 'aw-section-wrapper' with
+    section_custom_padding: section_custom_padding,
+    section_bg_color: section_bg_color,
+    section_type: "aw-featured-columns-section",
+    section_id: section.id,
+    section_content: section_content
+    %}
+
+{% schema %}
+{
+  "name": "Featured Columns",
+  "class": "section-slideshow",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "options": [
+       { "value": "aw_section_bg_white", "label": "White"},
+       { "value": "aw_section_bg_mint", "label": "Mint"},
+       { "value": "aw_section_bg_light_gray", "label": "Light Gray"}
+
+      ]
+    },
+    {
+      "type":      "header",
+      "content":   "Module Spacing"
+    },
+    {
+      "type": "select",
+      "id": "section_custom_padding",
+      "label": "Section Custom Padding",
+      "options": [
+         { "value": "global", "label": "Global Padding Setting"},
+         { "value": "smaller", "label": "Smaller"},
+         { "value": "larger", "label": "Larger"}
+      ],
+      "default": "global"
+   }
+  ],
+  "blocks": [
+    {
+      "type": "featured_column",
+      "name": "Featured Column",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (.png format)"
+        },
+        {
+          "type": "text",
+          "id": "icon_svg",
+          "label": "Icon (.svg format)",
+          "info": "Enter source url for svg uploaded in \'Settings\'."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Text",
+          "default": "Lorem."
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor magna alit ut"
+        },
+        {
+          "type": "header",
+          "content": "Call to action"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA Link"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "Take me there"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Columns",
+      "category": "Agency Wellness Layout",
+      "blocks": [
+        {
+          "type": "featured_column",
+          "settings": {
+            "title": "DIY."
+          }
+        },
+        {
+          "type": "featured_column",
+          "settings": {
+            "title": "Shop"
+          }
+        },
+        {
+          "type": "featured_column",
+          "settings": {
+            "title": "Get Help."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

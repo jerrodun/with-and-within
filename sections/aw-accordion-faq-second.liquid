@@ -1,0 +1,129 @@
+
+{%- comment -%} Module General Settings{%- endcomment -%}
+{%- assign section_bg_color = section.settings.section_bg_color -%}
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+
+{% raw %}
+<script>
+window.onload = () => {
+  document.querySelectorAll('.accordion__item__header').forEach(header => {
+    header.addEventListener('click', function(){
+        this.parentNode.classList.toggle('accordion__item--open');
+    });
+  });
+};
+</script>
+{% endraw %}
+
+{% capture section_content %}
+  <span style="margin-bottom: 10px" id="second-faq" ></span>
+  <div class="aw-accordion-faq--container-padded-left">
+    <h2  class="f--heading aw-text--navy font-size--xxxl lg--up--font-size--xxxxxxl">{{ section.settings.module_title }}</h2>
+
+    <div class="aw-accordion-faq--list-container">
+
+      <ul class="accordion__list">
+
+        {%- for block in section.blocks -%}
+
+        <li class="accordion__item">
+            <div class="accordion__item__header">
+                <h3 class="accordion__item__title">{{ block.settings.faq_title }}</h3>
+                <span class="accordion__item__icon">
+                    <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.71184 0L0 1.595L9.01129 10L18.0226 1.595L16.3107 0L9.01129 6.80833L1.71184 0Z" fill="#808c24"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="accordion__item__body">
+                <div class="accordion__item__text font-size__basic">
+                  {{ block.settings.faq_answer }}
+                </div>
+            </div>
+        </li>
+
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+
+
+{% endcapture %}
+
+{%- comment -%}
+==================================
+Render wrapping Divs
+==================================
+{%- endcomment -%}
+{% render 'aw-section-wrapper' with
+    section_custom_padding: section_custom_padding,
+    section_padding_top_none: section.settings.section_padding_top_none,
+    section_padding_bottom_none: section.settings.section_padding_bottom_none,
+    section_bg_color: section_bg_color,
+    section_type: "aw-accordion-faq-section",
+    section_id: section.id,
+    section_content: section_content
+    %}
+
+{% schema %}
+{
+  "name": "Accordion FAQ",
+  "settings": [
+    {
+      "id": "module_title",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title goes here"
+    },
+    {
+        "type":      "header",
+        "content":   "Module Spacing"
+    },
+    {
+        "type": "select",
+        "id": "section_custom_padding",
+        "label": "Section Custom Padding",
+        "options": [
+        { "value": "global", "label": "Global Padding Setting"},
+        { "value": "smaller", "label": "Smaller"},
+        { "value": "larger", "label": "Larger"}
+        ],
+        "default": "global"
+    },
+    {
+			"type": "checkbox",
+			"id": "section_padding_top_none",
+			"label": "No Padding Top",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"id": "section_padding_bottom_none",
+			"label": "No Padding Bottom",
+			"default": false
+		}
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "FAQ",
+      "settings": [
+       {
+          "id": "faq_title",
+          "type": "text",
+          "label": "Text",
+          "default": "Add Question here"
+        }
+      ,
+        {
+          "id": "faq_answer",
+          "type": "richtext",
+          "label": "Text",
+          "default": "<p>Add Question answers here</p>"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

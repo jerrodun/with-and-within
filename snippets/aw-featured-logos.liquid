@@ -1,0 +1,67 @@
+
+{%- comment -%} Create an array of numbers to iterate number of columns to avoid repeated code {%- endcomment -%}
+{% assign module_count_numbers = "1, 2, 3, 4, 5" | split: ", " %}
+
+{%- comment -%} Assign Logo Icon Class if enabled {%- endcomment -%}
+{%- assign show_icon_bg = section_settings.show_icon_bg -%}
+{% if show_icon_bg %}
+  {% assign icon_bg_class = 'bg--white' %}
+{% else %}
+  {% assign icon_bg_class = "" %}
+{% endif %}
+
+<div class="featured-logos--wrapper">
+    
+    <div class="featured-logos--heading-container">
+        <h2 class="f--heading featured-logos--heading aw-text--sky-blue"> {{ section_settings.title }} </h2>
+
+        {% if section_settings.subheading != '' %}
+            <p class="featured-logos--subtitle aw-text--navy"> {{ section_settings.subheading }} </p>
+        {% endif %}
+        
+    </div>
+  
+    <div class="grid--full featured-logos--flex-grid">
+  
+      {%- comment -%}Initiate Iteration of Columns{%- endcomment -%}
+  
+      {% for module_count_number in module_count_numbers %}
+  
+      {% assign logo_col_image = 'logo_col_%1_image' | replace:'%1', module_count_number %}
+      {% assign logo_col_image = section_settings[logo_col_image] %}
+  
+      {% assign logo_col_text = 'logo_col_%1_image_text' | replace:'%1', module_count_number %}
+      {% assign logo_col_text = section_settings[logo_col_text] %}
+  
+      {% assign logo_col_text_url = 'logo_col_%1_image_text_url' | replace:'%1', module_count_number %}
+      {% assign logo_col_text_url = section_settings[logo_col_text_url] %}
+
+      {% if logo_col_text_url %}
+        {% capture div_or_a_tag %}
+            <a class="grid__item featured-logo__grid-item" href="{{ logo_col_text_url }}">
+        {% endcapture %}
+        {% assign div_or_a_tag_end = '</a>' %}
+      {% else %}
+          {% assign div_or_a_tag = '<div class="grid__item featured-logo__grid-item">' %}
+          {% assign div_or_a_tag_end = '</div>' %}
+      {% endif %}
+     
+      {{ div_or_a_tag }}
+
+        <div class="featured-logo__img-wrapper {{ icon_bg_class }}">
+          <img src="{{ logo_col_image | img_url }}" alt="Logo {{ module_count_number }}">           
+        </div>
+  
+        {% if logo_col_text %}
+        <p class="featured-logo__caption">
+          {{ logo_col_text }}
+        </p>
+        {% endif %}
+        
+      {{ div_or_a_tag_end }}
+  
+      {% endfor %}
+  
+    </div>
+    
+</div>

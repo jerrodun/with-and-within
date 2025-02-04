@@ -1,0 +1,171 @@
+{%- assign section_color = section.settings.color_scheme -%}
+
+
+{%- assign display_map = false -%}
+{%- assign onboarding = false -%}
+{%- assign use_image = false -%}
+{%- assign map_image = section.settings.map_image -%}
+{%- assign link_text1 = section.settings.link_text1 -%}
+{%- assign link_url1 = section.settings.link_url1 -%}
+{%- assign link_text2 = section.settings.link_text2 -%}
+{%- assign link_url2 = section.settings.link_url2 -%}
+
+{%- if section.settings.api_key == blank  -%}
+  {%- if section.settings.map_image  %}
+    {%- assign use_image = true -%}
+  {%- else -%}
+    {%- assign onboarding = true -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if section.settings.api_key != blank and section.settings.map_address -%}
+  {%- assign display_map = true -%}
+{%- endif -%}
+
+<section class="map section-with-padding color--{{ section_color }}-text bg--{{ section_color }}-background" data-section-type="map" data-section-id="{{ section.id }}">
+  <div class="max-site-width lg--up--px3">
+    <div class="lg--up--grid">
+      <div class="lg--up--grid__item lg--up--one-half">
+        <div class="relative px2 lg--up--px0 ">
+          {% if onboarding == true %}
+            <div class="bg--{{ section_color }}-placeholder">
+              {{ 'lifestyle-2' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+          {% if use_image %}
+            {% render 'responsive-image' with
+              image: map_image,
+              max_width: 618,
+              max_height: 517,
+              section_color: section_color,
+            %}
+          {% endif %}
+          {% if display_map %}
+          <div class="map-wrapper">
+            <div class="map-section__container"
+                 id="Map-{{ section.id }}"
+                 data-map
+                 data-address-setting="{{ section.settings.map_address | escape }}"
+                 data-api-key="{{ section.settings.api_key }}">
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="lg--up--grid__item lg--up--one-half">
+        <div class="px2 pt2 lg--up--px0 map__content">
+
+          {% if section.settings.title == blank %}
+            <h2 class="map__content--heading">{{ 'homepage.onboarding.collection_title' | t }}</h2>
+          {% else %}
+            <h2 class="map__content--heading">{{ section.settings.title }}</h2>
+          {% endif %}
+
+          {% unless section.settings.description == blank %}
+            <div class="richtext line-height--3 font-size__basic map__content--description">
+               {{ section.settings.description }}
+            </div>
+          {% endunless %}
+
+          <div class="image-text-buttons_buttons">
+            {% if link_url1 != blank %}
+              <a class="mt1 inline-block font-size__basic f--accent aw-btn--tertiary" href="{{ link_url1 }}" target="_blank" >
+                {{ link_text1 }}
+              </a>
+            {% endif %}
+            {% if link_url2 != blank %}
+              <a class="mt1 inline-block font-size__basic f--accent aw-btn--tertiary" href="{{ link_url2 }}" target="_blank" >
+                {{ link_text2 }}
+              </a>
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Map",
+    "class": "index-section index-map-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading",
+        "default": "Our store"
+      },
+      {
+        "id": "description",
+        "type": "richtext",
+        "label": "Description"
+      },
+      {
+        "id": "map_address",
+        "type": "text",
+        "label": "Map address",
+        "info": "Google Maps will find the exact location",
+        "default": "80 Spadina Ave, Toronto"
+      },
+      {
+        "id": "link_url1",
+        "type": "url",
+        "label": "Link"
+      },
+      {
+        "id": "link_text1",
+        "type": "text",
+        "label": "Link text"
+      },
+      {
+        "id": "link_url2",
+        "type": "url",
+        "label": "Link"
+      },
+      {
+        "id": "link_text2",
+        "type": "text",
+        "label": "Link text"
+      },
+      {
+        "id": "api_key",
+        "type": "text",
+        "label": "Google Maps API key",
+        "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
+      },
+      {
+        "type": "image_picker",
+        "id": "map_image",
+        "label": "Image",
+        "info": "Used if no Google Maps API key is provided."
+      },
+      {
+        "type": "header",
+        "content": "Color"
+      },
+      {
+         "type": "select",
+         "id": "color_scheme",
+         "label": "Color scheme",
+         "options": [
+            { "value": "primary", "label": "Primary"},
+            { "value": "secondary", "label": "Secondary"},
+            { "value": "tertiary", "label": "Tertiary"},
+            { "value": "quaternary", "label": "Quaternary"}
+         ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Map",
+        "category": "Store information"
+      }
+    ]
+  }
+{% endschema %}

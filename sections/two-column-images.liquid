@@ -1,0 +1,114 @@
+{%- assign section_color = section.settings.color_scheme -%}
+
+{%- assign text_color_overlay = section.settings.section_color_overlay -%}
+{%- assign content_position = section.settings.content_position -%}
+{%- assign text_align = section.settings.text_align -%}
+{%- assign hover_color = '' -%}
+{%- assign hover_color_overlay = '' -%}
+
+{%- if text_color != 'main' -%}
+  {%- assign hover_color = 'main' -%}
+{%- else -%}
+  {%- assign hover_color = 'primary' -%}
+{%- endif -%}
+
+{%- if text_color_overlay != 'main' -%}
+  {%- assign hover_color_overlay = 'main' -%}
+{%- else -%}
+  {%- assign hover_color_overlay = 'primary' -%}
+{%- endif -%}
+
+{%- assign heading = section.settings.heading -%}
+{%- assign text = section.settings.text -%}
+{%- assign cta_text = section.settings.cta_text -%}
+{%- assign cta_url = section.settings.cta_url -%}
+
+{%- if section.settings.feature_image -%}
+  {%- assign feature_image = section.settings.feature_image -%}
+{%- else -%}
+  {%- assign placeholder = true -%}
+{%- endif -%}
+
+<section
+  class="image-with-text section-with-padding color--{{ section_color }}-text lg--up--color--{{ text_color_overlay }}-text bg--{{ section_color }}-background"
+  data-section-type="newsletter"
+  data-section-id="{{ section.id }}"
+>
+  <div class="max-site-width px2 lg--up--px3">
+    <div class="image-with-text__container relative">
+      <div class="image-with-text__image">
+        {% if section.settings.feature_image %}
+          {%
+            render 'responsive-image' with
+            image: feature_image,
+            max_width: 2000,
+            max_height: 2000,
+            section_color: section_color,
+          %}
+        {% else %}
+          <div class="image-with-text__placeholder full bg--{{ section_color }}-placeholder p1 lg--up--p3">
+            <div class="image-with-text__placeholder-svg">
+              {{ 'lifestyle-1' | placeholder_svg_tag }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__image">
+        {% if section.settings.second_image %}
+          {%
+            render 'responsive-image' with
+            image: second_image,
+            max_width: 2000,
+            max_height: 2000,
+            section_color: section_color,
+          %}
+        {% else %}
+          <div class="image-with-text__placeholder full bg--{{ section_color }}-placeholder p1 lg--up--p3">
+            <div class="image-with-text__placeholder-svg">
+              {{ 'lifestyle-1' | placeholder_svg_tag }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Two column images",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "second_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    { 
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "tertiary", "label": "Tertiary" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two column images",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

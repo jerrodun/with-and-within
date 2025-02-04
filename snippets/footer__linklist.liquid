@@ -1,0 +1,16 @@
+<div class="grid__item {% if num_linklist == 'single' %}one-whole{% elsif num_linklist == 'double' %}one-half linklist--double{% elsif num_linklist == 'triple' %}one-whole lg--up--one-third linklist--triple{%endif%}">
+  <ul class="linklist--item list--reset p0 m0 {% if num_linklist == 'single' %}flex justify--start flex--wrap mx--auto{% endif %}">
+    {% unless num_linklist == 'single' %}
+      <li class="font-size--m text-uppercase bold mb1">
+        {{linklists[link_list].title}}
+      </li>
+    {% endunless %}
+    {% for link in linklists[link_list].links %}
+      <li class="{% if num_linklist == 'single' %}pr1{%endif%}">
+        <a href="{{ link.url }}" class="footer__nav-link inline-block mobile-nav__link color--{{ section_color }}-text ">
+          <span class="footer__nav-link-span">{{ link.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

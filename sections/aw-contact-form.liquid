@@ -1,0 +1,62 @@
+
+{% capture section_content %}
+{%- render 'page__contact-template' -%}
+{% endcapture %}
+
+{% raw %}
+  <script>
+    if (window.location.search.includes('form_type=contact')) {
+      location.hash = '#contact-form';
+    }
+  </script>
+{% endraw %}
+
+{%- comment -%} Module General Settings{%- endcomment -%}
+{%- assign section_bg_color = section.settings.section_bg_color -%}
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+<a name="contact-form"></a>
+{% render 'aw-section-wrapper' with
+    section_custom_padding: section_custom_padding,
+    section_bg_color: section_bg_color,
+    section_type: "aw-contact-form-section",
+    section_id: section.id,
+    section_content: section_content
+    %}
+
+
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type":      "header",
+      "content":   "Color"
+    },
+    {
+        "type": "select",
+        "id": "section_bg_color",
+        "label": "Background Color",
+        "options": [
+         { "value": "aw_section_bg_white", "label": "White"},
+         { "value": "aw_section_bg_sky_blue", "label": "Sky Blue"}
+        ]
+      },
+      {
+        "type":      "header",
+        "content":   "Module Spacing"
+      },
+      {
+        "type": "select",
+        "id": "section_custom_padding",
+        "label": "Section Custom Padding",
+        "options": [
+           { "value": "global", "label": "Global Padding Setting"},
+           { "value": "smaller", "label": "Smaller"},
+           { "value": "larger", "label": "Larger"}
+        ],
+        "default": "global"
+     }
+  ]
+}
+{% endschema %}

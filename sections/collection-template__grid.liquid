@@ -1,0 +1,110 @@
+{% render 'collection-template' %}
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "class": "collection-template",
+      "settings": [
+      {
+        "type": "checkbox",
+        "id": "should_use_aw_shop_styles",
+        "label": "Use agency wellness shop styles?",
+        "default": true,
+        "info": "If checked, it will override any colors set from the color scheme dropdown options."
+      },
+      {
+         "type": "select",
+         "id": "color_scheme",
+         "label": "Color scheme",
+         "options": [
+            { "value": "primary", "label": "Primary"},
+            { "value": "secondary", "label": "Secondary"},
+            { "value": "tertiary", "label": "Tertiary"}
+         ]
+      },
+      {
+         "type":      "range",
+         "id":        "no_posts",
+         "min":       2,
+         "max":        30,
+         "step":       1,
+         "label":     "No of products per page",
+         "default":   12
+      },
+      {
+        "type" : "text",
+        "id": "all_collections_page_title",
+        "label": "All collections page title",
+        "default": "Shop"
+      },
+      {
+        "type" : "text",
+        "id": "all_collections_right_heading_title",
+        "label": "All collections right heading title",
+        "default": "It's still Us!"
+      },
+      {
+        "type" : "textarea",
+        "id": "all_collections_right_heading_text",
+        "label": "All collections right heading text",
+        "default": "Don’t worry, we haven’t changed much. Formerly called SkinSALVATION, we’ve transformed into Agency Wellness."
+      },
+      {
+        "type": "select",
+        "id": "posts_per_row_desktop",
+        "label": "Posts per row - desktop",
+        "default": "one-third",
+        "options": [
+          {
+            "value": "one-half",
+            "label": "2"
+          },
+          {
+            "value": "one-third",
+            "label": "3"
+          },
+          {
+            "value": "one-quarter",
+            "label": "4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "posts_per_row_mobile",
+        "label": "Posts per row - mobile",
+        "default": "one-half",
+        "options": [
+          {
+            "value": "one-whole",
+            "label": "1"
+          },
+          {
+            "value": "one-half",
+            "label": "2"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_image",
+        "label": "Show collection image"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_tag_filter",
+        "label": "Enable filtering by product tag"
+      },
+      {
+        "type": "checkbox",
+        "id": "capitalize_tags",
+        "label": "Capitalize tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_sort_filter",
+        "label": "Enable collection sorting"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,141 @@
+{%- comment -%} Module General Settings{%- endcomment -%}
+{%- assign section_bg_color = section.settings.section_bg_color -%}
+{%- assign section_custom_padding = section.settings.section_custom_padding -%}
+
+<style>
+    .aw-video-slider--container .carousel-cell { 
+    width: 100%;
+    }
+</style>
+
+{% capture section_content %}
+
+  <div class="aw-video-slider aw-video-slider--wrapper">
+
+    <h2 class="f--heading font-size--xxxl lg--up--font-size--xxxxxxl aw-text--navy mb1 lg--up--mb2">{{ section.settings.module_title }}</h2>
+    {% if section.settings.module_sub_title != blank %}
+    <h3 class="f--heading font-size--xl lg--up--font-size--xl aw-text--navy mb1 lg--up--mb3">{{ section.settings.module_sub_title }}</h3>
+    {% endif %}
+    <div class="aw-video-slider--container mt3">
+        <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "pageDots": false, "arrowShape": "M 27.790379,52.027931 H 79.695 V 47.972045 H 27.790379 L 46.625822,29.066774 43.893358,26.325 20.305,49.999988 43.893358,73.675 46.625013,70.933222 Z" }'>
+            
+            {% for block in section.blocks %}
+                <div class="carousel-cell">
+                    <div class="rte__video-wrapper">
+
+                        {% if block.settings.video_url %}
+                        {% if block.settings.video_url.type == 'youtube' %}
+                        <iframe width="560" height="435" src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+                        {% if block.settings.video_url.type == 'vimeo' %}
+                        <iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?color=00ff00" width="500" height="232" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        {% endif %}
+                        {% else %}
+                        <iframe width="560" height="435" src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+  </div>
+
+{% endcapture %}
+
+{%- comment -%}
+==================================
+Render wrapping Divs
+==================================
+{%- endcomment -%}
+{% render 'aw-section-wrapper' with
+    section_custom_padding: section_custom_padding,
+    section_padding_top_none: section.settings.section_padding_top_none,
+    section_padding_bottom_none: section.settings.section_padding_bottom_none,
+    section_bg_color: section_bg_color,
+    section_type: "aw-accordion-faq-section",
+    section_id: section.id,
+    section_content: section_content
+    %}
+
+{% schema %}
+{
+  "name": "Video Slider",
+  "settings": [
+    {
+      "id": "module_title",
+      "type": "text",
+      "label": "Heading",
+      "default": "Watch and learn"
+    },
+    {
+      "id": "module_sub_title",
+      "type": "text",
+      "label": "Sub heading",
+      "default": "Sub title"
+    },
+    {
+        "type":      "header",
+        "content":   "Module Spacing"
+    },
+    {
+        "type": "select",
+        "id": "section_custom_padding",
+        "label": "Section Custom Padding",
+        "options": [
+        { "value": "global", "label": "Global Padding Setting"},
+        { "value": "smaller", "label": "Smaller"},
+        { "value": "larger", "label": "Larger"}
+        ],
+        "default": "global"
+    },
+    {
+        "type": "checkbox",
+        "id": "section_padding_top_none",
+        "label": "No Padding Top",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "section_padding_bottom_none",
+        "label": "No Padding Bottom",
+        "default": false
+    },
+    {
+        "type":      "header",
+        "content":   "Colors"
+    },
+    {
+        "type": "select",
+        "id": "section_bg_color",
+        "label": "Background Color",
+        "options": [
+            { "value": "aw_section_bg_white", "label": "White"},
+            { "value": "aw_section_bg_sky_blue", "label": "Sky Blue"},
+            { "value": "aw_section_bg_mint", "label": "Mint"},
+            { "value": "aw_section_bg_light_gray", "label": "Light Gray"},
+            { "value": "aw_section_bg_gradient", "label": "Gradient"}
+        ],
+        "default": "aw_section_bg_white"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_url",
+      "name": "Video URL",
+      "limit": 5,
+      "settings": [
+        {
+            "id": "video_url",
+            "type": "video_url",
+            "label": "Video link",
+            "accept": ["youtube", "vimeo"],
+            "info": "Accepts URLs from YouTube or Vimeo",
+            "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

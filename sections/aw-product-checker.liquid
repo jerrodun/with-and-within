@@ -1,0 +1,48 @@
+{% render 'aw-product-checker' with
+   title : section.settings.title,
+   description: section.settings.description,
+   copyright_text: section.settings.copyright_text %}
+
+{% schema %}
+{
+    "name": "Product Checker",
+    "class": "product-checker",
+    "settings": [
+      {
+          "id":"title",
+          "type":"text",
+          "label":"Heading",
+          "default":"The almighty product checker"
+      },
+      {
+          "id":"description",
+          "type":"richtext",
+          "label":"Description",
+          "default":"<p>For this search box to work, ingredients pasted into the box MUST BE TYPED EXACTLY as they appear in our database. Because of the plethora of ways manufacturers can list ingredients, we recommend double checking each ingredient on your product against the entire list by scrolling down to find it, or using the (command + f) feature to quickly search the list.</p><p>With all this in mind, use the search box by copying and pasting a comma-separated list of ingredients here:</p>"
+      },
+      {
+        "id": "copyright_text",
+        "type": "textarea",
+        "label": "Copyright Text",
+        "default": "Updated & copyright © 2021 skinSALVATION skincare inc.",
+        "info": "Shows under searchbox"
+      },
+      {
+        "type": "header",
+        "content": "Blocking Popup Options"
+      },
+      {
+        "id":"popup_title",
+        "type":"text",
+        "label":"Popup Title",
+        "default":"Lorem ipsum asimet."
+      },
+      {
+        "id":"popup_text",
+        "type":"text",
+        "label":"Popup Text",
+        "default":"Sign up to our newsletter to access the product checker tool."
+      }
+    ]
+}
+{% endschema %}

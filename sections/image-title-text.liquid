@@ -1,0 +1,77 @@
+{%- assign block_image = section.settings.block_image -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign text = section.settings.text -%}
+<div class="max-site-width px2 lg--up--px3 relative">
+<div class="img-title-text--wrapper">
+    <div class="grid flex img-title-text--grid">
+
+        <div class="grid__item lg--up--one-half">
+            <div class="img-title-text--image">
+                {% render 'responsive-image' with
+                    image: block_image,
+                    max_width: 399,
+                    max_height: 372,
+                    section_color: section_color,
+                %}
+            </div>
+        </div>
+
+        <div class="grid__item lg--up--one-half">
+            <div class="img-title-text--content">
+                <h2 class="img-title-text__title">
+                    {{ title }}
+                </h2>
+                <h2 class="img-title-text__subtitle">
+                    {{ subtitle }}
+                </h2>
+                <p class="img-title-text__text">
+                    {{ text }}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% schema %}
+    {
+        "name": "Image w/ Title & Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "block_image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+             "type": "select",
+             "id": "section_bg_color",
+             "label": "Background Color",
+             "options": [
+                { "value": "white", "label": "White"},
+                { "value": "sky_blue", "label": "Sky Blue"},
+                { "value": "mint", "label": "Mint"},
+                { "value": "light_gray", "label": "Light Gray"},
+                { "value": "gradient", "label": "Gradient"}
+             ],
+             "default": "white"
+          }
+        ]
+    }
+{% endschema %}
