@@ -1,3 +1,7 @@
+{% comment %}
+  ! Header for With&Within View
+{% endcomment %}
+
 {%- assign section_color = 'primary' -%}
 
 {%- assign feature_image_placeholder = false -%}
@@ -74,6 +78,14 @@
 
     <div class="header__main">
 
+
+    {% comment %}
+      - Render ABOVE announcement bar
+      - Needed to manually adjust the amount that the <header> reduced in height
+      
+    {% endcomment %}
+     {% render 'multi-brand-header' %}
+
       <div class="max-site-width px2 lg--up--px3">
         <div class="relative">
           <a class="header__close fixed lg-up--full--w text-align--right top--0 right--0 p2 font-size--m pointer color--active-text hv--active-accent" data-close-header tabindex="0">
@@ -100,7 +112,9 @@
         {% endif %}
       {% endif %}
 
+
       <div class="header__shifter full--w"></div>
+
 
         <div class="header-table header-aw-custom this color--{{ section_color }}-text flex items--center justify--between full--w px3 max-site-width lg--up--px3  lg--up--relative">
           <div class="nav__container align--middle text-align--left md--dn--hide lg--up--flex--1 overflow--x-hidden">
@@ -614,12 +628,12 @@
                       // img wrapper els
                       const carouselImageWrappersMobile = document.querySelectorAll('.carousel-cell--mobile-fit-content > div.responsive-image__wrapper');
                       // img tags
-                      const carouselImagesMobile        = document.querySelectorAll('.carousel-cell--mobile-fit-content > div.responsive-image__wrapper img');
+                      const carouselImagesMobile = document.querySelectorAll('.carousel-cell--mobile-fit-content > div.responsive-image__wrapper img');
 
                       // img wrapper els
                       const carouselImageWrappersdesktop = document.querySelectorAll('.carousel-cell--desktop-fit-content > div.responsive-image__wrapper');
                       // img tags
-                      const carouselImagesdesktop        = document.querySelectorAll('.carousel-cell--desktop-fit-content > div.responsive-image__wrapper img');
+                      const carouselImagesdesktop = document.querySelectorAll('.carousel-cell--desktop-fit-content > div.responsive-image__wrapper img');
 
                       function handleMobileImages() {
                         carouselImageWrappersMobile.forEach(el => {
@@ -663,6 +677,7 @@
 
                     });
                   </script>
+                  
                   <div class="one-whole hero-text-container">
                     {% if heading != blank %}
                       <h1 class="hero-title color--{{ section_color }}-text aw-text--hero md--dn--text-align--center f--heading font-size--xxxl line-height--8 pm--font-size--xxxxxl pm--line-height--11 wd--font-size--xxxxxxxl wd--line-height--14"><span class="d-block hero-title-non-underlined-title">{{ heading }}</span><span class="relative d-inline-block hero-title-underlined-text"> {{underlined_heading_text}} <span class="hero-title-underline" role="presentation"></span></span></h1>
