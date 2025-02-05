@@ -1,5 +1,11 @@
 {% comment %}
-  ! Header for With&Within View
+  ! Header for SkinSalvation View
+  - Needed a copy of header to render:
+  - a different menu
+  - a different logo
+  - when creating new pages/products we will need to follow the 
+  naming convention of page.<brand>.liquid or product.<brand>.liquid 
+
 {% endcomment %}
 
 {%- assign section_color = 'primary' -%}
@@ -79,18 +85,13 @@
     <div class="header__main">
 
 
-      
-      <script>
-        console.log(" template.suffix | json :", {{ template | json }});
-        </script>
-
-{% comment %}
+  {% comment %}
  - Render ABOVE announcement bar
  - Needed to manually adjust the amount that the <header> reduced in height
  - passing suffix down to the multi-brand header
  - if template.suffix is nil, ie. NO suffix, the default is 'with-and-within'
 {% endcomment %}
-    {% assign brand = template.suffix | default: 'with-and-within' %}
+   {% assign brand = template.suffix | default: 'with-and-within' %}
 
      {% render 'multi-brand-header', brand: brand %}
 
@@ -804,6 +805,15 @@ elements.forEach(function(element) {
   </script>
 {% endif %}
 
+
+{% comment %}
+TODO: how do we setup 'color combinations?'
+
+
+  { "value": "color_ss_background_primary", "label": "Skin Salvation Primary Background"},
+  { "value": "color_ss_background_secondary", "label": "Skin Salvation Secondary Background"}
+{% endcomment %}
+
 {% schema %}
   {
     "name": "Header",
@@ -935,9 +945,9 @@ elements.forEach(function(element) {
             { "value": "secondary", "label": "Secondary"},
             { "value": "tertiary", "label": "Tertiary"},
             { "value": "light-blue", "label": "Light Blue"}
-         ],
-         "label": "Announcement color combination"
-      },
+          ],
+          "label": "Announcement color combination"
+        },
       {
         "type": "url",
         "id": "link",
@@ -1024,12 +1034,6 @@ elements.forEach(function(element) {
               { "value": "black", "label": "Black"}
             ]
           },
-          //{ // Disabling this option since we don't need to use it atm.
-          //  "type": "image_picker",
-          //  "id": "logo_alternate",
-          //  "label": "Logo image",
-          //  "info": "Alternate logo for the banner image"
-          //},
           {
             "type": "header",
             "content": "Content"

@@ -26358,6 +26358,10 @@
               announcementWatcher = scrollMonitor.create(
                 announcementBarHeight - 1
               );
+
+              // TODO: tried this but didn't work..? Moving on to stay productive
+              const brandHeaderHeight = 65; // in px, hardcoded for now to just get it working
+
               $header.css({
                 willChange: "position, transform",
                 top: 0,

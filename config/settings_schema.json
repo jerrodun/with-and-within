@@ -4,7 +4,7 @@
     "theme_name": "Cascade",
     "theme_version": "1.6.2",
     "theme_author": "Switch",
-    "theme_documentation_url": "http:\/\/support.switchthemes.co",
+    "theme_documentation_url": "http://support.switchthemes.co",
     "theme_support_email": "support@switchthemes.co"
   },
   {
@@ -340,6 +340,34 @@
             "label": "Tertiary"
           }
         ]
+      },
+      {
+        "type": "header",
+        "content": "Skin Salvation"
+      },
+      {
+        "type": "color",
+        "id": "color_ss_primary_text",
+        "label": "Text",
+        "default": "#162317"
+      },
+      {
+        "type": "color",
+        "id": "color_ss_primary_background",
+        "label": "Background",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_ss_primary_accent",
+        "label": "Accent",
+        "default": "#5bb0e2"
+      },
+      {
+        "type": "color",
+        "id": "color_ss_primary_meta",
+        "label": "Secondary",
+        "default": "#9d9d9d"
       }
     ]
   },
