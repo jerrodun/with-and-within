@@ -329,7 +329,7 @@
   --section-padding: var({{ section_padding }});
   --lg--up--section-padding: var({{ lg_up_section_padding }});
 
-  /* Fonts */                   
+  /* Fonts */
   --heading-font-stack: {{ heading_font_stack }};
   --heading-font-weight: {{ heading_font_weight }};
   --heading-font-style: {{ heading_font_style }};
@@ -365,27 +365,30 @@
 
 
   /*
-  Primary color scheme 
-  */
 
-
-/*
-- these are the variables that CHANGE based on the template suffix:
-- brand var adds an abbreviation of the brand or '' empty string if it's the default brand
+   Primary color scheme 
 */
+
+
+  /*
+   - these are the variables that CHANGE based on the template suffix: 
+   - brand var adds an abbreviation of the brand or '' empty string if it's the default brand 
+   - The values of the variables will change based on the template suffix
+*/
+  {% assign primary_text = "color_" | append: brand | append: "primary_text" %}
+  --color-primary-text: {{ settings[primary_text] | color_to_rgb }};
+
+  
+  {% assign primary_background = "color_" | append: brand | append: "primary_background" %}
+  --color-primary-background: {{ settings[primary_background] | color_to_rgb }};
+
+  
   {% assign primary_accent = "color_" | append: brand | append: "primary_accent" %}
   --color-primary-accent: {{ settings[primary_accent] | color_to_rgb }};
 
- {% assign primary_text = "color_" | append: brand | append: "primary_text" %}
-  --color-primary-text: {{ settings[primary_text] | color_to_rgb }};
-
- {% assign primary_background = "color_" | append: brand | append: "primary_background" %}
-  --color-primary-background: {{ settings[primary_background] | color_to_rgb }};
-
- {% assign primary_meta = "color_" | append: brand | append: "primary_meta" %}
+  /* for whatever reason the variable is 'meta' but labelled as 'secondary' in settings schema. I'm guessing it would just be weird to label as 'primary_secondary' or something */
+  {% assign primary_meta = "color_" | append: brand | append: "primary_meta" %}
   --color-primary-meta: {{ settings[primary_meta] | color_to_rgb }};
-  
-/* ! END of dynamic variables */
 
 
   --color-primary-text--overlay: {{ primary_overlay_color | color_to_rgb }};
@@ -404,9 +407,17 @@
 
    Secondary color scheme 
 */
+
+
+  /* ! dynamic variable assignment based on Template: */
+  {% assign secondary_text = "color_" | append: brand | append: "secondary_text" %}
+  --color-secondary-text: {{ settings[secondary_text] | color_to_rgb }};
+
+  
+  {% assign secondary_background = "color_" | append: brand | append: "secondary_background" %}
+  --color-secondary-background: {{ settings[secondary_background] | color_to_rgb }};
+
   --color-secondary-accent: {{ settings.color_secondary_accent | color_to_rgb }};
-  --color-secondary-text: {{ settings.color_secondary_text | color_to_rgb }};
-  --color-secondary-background: {{ settings.color_secondary_background | color_to_rgb }};
   --color-secondary-meta: {{ settings.color_secondary_meta | color_to_rgb }};
   --color-secondary-text--overlay: {{ secondary_overlay_color | color_to_rgb }};
   --color-secondary-accent--overlay: {{ secondary_accent_overlay| color_to_rgb }};
@@ -466,22 +477,6 @@
 
   --white-text--overlay: {{ white_text_overlay_color | color_to_rgb }};
   --black-text--overlay: {{ black_text_overlay_color | color_to_rgb }};
-
-
-  /*
-
-   TODO: Skin Salvation Colors scheme 
-   - These will match the id's in settings schema 
-   - But we will still need to manually apply them across the project 
-*/
-  --color-ss-bg-primary: {{ settings.color_ss_background_primary }};
-  --color-ss-bg-secondary: {{ settings.color_ss_background_secondary }};
-
-  --color-ss-button-primary: {{ settings.color_ss_button_primary }};
-  --color-ss-button-secondary: {{ settings.color_ss_button_secondary }};
-
-  --color-ss-dark_text: {{ settings.color_ss_dark_text }};
-  --color-ss-light_text: {{ settings.color_ss_light_text }};
 
 
   /*

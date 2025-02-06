@@ -343,31 +343,50 @@
       },
       {
         "type": "header",
+        "info": "These brand colors map to the elements that are assigned to the original colors above.",
         "content": "Skin Salvation"
       },
       {
         "type": "color",
         "id": "color_ss_primary_text",
-        "label": "Text",
+        "label": "Primary Text",
+        "info": "Maps to Elements assigned to 'Primary Text'",
         "default": "#162317"
       },
       {
         "type": "color",
+        "id": "color_ss_secondary_text",
+        "label": "Secondary Text",
+        "info": "Maps to Elements assigned to 'Secondary Text'",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
         "id": "color_ss_primary_background",
-        "label": "Background",
-        "default": "#FFFFFF"
+        "info": "Maps to Elements assigned to 'Primary Background'",
+        "label": "Primary Background",
+        "default": "#eee8de"
+      },
+      {
+        "type": "color",
+        "id": "color_ss_secondary_background",
+        "info": "Maps to Elements assigned to 'Secondary Background'",
+        "label": "Secondary Background",
+        "default": "#422e23"
       },
       {
         "type": "color",
         "id": "color_ss_primary_accent",
+        "info": "Maps to Elements assigned to 'Primary Accent'",
         "label": "Accent",
-        "default": "#5bb0e2"
+        "default": "#5e6939"
       },
       {
         "type": "color",
         "id": "color_ss_primary_meta",
+        "info": "Maps to Elements assigned to 'Primary Secondary'",
         "label": "Secondary",
-        "default": "#9d9d9d"
+        "default": "#9e502c"
       }
     ]
   },
