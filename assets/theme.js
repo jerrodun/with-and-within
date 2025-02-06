@@ -26258,14 +26258,14 @@
               "data-sticky-header-with-banner-and-no-announcement"
             )
           ) {
+            // TODO: here's where the sticky-header-container class is added!
             this.$container.parents("div").addClass("sticky-header-container");
             jquery_default()("body").addClass("sticky-header");
 
+            // TODO: This is maybe how the top: -39.2px is added
             if (this.$container.attr("data-announcement")) {
-              var top =
-                "-" +
-                jquery_default()(".announcement-bar").outerHeight() +
-                "px";
+              var top = "-65px";
+
               this.$container.parents("div").css("top", top);
             }
           }

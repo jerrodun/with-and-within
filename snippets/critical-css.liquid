@@ -660,7 +660,7 @@
     background-color: var(--color-primary-background)
   }
   .max-site-width {
-    *zoom: 1;
+    zoom: 1;
     max-width: 1820px;
     margin-left: auto;
     margin-right: auto
@@ -944,7 +944,8 @@
     width: 100%;
     z-index: 10;
     background-color: transparent;
-    transition: background-color 0.2s ease-in-out
+    transition: background-color 0.2s ease-in-out, top 0.2s ease-in-out;
+    /* needed to add top for transition when apply class in JS */
   }
 }
 .site-logo {
