@@ -67,7 +67,7 @@
       href="{{ main_font_bold | font_url }}"
       type="font/woff2"
       crossorigin>
-    <link
+     <link
       rel="preload"
       href="{{ 'theme.min.js' | asset_url }}"
       as="script">
@@ -161,7 +161,7 @@
     -->
     {% if template.suffix contains 'skin-salvation' %}
       {% assign brand = 'ss_' %}
-      {% else %}
+    {% else %}
       {% assign brand = '' %}
     {% endif %}
 
@@ -170,7 +170,8 @@
     </script>
 
 
-    {% render 'css-variables', brand: brand %}
+    {% render 'css-variables'
+      , brand: brand %}
     {% render 'critical-css' %}
     {% render 'style-tags' %}
 
@@ -397,8 +398,8 @@
 
 
     {% comment %} 
-           TODO: Will likely be better if we create a suffix for the templates associated with With&Within as well in case the merchant wants more brands listed in the future! 
-         {% endcomment %}
+                 TODO: Will likely be better if we create a suffix for the templates associated with With&Within as well in case the merchant wants more brands listed in the future! 
+             {% endcomment %}
 
 
     <!-- HEADERS -->
@@ -428,10 +429,10 @@
   {% section 'popup' %}
 
     {% comment %} 
-                        Ajaxify your cart with this plugin.
-                          Documentation: 
-                         - http://shopify.com/timber#ajax-cart 
-                            {% endcomment %}
+                              Ajaxify your cart with this plugin.
+                                Documentation: 
+                               - http://shopify.com/timber#ajax-cart 
+                                {% endcomment %}
     {% render 'ajax-cart-template' %}
 
     {% if settings.show_scrolltop %}

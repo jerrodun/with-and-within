@@ -1157,7 +1157,7 @@
                         if (nodeType === 9) {
                           if ((elem = context.getElementById(m))) {
                             // Support: IE, Opera, Webkit
-                            // TODO: identify versions
+
                             // getElementById can match elements by name instead of ID
                             if (elem.id === m) {
                               results.push(elem);
@@ -1170,7 +1170,7 @@
                           // Element context
                         } else {
                           // Support: IE, Opera, Webkit
-                          // TODO: identify versions
+
                           // getElementById can match elements by name instead of ID
                           if (
                             newContext &&
@@ -7697,6 +7697,8 @@
             // setting or getting the value
             cssProps: {},
 
+            // TODO: this is the script that is affecting the header height on scroll
+            // value is apparenly
             // Get and set the style property on a DOM Node
             style: function (elem, name, value, extra) {
               // Don't set styles on text and comment nodes
@@ -7756,6 +7758,7 @@
                     (ret && ret[3]) || (jQuery.cssNumber[origName] ? "" : "px");
                 }
 
+                // TODO: closerrrrr.....
                 // background-* props affect original clone's values
                 if (
                   !support.clearCloneStyle &&
@@ -26352,15 +26355,13 @@
             };
 
             var watchAnnouncementBar = function watchAnnouncementBar() {
-              var announcementBarHeight = parseInt(
-                $announcementBar.outerHeight()
-              );
-              announcementWatcher = scrollMonitor.create(
-                announcementBarHeight - 1
-              );
-
-              // TODO: tried this but didn't work..? Moving on to stay productive
               const brandHeaderHeight = 65; // in px, hardcoded for now to just get it working
+
+              var announcementBarHeight = 65; // in px, hardcoded for now to just get it working
+
+              announcementWatcher = scrollMonitor.create(brandHeaderHeight - 1);
+
+              // TODO: I may just add my own script to overrides what is happening here!
 
               $header.css({
                 willChange: "position, transform",
@@ -26372,6 +26373,7 @@
               );
               var tempHeaderStyleEl = document.createElement("style");
               tempHeaderStyleEl.setAttribute("id", "temp-header-styles");
+
               tempHeaderStyleEl.innerHTML =
                 "\n" +
                 ".site-header.full-height.active.is-shifted { height: calc(100vh + " +

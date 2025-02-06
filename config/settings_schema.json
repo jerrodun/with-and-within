@@ -182,7 +182,7 @@
     "settings": [
       {
         "type": "header",
-        "content": "Primary color scheme"
+        "content": "With&Within Primary"
       },
       {
         "type": "paragraph",
@@ -214,7 +214,7 @@
       },
       {
         "type": "header",
-        "content": "Secondary color scheme"
+        "content": "With&Within Secondary"
       },
       {
         "type": "paragraph",
@@ -246,7 +246,7 @@
       },
       {
         "type": "header",
-        "content": "Tertiary color scheme"
+        "content": "With&Within Tertiary"
       },
       {
         "type": "paragraph",
@@ -278,7 +278,7 @@
       },
       {
         "type": "header",
-        "content": "Quaternary color scheme"
+        "content": "With&Within Quaternary"
       },
       {
         "type": "paragraph",
@@ -320,7 +320,7 @@
       },
       {
         "type": "header",
-        "content": "Modals"
+        "content": "With&Within Modals"
       },
       {
         "type": "paragraph",
@@ -350,41 +350,41 @@
         "type": "color",
         "id": "color_ss_primary_text",
         "label": "Primary Text",
-        "info": "Maps to Elements assigned to 'Primary Text'",
+        "info": "Maps to Elements assigned to 'With&Within Primary Text'",
         "default": "#162317"
       },
       {
         "type": "color",
         "id": "color_ss_secondary_text",
         "label": "Secondary Text",
-        "info": "Maps to Elements assigned to 'Secondary Text'",
+        "info": "Maps to Elements assigned to 'With&Within Secondary Text'",
         "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "color_ss_primary_background",
-        "info": "Maps to Elements assigned to 'Primary Background'",
+        "info": "Maps to Elements assigned to 'With&Within Primary Background'",
         "label": "Primary Background",
         "default": "#eee8de"
       },
       {
         "type": "color",
         "id": "color_ss_secondary_background",
-        "info": "Maps to Elements assigned to 'Secondary Background'",
+        "info": "Maps to Elements assigned to 'With&Within Secondary Background'",
         "label": "Secondary Background",
         "default": "#422e23"
       },
       {
         "type": "color",
         "id": "color_ss_primary_accent",
-        "info": "Maps to Elements assigned to 'Primary Accent'",
+        "info": "Maps to Elements assigned to 'With&Within Primary Accent'",
         "label": "Accent",
         "default": "#5e6939"
       },
       {
         "type": "color",
         "id": "color_ss_primary_meta",
-        "info": "Maps to Elements assigned to 'Primary Secondary'",
+        "info": "Maps to Elements assigned to 'With&Within Primary Secondary'",
         "label": "Secondary",
         "default": "#9e502c"
       }

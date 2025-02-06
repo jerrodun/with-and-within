@@ -393,7 +393,7 @@ Grid
 
 /* TODO: What's this about? Seems like a typo and the zoom CSS is just being ignored */
 .grid {
-  *zoom: 1;
+  zoom: 1;
   margin: 0;
   margin-left: -60px;
   padding: 0;
@@ -634,7 +634,7 @@ Grid
     margin: 0;
   }
   .lg--up--grid {
-    *zoom: 1;
+    zoom: 1;
     margin: 0;
     margin-left: -60px;
     padding: 0;
@@ -6697,7 +6697,7 @@ html {
 }
 
 .max-site-width {
-  *zoom: 1;
+  zoom: 1;
   max-width: 1380px;
   margin-left: auto;
   margin-right: auto;
