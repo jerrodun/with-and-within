@@ -4,3 +4,11 @@ node_modules/
 minify.js
 package-lock.json
 package.json
+
+# not sure if this syntax works, would love to ONLY push the min files to prod:
+
+**.js
+!**.min.js
+
+**.css
+!**.min.css
