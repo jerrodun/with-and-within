@@ -1,0 +1,6 @@
+# files aren't needed for production:
+
+node_modules/
+minify.js
+package-lock.json
+package.json
