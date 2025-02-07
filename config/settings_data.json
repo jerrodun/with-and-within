@@ -2800,7 +2800,7 @@
           "disable_default_dropdown": true,
           "show_search": false,
           "show_menu_icon": true,
-          "secondary_linklist": "skin-salvation-menu",
+          "secondary_linklist": "",
           "show_search_sidebar": false,
           "brand-logo-1": "shopify://shop_images/w_w_logo_green_1_358f76d3-b94a-411e-a99f-d14883471e22.png",
           "brand-color-1": "#ffffff",
