@@ -1368,7 +1368,7 @@
               "button2_url": "https://skinsalvation.janeapp.com/",
               "button2_text": "BOOK AN APPOINTMENT",
               "section_bg_color": "gradient",
-              "color_scheme": "secondary",
+              "color_scheme": "primary",
               "section_custom_padding": "global"
             }
           },
@@ -1427,7 +1427,7 @@
               "text_align": "text-align--center",
               "section_bg_color": "white",
               "heading_text_color": "aw_section_text_sky_blue",
-              "section_custom_padding": "global"
+              "section_custom_padding": "smaller"
             }
           },
           "cb5152e6-cfdb-4c2d-ae8a-2cd303ae8c48": {
@@ -1437,9 +1437,9 @@
               "title": "Kimberly Yap Tan",
               "subtitle": "esthetician",
               "text": "licensed as an esthetician since 2004, kim started with & within, san francisco's first adult acne clinic (then called skinsalvation) in 2008.  book any treatment with her and experience the expertise that thousands of other clients have relied on and trusted to help them get clear.\n<br>\n<br>\na san francisco native, kim has spent the last 20 years refining the craft of truly effective holistic skincare. through her clinic observations, studying directly acne's top research pioneer dr. james e. fulton and the bay area's esthetician laura cooksey, and personal health research, the w&w clear skin philosophy was born.\n<br>\n<br>\nshe's also the author of the #1 best selling book \"clear skin for everyone,\" encapsulating everything she's learned, observed and seen effective time and time again from running SF's first acne clinic over the last 15+ years.\n<br>\n<br>\nrenowned for her detail oriented treatments, actionable lifestyle education and honest, straightforward approach, she strives to maintain the same level of utmost effective and compassionate care that the brand became known for years ago.\n<br>\n<br>\nher deep training and knowledge of the complexities involved in the acne condition, her comprehensive client care covers the internal and topical (expert treatments, products & ingredients) facets of an acne-safe lifestyle, making for a holistic and bio-individual approach that helps every client achieve clear skin for life.",
-              "section_bg_color": "white",
-              "section_custom_padding": "smaller",
-              "section_padding_top_none": true,
+              "section_bg_color": "light_gray",
+              "section_custom_padding": "global",
+              "section_padding_top_none": false,
               "section_padding_bottom_none": true
             }
           },
@@ -1462,8 +1462,8 @@
               "button1_text": "",
               "button2_url": "",
               "button2_text": "",
-              "section_bg_color": "light_gray",
-              "color_scheme": "secondary",
+              "section_bg_color": "white",
+              "color_scheme": "primary",
               "section_custom_padding": "global"
             }
           }
@@ -2415,7 +2415,7 @@
         "custom_css": [],
         "settings": {
           "section_bg_color": "aw_section_bg_white",
-          "section_custom_padding": "global"
+          "section_custom_padding": "smaller"
         }
       },
       "aw-video-slider": {
