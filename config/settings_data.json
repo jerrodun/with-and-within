@@ -2843,7 +2843,7 @@
           "show_footer_credits": false,
           "show_locale_selector": true,
           "show_currency_selector": true,
-          "color_combination": "secondary"
+          "color_combination": "tertiary"
         }
       }
     },
