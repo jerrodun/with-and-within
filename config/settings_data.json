@@ -2807,7 +2807,7 @@
           "brand-logo-2": "shopify://shop_images/Frame_1_2.png",
           "brand-color-2": "#efe9df",
           "show_announcement": true,
-          "home_page_only": true,
+          "home_page_only": false,
           "text": "SkinSalvation Announcement!",
           "link": "#"
         }
