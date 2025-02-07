@@ -2788,7 +2788,7 @@
       "header-skin-salvation": {
         "type": "header-skin-salvation",
         "settings": {
-          "show_cart_icon": false,
+          "show_cart_icon": true,
           "show_logo": true,
           "logo_svg": "",
           "logo_svg_mobile": "",
@@ -2803,12 +2803,12 @@
           "secondary_linklist": "categories",
           "show_search_sidebar": false,
           "brand-logo-1": "shopify://shop_images/w_w_logo_green_1_358f76d3-b94a-411e-a99f-d14883471e22.png",
-          "brand-color-1": "#FFFFFF",
+          "brand-color-1": "#ffffff",
           "brand-logo-2": "shopify://shop_images/Frame_1_2.png",
           "brand-color-2": "#efe9df",
           "show_announcement": true,
           "home_page_only": true,
-          "text": "Announce something here",
+          "text": "SkinSalvation Announcement!",
           "link": "#"
         }
       },
