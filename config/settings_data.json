@@ -2799,11 +2799,11 @@
           "show_menu_icon": false,
           "secondary_linklist": "",
           "show_search_sidebar": false,
-          "show_announcement": false,
+          "show_announcement": true,
           "home_page_only": true,
           "text": "Announce something here",
           "announcement_color": "primary",
-          "link": ""
+          "link": "#"
         }
       },
       "footer-skin-salvation": {
