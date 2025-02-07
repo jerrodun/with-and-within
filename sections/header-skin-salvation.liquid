@@ -1,11 +1,5 @@
 {% comment %}
-  ! Header for SkinSalvation View
-  - Needed a copy of header to render:
-  - a different menu
-  - a different logo
-  - when creating new pages/products we will need to follow the 
-  naming convention of page.<brand>.liquid or product.<brand>.liquid 
-
+  ! Header for With&Within View
 {% endcomment %}
 
 {%- assign section_color = 'primary' -%}
@@ -85,15 +79,27 @@
     <div class="header__main">
 
 
-  {% comment %}
+    
+
+{% comment %}
  - Render ABOVE announcement bar
  - Needed to manually adjust the amount that the <header> reduced in height
  - passing suffix down to the multi-brand header
  - if template.suffix is nil, ie. NO suffix, the default is 'with-and-within'
 {% endcomment %}
-   {% assign brand = template.suffix | default: 'with-and-within' %}
+    {% assign brand = template.suffix | default: 'with-and-within' %}
 
-     {% render 'multi-brand-header', brand: brand %}
+  {% if brand == 'with-and-within' %}
+    {% assign color = section.settings.brand-color-1 %}
+  {% elsif brand == 'skin-salvation' %}
+    {% assign color = section.settings.brand-color-2 %}
+  {% endif %}
+    
+{% comment %}
+  - passes the ACTIVE color and the brand to determine which element to color
+  - TODO: could probably optimize by referring to brands by an id versus a hardcoded name
+{% endcomment %}
+     {% render 'multi-brand-header', brand: brand, color: color, settings: section.settings %}
 
       <div class="max-site-width px2 lg--up--px3">
         <div class="relative">
@@ -103,14 +109,27 @@
         </div>
       </div>
 
+  
 
       {% if section.settings.show_announcement %}
-        {% capture class %}block full--w bg--{{ section.settings.announcement_color }}-background color--{{ section.settings.announcement_color }}-text px2 py1  font-size--sm text-align--center {% endcapture %}
+
+
+{%  comment  %}  
+
+- Looks like the code is building dynamic classes based on what's in the theme editor
+- we will have to investigate where these classes are and how we can use them
+
+{% endcomment %}
+
+        {% capture class %}block full--w px2 py1  font-size--sm text-align--center {% endcapture %}
+
         {% if section.settings.home_page_only == false or template.name == 'index' %}
           {% if section.settings.link == blank %}
-            <div class="announcement-bar {{ class }}">
+            <div class="announcement-bar {{ class }}" style="background-color: {{ color }};">
           {% else %}
-            <a href="{{ section.settings.link }}" class="announcement-bar announcement-bar--link  {{ class }} hv--{{ section.settings.announcement_color }}-accent">
+            <a href="{{ section.settings.link }}" 
+            style="background-color: {{ color }};"
+            class="announcement-bar announcement-bar--link {{ class }}">
           {% endif %}
             <p class="m0 announcement-bar__message">{{ section.settings.text | escape }}</p>
           {% if section.settings.link == blank %}
@@ -805,19 +824,11 @@ elements.forEach(function(element) {
   </script>
 {% endif %}
 
-
-{% comment %}
-TODO: how do we setup 'color combinations?'
-
-
-  { "value": "color_ss_background_primary", "label": "Skin Salvation Primary Background"},
-  { "value": "color_ss_background_secondary", "label": "Skin Salvation Secondary Background"}
-{% endcomment %}
-
 {% schema %}
   {
-    "name": "Header",
+    "name": "Skin Salvation Header",
     "settings": [
+     
       {
         "type": "checkbox",
         "id": "show_cart_icon",
@@ -915,9 +926,34 @@ TODO: how do we setup 'color combinations?'
         "id": "show_search_sidebar",
         "label": "Show search"
       },
+         {
+        "type": "header",
+        "content": "Multi-Brand Header"
+      },
+        {
+        "type": "image_picker",
+        "id": "brand-logo-1",
+        "label": "1st Logo image (.png format)"
+      },
+      {
+        "type": "color",
+        "id": "brand-color-1",
+        "label": "1st Logo background color (will change announcement bar when active)"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand-logo-2",
+        "label": "2nd Logo image (.png format)"
+      },
+       {
+        "type": "color",
+        "id": "brand-color-2",
+        "label": "2nd Logo background color (will change announcement bar when active)"
+      },
       {
         "type": "header",
-        "content": "Announcement bar"
+        "content": "Announcement bar",
+        "info": "Color is determined by the ACTIVE brand"
       },
       {
         "type": "checkbox",
@@ -937,17 +973,6 @@ TODO: how do we setup 'color combinations?'
         "label": "Text",
         "default": "Announce something here"
       },
-      {
-         "type": "select",
-         "id": "announcement_color",
-         "options": [
-            { "value": "primary", "label": "Primary"},
-            { "value": "secondary", "label": "Secondary"},
-            { "value": "tertiary", "label": "Tertiary"},
-            { "value": "light-blue", "label": "Light Blue"}
-          ],
-          "label": "Announcement color combination"
-        },
       {
         "type": "url",
         "id": "link",
@@ -1034,6 +1059,12 @@ TODO: how do we setup 'color combinations?'
               { "value": "black", "label": "Black"}
             ]
           },
+          //{ // Disabling this option since we don't need to use it atm.
+          //  "type": "image_picker",
+          //  "id": "logo_alternate",
+          //  "label": "Logo image",
+          //  "info": "Alternate logo for the banner image"
+          //},
           {
             "type": "header",
             "content": "Content"
