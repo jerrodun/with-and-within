@@ -147,10 +147,11 @@
           "show_menu_icon": false,
           "secondary_linklist": "",
           "show_search_sidebar": true,
+          "brand-color-1": "",
+          "brand-color-2": "",
           "show_announcement": true,
           "home_page_only": false,
           "text": "ARE YOU PRODUCTS ACNE-SAFE? click here to use our free product ingredient checker now",
-          "announcement_color": "light-blue",
           "link": "shopify://pages/product-checker"
         }
       },
@@ -190,7 +191,7 @@
           "show_footer_credits": false,
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "color_combination": "tertiary"
+          "footer-color": ""
         }
       },
       "1524647205456": {
@@ -2797,12 +2798,13 @@
           "disable_default_dropdown": true,
           "show_search": false,
           "show_menu_icon": false,
-          "secondary_linklist": "",
+          "secondary_linklist": "categories",
           "show_search_sidebar": false,
+          "brand-color-1": "",
+          "brand-color-2": "",
           "show_announcement": true,
           "home_page_only": true,
           "text": "Announce something here",
-          "announcement_color": "primary",
           "link": "#"
         }
       },
@@ -2843,7 +2845,7 @@
           "show_footer_credits": false,
           "show_locale_selector": true,
           "show_currency_selector": true,
-          "color_combination": "tertiary"
+          "footer-color": ""
         }
       }
     },
@@ -2978,7 +2980,6 @@
             "show_announcement": true,
             "home_page_only": false,
             "text": "Announce something here",
-            "announcement_color": "tertiary",
             "link": ""
           }
         },
@@ -3008,8 +3009,7 @@
             "1535970800735"
           ],
           "settings": {
-            "show_payment_icons": true,
-            "color_combination": "primary"
+            "show_payment_icons": true
           }
         },
         "1524637029643": {
@@ -3384,7 +3384,6 @@
             "show_announcement": true,
             "home_page_only": false,
             "text": "Announce something here",
-            "announcement_color": "secondary",
             "link": ""
           }
         },
@@ -3414,8 +3413,7 @@
             "1535970800735"
           ],
           "settings": {
-            "show_payment_icons": true,
-            "color_combination": "primary"
+            "show_payment_icons": true
           }
         },
         "1527920766272": {
@@ -3833,7 +3831,6 @@
             "show_announcement": true,
             "home_page_only": true,
             "text": "Announce something here",
-            "announcement_color": "secondary",
             "link": "shopify://collections/frontpage"
           }
         },
@@ -3863,8 +3860,7 @@
             "1535970800735"
           ],
           "settings": {
-            "show_payment_icons": true,
-            "color_combination": "tertiary"
+            "show_payment_icons": true
           }
         },
         "1525394179725": {
