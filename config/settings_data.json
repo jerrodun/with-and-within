@@ -2808,13 +2808,42 @@
       },
       "footer-skin-salvation": {
         "type": "footer-skin-salvation",
+        "blocks": {
+          "richtext_34qwQd": {
+            "type": "richtext",
+            "settings": {
+              "text": "<p>Use this to add additional information about your store, e.g. address / contact details.</p>",
+              "css_class": ""
+            }
+          },
+          "newsletter_UwFxUV": {
+            "type": "newsletter",
+            "settings": {
+              "text": "<p>Receive special offers and first look at new products.</p>",
+              "css_class": ""
+            }
+          },
+          "menus_MJcEKQ": {
+            "type": "menus",
+            "settings": {
+              "menu1": "",
+              "menu2": "categories",
+              "menu3": ""
+            }
+          }
+        },
+        "block_order": [
+          "richtext_34qwQd",
+          "newsletter_UwFxUV",
+          "menus_MJcEKQ"
+        ],
         "settings": {
           "logo": "shopify://shop_images/logo-bird-ss-mobile.svg",
           "show_payment_icons": false,
           "show_footer_credits": false,
           "show_locale_selector": true,
           "show_currency_selector": true,
-          "color_combination": "primary"
+          "color_combination": "secondary"
         }
       }
     },
