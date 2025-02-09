@@ -1,3 +1,12 @@
+  
+  
+  {% assign brand = template.suffix | default: 'with-and-within' %}
+
+  {% assign color = section.settings.brand-color-1 %}
+ 
+
+
+
 {%- assign section_color = section.settings.color_combination -%}
 
 
@@ -60,7 +69,8 @@
 
 
 
-<footer class="section-with-padding section-with-padding--smaller color--{{ section_color }}-text bg--{{ section_color }}-background footer--aw-wrapper"
+<footer class="section-with-padding section-with-padding--smaller color--{{ section_color }}-text footer--aw-wrapper"
+style="background-color: {{section.settings.footer-color}};"
 
   data-section-id="{{ section.id }}"
 
@@ -429,25 +439,13 @@
                         </button>
                       </span>
                     </div>
-
                     {% endif %}
-
                   {% endform %}
-
               {% endif %}
-
             </div>
-
           {% endfor %}
-
-
-
-
-
         </div>
-
       </div>
-
     </div>
 
 
@@ -475,53 +473,26 @@
         {%- if payment_icons -%}
 
         <div class="text-align--left lg--up--text-align--right">
-
           <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-
           <ul class="payment-icons m0 p0 list--reset font-size--xl">
-
             {% for type in shop.enabled_payment_types %}
-
               <li class="inline-block">
-
                 {{ type | payment_type_svg_tag: class:'payment-icon' }}
-
               </li>
-
             {%- endfor -%}
-
           </ul>
-
         </div>
-
         {%- endif -%}
-
-
-
         {%- if currency_selector or locale_selector-%}
-
         {%- capture disclosure__toggle_classes -%}bg--transparent border--{{ section_color }}-text color--{{ section_color }}-text p1 block full--w font-size--sm text-align--left mt1{%- endcapture -%}
-
         {%- capture disclosure__list_classes -%}bg--{{ section_color }}-background border--{{ section_color }}-text color--{{ section_color }}-text p2 block font-size--sm mt1{%- endcapture -%}
-
-
-
         <div class="locale-selectors">
-
           {%- form 'localization', class: 'selectors-form mxn1 flex flex--wrap justify--start lg--up--justify--end' -%}
-
             {%- if locale_selector -%}
-
               <div class="selectors-form__item mx1">
-
                 <h2 class="visually-hidden" id="lang-heading">
-
                   {{ 'general.language.dropdown_label' | t }}
-
                 </h2>
-
-
-
                 <div class="disclosure" data-disclosure-locale>
 
                   <button type="button"
@@ -683,242 +654,124 @@
 
 
 {% schema %}
-
   {
-
     "name": "Footer",
-
     "settings": [
-
       {
-
         "type": "image_picker",
-
         "id": "logo",
-
         "label": "Logo image"
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_payment_icons",
-
         "label": "Show payment icons",
-
         "default": false
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_footer_credits",
-
         "info": "Shows credits and copyright",
-
         "label": "Show footer credits",
-
         "default": false
-
       },
-
       {
-
         "type": "header",
-
         "content": "Language Selector",
-
         "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_locale_selector",
-
         "label": "Show language selector",
-
         "default": true
-
       },
-
       {
-
         "type": "header",
-
         "content": "Currency Selector",
-
         "info": "To add a currency, go to your [currency settings.](/admin/settings/payments)"
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_currency_selector",
-
         "label": "Show currency selector",
-
         "default": true
-
       },
-
       {
-
-        "type":      "header",
-
-        "content":   "Color"
-
+        "type": "header",
+        "content": "Color"
       },
-
-      {
-
+     {
          "type": "color",
          "id": "footer-color",
          "label": "Background Color"
-
       }
-
     ],
-
     "blocks": [
-
       {
-
         "type": "menus",
-
         "name": "Menus",
-
         "limit": 1,
-
         "settings": [
-
           {
-
             "type": "link_list",
-
             "id": "menu1",
-
             "label": "Menu",
-
             "default": "footer",
-
             "info": "This menu won't show dropdown items"
-
           },
-
           {
-
             "type": "link_list",
-
             "id": "menu2",
-
             "label": "Secondary Menu",
-
             "info": "This menu won't show dropdown items"
-
           },
-
           {
-
             "type": "link_list",
-
             "id": "menu3",
-
             "label": "Tertiary Menu",
-
             "info": "This menu won't show dropdown items"
-
           }
-
         ]
-
       },
-
       {
-
         "type": "richtext",
-
         "name": "Rich text",
-
         "limit": 1,
-
         "settings": [
-
           {
-
             "id": "text",
-
             "type": "richtext",
-
             "label": "Text",
-
             "default": "<p>Use this to add additional information about your store, e.g. address / contact details.</p>"
-
           },
-
           {
-
             "id": "css_class",
-
             "type": "text",
-
             "label": "Custom CSS Class"
-
           }
-
         ]
-
       },
-
       {
-
         "type": "newsletter",
-
         "name": "Newsletter",
-
         "limit": 1,
-
         "settings": [
-
           {
-
             "type": "richtext",
-
             "id": "text",
-
             "label": "Text",
-
             "default": "<p>Receive special offers and first look at new products.</p>"
-
           },
-
           {
-
             "type": "text",
-
             "id": "css_class",
-
             "label": "Custom CSS Class"
-
           }
-
         ]
-
       }
-
     ]
-
   }
-
-
-
 {% endschema %}
+
 

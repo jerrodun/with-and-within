@@ -86,13 +86,20 @@
  - Needed to manually adjust the amount that the <header> reduced in height
  - passing suffix down to the multi-brand header
  - if template.suffix is nil, ie. NO suffix, the default is 'with-and-within'
+- the problem is there are OTHER template.suffices like'aw--diy' and so this logic doesn't work!
 {% endcomment %}
-    {% assign brand = template.suffix | default: 'with-and-within' %}
 
-  {% if brand == 'with-and-within' %}
-    {% assign color = section.settings.brand-color-1 %}
-  {% elsif brand == 'skin-salvation' %}
-    {% assign color = section.settings.brand-color-2 %}
+{% if template.suffix == 'skin-salvation' %}
+    {% assign brand = 'skin-salvation' %}
+{% else %}
+    {% assign brand = 'with-and-within' %}
+{% endif %}
+
+
+  {% if brand == 'skin-salvation' %}
+       {% assign color = section.settings.brand-color-2 %}
+    {% else %}
+      {% assign color = section.settings.brand-color-1 %}
   {% endif %}
     
 {% comment %}

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "shopify theme dev --store skinsalvation-acne-clinic.myshopify.com",
     "min": "node minify.js"
   },
   "author": "",

@@ -60,7 +60,8 @@
 
 
 
-<footer class="section-with-padding section-with-padding--smaller color--{{ section_color }}-text bg--{{ section_color }}-background footer--aw-wrapper"
+<footer class="section-with-padding section-with-padding--smaller color--{{ section_color }}-text footer--aw-wrapper"
+style="background-color: {{section.settings.footer-color}};"
 
   data-section-id="{{ section.id }}"
 
@@ -683,239 +684,123 @@
 
 
 {% schema %}
-
   {
-
     "name": "Footer",
-
     "settings": [
-
       {
-
         "type": "image_picker",
-
         "id": "logo",
-
         "label": "Logo image"
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_payment_icons",
-
         "label": "Show payment icons",
-
         "default": false
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_footer_credits",
-
         "info": "Shows credits and copyright",
-
         "label": "Show footer credits",
-
         "default": false
-
       },
-
       {
-
         "type": "header",
-
         "content": "Language Selector",
-
         "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_locale_selector",
-
         "label": "Show language selector",
-
         "default": true
-
       },
-
       {
-
         "type": "header",
-
         "content": "Currency Selector",
-
         "info": "To add a currency, go to your [currency settings.](/admin/settings/payments)"
-
       },
-
       {
-
         "type": "checkbox",
-
         "id": "show_currency_selector",
-
         "label": "Show currency selector",
-
         "default": true
-
       },
-
       {
-
         "type":      "header",
-
         "content":   "Color"
-
       },
      {
          "type": "color",
          "id": "footer-color",
          "label": "Background Color"
       }
-
     ],
-
     "blocks": [
-
       {
-
         "type": "menus",
-
         "name": "Menus",
-
         "limit": 1,
-
         "settings": [
-
           {
-
             "type": "link_list",
-
             "id": "menu1",
-
             "label": "Menu",
-
             "default": "footer",
-
             "info": "This menu won't show dropdown items"
-
           },
-
           {
-
             "type": "link_list",
-
             "id": "menu2",
-
             "label": "Secondary Menu",
-
             "info": "This menu won't show dropdown items"
-
           },
-
           {
-
             "type": "link_list",
-
             "id": "menu3",
-
             "label": "Tertiary Menu",
-
             "info": "This menu won't show dropdown items"
-
           }
-
         ]
-
       },
-
       {
-
         "type": "richtext",
-
         "name": "Rich text",
-
         "limit": 1,
-
         "settings": [
-
           {
-
             "id": "text",
-
             "type": "richtext",
-
             "label": "Text",
-
             "default": "<p>Use this to add additional information about your store, e.g. address / contact details.</p>"
-
           },
-
           {
-
             "id": "css_class",
-
             "type": "text",
-
             "label": "Custom CSS Class"
-
           }
-
         ]
-
       },
-
       {
-
         "type": "newsletter",
-
         "name": "Newsletter",
-
         "limit": 1,
-
         "settings": [
-
           {
-
             "type": "richtext",
-
             "id": "text",
-
             "label": "Text",
-
             "default": "<p>Receive special offers and first look at new products.</p>"
-
           },
-
           {
-
             "type": "text",
-
             "id": "css_class",
-
             "label": "Custom CSS Class"
-
           }
-
         ]
-
       }
-
     ]
-
   }
-
-
-
 {% endschema %}
 
