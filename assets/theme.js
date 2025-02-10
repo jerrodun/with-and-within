@@ -26376,52 +26376,51 @@
               //     // header.style.boxShadow = "none";
               //   }
               // });
-              // ! This is the original theme code commented out:
-              // const brandHeaderHeight = 65; // in px, hardcoded for now to just get it working
-              // var announcementBarHeight = 65; // in px, hardcoded for now to just get it working
-              // announcementWatcher = scrollMonitor.create(brandHeaderHeight - 1);
-              // // TODO: I may just add my own script to overrides what is happening here!
-              // $header.css({
-              //   willChange: "position, transform",
-              //   top: 0,
-              // });
-              // jquery_default()("#shopify-section-header").css(
-              //   "will-change",
-              //   "scroll-position"
-              // );
-              // var tempHeaderStyleEl = document.createElement("style");
-              // tempHeaderStyleEl.setAttribute("id", "temp-header-styles");
-              // tempHeaderStyleEl.innerHTML =
-              //   "\n" +
-              //   ".site-header.full-height.active.is-shifted { height: calc(100vh + " +
-              //   announcementBarHeight.toString() +
-              //   "px); }\n" +
-              //   ".site-header.full-height.active.is-shifted .header__close { transform: translateY(" +
-              //   announcementBarHeight.toString() +
-              //   "px) };";
-              // document.head.appendChild(tempHeaderStyleEl);
-              // announcementWatcher.enterViewport(function () {
-              //   $header.css({
-              //     transform: "translateY(0)",
-              //     position: "",
-              //   });
-              //   $header.removeClass("is-shifted");
-              // });
-              // announcementWatcher.exitViewport(function () {
-              //   $header.css({
-              //     transform:
-              //       "translateY(" +
-              //       (announcementBarHeight * -1).toString() +
-              //       "px)",
-              //     position: "fixed",
-              //   });
-              //   $header.css("will-change", "");
-              //   $header.addClass("is-shifted");
-              //   jquery_default()("#shopify-section-header").css(
-              //     "will-change",
-              //     ""
-              //   );
-              // });
+              const brandHeaderHeight = 65; // in px, hardcoded for now to just get it working
+              var announcementBarHeight = 65; // in px, hardcoded for now to just get it working
+              announcementWatcher = scrollMonitor.create(brandHeaderHeight - 1);
+              // TODO: I may just add my own script to overrides what is happening here!
+              $header.css({
+                willChange: "position, transform",
+                top: 0,
+              });
+              jquery_default()("#shopify-section-header").css(
+                "will-change",
+                "scroll-position"
+              );
+              var tempHeaderStyleEl = document.createElement("style");
+              tempHeaderStyleEl.setAttribute("id", "temp-header-styles");
+              tempHeaderStyleEl.innerHTML =
+                "\n" +
+                ".site-header.full-height.active.is-shifted { height: calc(100vh + " +
+                announcementBarHeight.toString() +
+                "px); }\n" +
+                ".site-header.full-height.active.is-shifted .header__close { transform: translateY(" +
+                announcementBarHeight.toString() +
+                "px) };";
+              document.head.appendChild(tempHeaderStyleEl);
+              announcementWatcher.enterViewport(function () {
+                $header.css({
+                  transform: "translateY(0)",
+                  position: "",
+                });
+                $header.removeClass("is-shifted");
+              });
+              announcementWatcher.exitViewport(function () {
+                $header.css({
+                  transform:
+                    "translateY(" +
+                    (announcementBarHeight * -1).toString() +
+                    "px)",
+                  position: "fixed",
+                });
+                $header.css("will-change", "");
+                $header.addClass("is-shifted");
+                jquery_default()("#shopify-section-header").css(
+                  "will-change",
+                  ""
+                );
+              });
             };
 
             var stopWatchingAnnouncementBar =
