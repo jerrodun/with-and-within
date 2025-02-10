@@ -1,34 +1,16 @@
-{% comment %} 
-                    TODO: will need to find out how this particular theme is hiding the announcement bar and
-                    TODO: Need to figure out how to style. I guess we're managing this by the SUFFIX in the URL handle
-                    TODO: will need to pass down template to this snippet
-                    TODO: we will also need white versions of the logos to go on the colored backgrounds.
-                    TODO: pass down: 
-                      - desktop and mobile logo for EACH header template
-                    
-                      ADD SETTINGS AND PASS DOWN:
-                      - the colors for active 
-                      - the background color of the brand-header
-                      - 
-                    
-                    
-                    - if 
-{% endcomment %}
-
-<script>
-  console.log('color:', {{ color | json }})
-  console.log('brand:', {{ brand | json }})
-   console.log('img 1:', {{ brand | json }})
-    console.log('img 2:', {{ brand | json }})
-</script>
-
 <style>
+
+  .brand-header--wrapper {
+    background-color: {{ settings.background-color }};
+  }
+
   .active-brand {
     background-color: {{ color }};
   }
 
   .brand-header--list-item {
     color: white;
+    padding: 8px;
     height: 100%;
   }
 
@@ -36,6 +18,7 @@
   .with-within-filter {
     filter: brightness(1000%);
   }
+
 </style>
 
 <section class="brand-header--wrapper">
@@ -45,14 +28,14 @@
         class="{% if brand == 'with-and-within' %}with-within-filter{% endif %}"
         alt="With & Within Brand Logo"
         src="{{ settings.brand-logo-1 | image_url }}"
-        height="80%"
-        width="auto" />
+        height="100%"
+        width="100%" />
     </a>
     <a class="brand-header--list-item {% if brand == 'skin-salvation' %}active-brand{% endif %}" href="/pages/skinsalvation">
       <img
         alt="Skin Salvation Brand Logo"
         src="{{ settings.brand-logo-2 | image_url }}"
-        height="80%"
+        height="100%"
         width="auto" />
     </a>
   </span>

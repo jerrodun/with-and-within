@@ -131,13 +131,13 @@
 
         {% if section.settings.home_page_only == false or template.name == 'index' %}
           {% if section.settings.link == blank %}
-            <div class="announcement-bar {{ class }}" style="background-color: {{ color }};">
+            <div class="announcement-bar {{ class }}">
           {% else %}
             <a href="{{ section.settings.link }}" 
             style="background-color: {{ color }};"
             class="announcement-bar announcement-bar--link {{ class }}">
           {% endif %}
-            <p class="m0 announcement-bar__message">{{ section.settings.text | escape }}</p>
+            <p style="color: {{section.settings.text-color}};" class="m0 announcement-bar__message">{{ section.settings.text | escape }}</p>
           {% if section.settings.link == blank %}
             </div>
           {% else %}
@@ -936,6 +936,11 @@ elements.forEach(function(element) {
         "type": "header",
         "content": "Multi-Brand Header"
       },
+       {
+        "type": "color",
+        "id": "background-color",
+        "label": "Background Color"
+      },
         {
         "type": "image_picker",
         "id": "brand-logo-1",
@@ -960,6 +965,11 @@ elements.forEach(function(element) {
         "type": "header",
         "content": "Announcement bar",
         "info": "Color is determined by the ACTIVE brand"
+      },
+         {
+        "type": "color",
+        "label": "Text Color",
+        "id": "text-color"
       },
       {
         "type": "checkbox",
