@@ -137,7 +137,7 @@
           "logo_svg": "",
           "logo_svg_mobile": "",
           "logo": "shopify://shop_images/1_37a9a325-341d-4c24-8249-a44d5dbba7b6.png",
-          "logo_mobile": "shopify://shop_images/1_695c9aa0-2758-44cd-9de4-dceb39658e78.png",
+          "logo_mobile": "shopify://shop_images/ww-logo-white_24b9d4d2-122a-4fa3-a117-fe23b3a2c6f5.png",
           "logo_max_width": 180,
           "sticky_header": true,
           "main_linklist": "main-menu-book-launch",
@@ -147,10 +147,12 @@
           "show_menu_icon": false,
           "secondary_linklist": "",
           "show_search_sidebar": false,
+          "background-color": "",
           "brand-logo-1": "shopify://shop_images/w_w_logo_green_1_358f76d3-b94a-411e-a99f-d14883471e22.png",
           "brand-color-1": "#808c24",
           "brand-logo-2": "shopify://shop_images/Frame_1_2.png",
           "brand-color-2": "#efe9df",
+          "text-color": "",
           "show_announcement": true,
           "home_page_only": false,
           "text": "ARE YOU PRODUCTS ACNE-SAFE? click here to use our free product ingredient checker now",
@@ -1476,6 +1478,9 @@
           "cb5152e6-cfdb-4c2d-ae8a-2cd303ae8c48",
           "54059869-f737-4ea1-b8aa-331e6b387884"
         ],
+        "custom_css": [
+          "b,h2 {color: #9e502c;}"
+        ],
         "settings": {
           "general_page_padding": "global"
         }
@@ -2792,7 +2797,7 @@
           "show_logo": true,
           "logo_svg": "",
           "logo_svg_mobile": "",
-          "logo": "shopify://shop_images/skinsalvation_acne_clinic_logo_2025_1024_x_1024_px_2000_x_600_px.png",
+          "logo": "shopify://shop_images/ss-logo_014bddc5-1ad7-4698-beab-997d1354e36d.png",
           "logo_max_width": 250,
           "sticky_header": false,
           "main_linklist": "skin-salvation-menu",
@@ -2802,10 +2807,12 @@
           "show_menu_icon": true,
           "secondary_linklist": "",
           "show_search_sidebar": false,
+          "background-color": "",
           "brand-logo-1": "shopify://shop_images/w_w_logo_green_1_358f76d3-b94a-411e-a99f-d14883471e22.png",
           "brand-color-1": "#ffffff",
-          "brand-logo-2": "shopify://shop_images/Frame_1_2.png",
-          "brand-color-2": "#efe9df",
+          "brand-logo-2": "shopify://shop_images/ss-white_55347815-ca46-4732-a32b-8eb2dfcc914f.png",
+          "brand-color-2": "#9e502c",
+          "text-color": "",
           "show_announcement": true,
           "home_page_only": false,
           "text": "SkinSalvation Announcement!",
@@ -2815,33 +2822,40 @@
       "footer-skin-salvation": {
         "type": "footer-skin-salvation",
         "blocks": {
-          "richtext_34qwQd": {
+          "richtext_z4GVFD": {
             "type": "richtext",
             "settings": {
-              "text": "<p>Use this to add additional information about your store, e.g. address / contact details.</p>",
+              "text": "<h1><strong>Sign up for our newsletter</strong></h1>",
+              "css_class": ""
+            }
+          },
+          "newsletter_d4Ezkr": {
+            "type": "newsletter",
+            "settings": {
+              "text": "<p>Be the first to receive sporadic yet relevant acne-safe wellness news, product launch updates, and things to care about.</p>",
               "css_class": ""
             }
           },
           "menus_MJcEKQ": {
             "type": "menus",
             "settings": {
-              "menu1": "",
-              "menu2": "categories",
-              "menu3": ""
+              "menu1": "diy-tools",
+              "menu2": "help",
+              "menu3": "company-info"
             }
           }
         },
         "block_order": [
-          "richtext_34qwQd",
+          "richtext_z4GVFD",
+          "newsletter_d4Ezkr",
           "menus_MJcEKQ"
         ],
         "settings": {
-          "logo": "shopify://shop_images/Frame_1_2.png",
           "show_payment_icons": false,
-          "show_footer_credits": true,
+          "show_footer_credits": false,
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "footer-color": "#9e502c"
+          "footer-color": "#efe9df"
         }
       }
     },
