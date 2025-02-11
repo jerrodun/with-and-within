@@ -2802,7 +2802,7 @@
           "logo_svg": "",
           "logo_svg_mobile": "",
           "logo": "shopify://shop_images/ss-logo_014bddc5-1ad7-4698-beab-997d1354e36d.png",
-          "logo_max_width": 250,
+          "logo_max_width": 350,
           "sticky_header": false,
           "main_linklist": "skin-salvation-menu",
           "show_all_navigation_links": false,
