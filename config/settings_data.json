@@ -2793,6 +2793,9 @@
       },
       "header-skin-salvation": {
         "type": "header-skin-salvation",
+        "custom_css": [
+          ".brand-header--list-item {padding: 10px 20px;}"
+        ],
         "settings": {
           "show_cart_icon": true,
           "show_logo": true,
