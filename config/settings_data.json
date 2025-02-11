@@ -129,7 +129,8 @@
         ],
         "custom_css": [
           ".banner.relative.js.banner_image.full--w.banner__image {display: none;}",
-          "header.site-header.absolute.top--0.left--0.full--w.has-announcement {background: #fff;}"
+          "header.site-header.absolute.top--0.left--0.full--w.has-announcement {background: #fff;}",
+          ".brand-header--list-item {padding: 10px 20px;}"
         ],
         "settings": {
           "show_cart_icon": true,
