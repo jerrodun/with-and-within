@@ -1,0 +1,125 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "newsletter",
+      "custom_css": [
+        "section.newsletter.section-with-padding.color--primary-text.bg--primary-background {padding-top: 100px;}"
+      ],
+      "settings": {
+        "title": "Sign up to our newsletter",
+        "text": "<p>Be the first to receive sporadic yet relevant acne-safe wellness news, product launch updates, and things to care about.</p>",
+        "color_scheme": "primary"
+      }
+    },
+    "aw_featured_columns_TNXG86": {
+      "type": "aw-featured-columns",
+      "blocks": {
+        "featured_column_8ftYBJ": {
+          "type": "featured_column",
+          "settings": {
+            "icon_svg": "",
+            "title": "Get Help.",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor magna alit ut",
+            "cta_url": "",
+            "cta_text": "Take me there"
+          }
+        },
+        "featured_column_bXwJnh": {
+          "type": "featured_column",
+          "settings": {
+            "icon_svg": "",
+            "title": "DIY.",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor magna alit ut",
+            "cta_url": "",
+            "cta_text": "Take me there"
+          }
+        },
+        "featured_column_9HfGWx": {
+          "type": "featured_column",
+          "settings": {
+            "icon_svg": "",
+            "title": "Shop",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor magna alit ut",
+            "cta_url": "",
+            "cta_text": "Take me there"
+          }
+        }
+      },
+      "block_order": [
+        "featured_column_8ftYBJ",
+        "featured_column_bXwJnh",
+        "featured_column_9HfGWx"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_bg_color": "aw_section_bg_white",
+        "section_custom_padding": "global"
+      }
+    },
+    "featured_collection_bDkbjJ": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".custom .grid {display: flex; flex-direction: column;}",
+        ".custom .grid .grid__item {width: 100%;}",
+        ".custom .grid .f--heading {color: #5e6939;}",
+        ".custom .section-with-padding {padding-top: 50px; padding-bottom: 50px;}"
+      ],
+      "settings": {
+        "title": "Your curated skincare arsenal.",
+        "collection": "ss-products-1",
+        "no_products": "6",
+        "subheading": "Clear up your skin.For good. For real.",
+        "enable_mobile_flickity": true,
+        "show_collection_link": true,
+        "collection_custom_link_text": "SHOP NOW",
+        "collection_custom_link": "",
+        "section_custom_padding": "smaller",
+        "color_scheme": "secondary"
+      }
+    },
+    "homepage_blog_aRbMjA": {
+      "type": "homepage-blog",
+      "settings": {
+        "title": "Read from our blog",
+        "selected_blog": "blog",
+        "no_posts": "6",
+        "subheading": "There is a plethora of useful (and seemingly random but totally game changing) information found here, so take your time browsing.",
+        "show_blog_link": false,
+        "color_scheme": "tertiary"
+      }
+    },
+    "custom_37ETrz": {
+      "type": "custom",
+      "custom_css": [
+        ".custom .grid {display: flex; flex-direction: column;}",
+        ".custom .grid .grid__item {width: 100%;}",
+        ".custom .grid .f--heading {color: #5e6939;}",
+        ".custom .section-with-padding {padding-top: 25px; padding-bottom: 25px;}"
+      ],
+      "settings": {
+        "title": "Follow us @withandwithin.co",
+        "subheading": "",
+        "cta_url": "",
+        "cta_text": "",
+        "custom_html": "<div id=\"insta-feed\"></div>",
+        "color_scheme": "primary"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "aw_featured_columns_TNXG86",
+    "featured_collection_bDkbjJ",
+    "homepage_blog_aRbMjA",
+    "custom_37ETrz"
+  ]
+}
