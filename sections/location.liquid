@@ -2,6 +2,125 @@
  This section features a PNG map (block), and content (block). Add all settings accordingly and match the Figma design.
 {% endcomment %}
 
+<style>
+  .location-section {
+    padding: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+  
+  @media screen and (min-width: 750px) {
+    .location-section {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  .location-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-extra-loose);
+  }
+  
+  .location-heading {
+    color: {{ section.settings.heading_color }};
+    font-size: calc(2.4rem * var(--font-heading-scale));
+    margin-bottom: var(--spacing-extra-loose);
+    line-height: 1.25;
+  }
+  
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-extra-loose);
+  }
+  
+  .info-block {
+    margin-bottom: var(--spacing-loose);
+  }
+  
+  .info-title {
+    color: {{ section.settings.info_title_color }};
+    font-size: calc(1.2rem * var(--font-heading-scale));
+    margin-bottom: var(--spacing-base);
+  }
+  
+  .info-text {
+    color: {{ section.settings.info_text_color }};
+    font-size: calc(1rem * var(--font-body-scale));
+    line-height: 1.5;
+  }
+  
+  .location-button-container {
+    margin-top: var(--spacing-extra-loose);
+  }
+  
+  .location-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+    padding: 14px 20px;
+    min-width: 315px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .location-button:hover {
+    background-color: {{ section.settings.button_hover_color }};
+  }
+  
+  .location-map {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .location-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .location-map-placeholder {
+    background-color: {{ section.settings.map_placeholder_color }};
+    width: 100%;
+    padding-bottom: 75%;
+    position: relative;
+  }
+  
+  .location-map-placeholder .placeholder-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  @media screen and (min-width: 750px) {
+    .location-container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--spacing-section);
+    }
+    
+    .location-content {
+      width: 40%;
+      flex-shrink: 0;
+    }
+    
+    .location-map {
+      width: 60%;
+      flex-grow: 1;
+    }
+    
+    .location-heading {
+      font-size: calc(3rem * var(--font-heading-scale));
+    }
+  }
+</style>
+
 <div class="location-section section-padding">
   <div class="page-width">
     <div class="location-container">
@@ -50,118 +169,6 @@
     </div>
   </div>
 </div>
-
-<style>
-  .location-section {
-    padding: var(--spacing-section) 0;
-  }
-  
-  .location-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-extra-loose);
-  }
-  
-  .location-heading {
-    color: var(--color-primary);
-    font-size: calc(2.4rem * var(--font-heading-scale));
-    margin-bottom: var(--spacing-extra-loose);
-    line-height: 1.25;
-  }
-  
-  .location-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-extra-loose);
-  }
-  
-  .info-block {
-    margin-bottom: var(--spacing-loose);
-  }
-  
-  .info-title {
-    color: var(--color-primary);
-    font-size: calc(1.2rem * var(--font-heading-scale));
-    margin-bottom: var(--spacing-base);
-  }
-  
-  .info-text {
-    color: var(--color-text);
-    font-size: calc(1rem * var(--font-body-scale));
-    line-height: 1.5;
-  }
-  
-  .location-button-container {
-    margin-top: var(--spacing-extra-loose);
-  }
-  
-  .location-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #5e694f;
-    color: var(--color-tertiary);
-    padding: 14px 20px;
-    min-width: 315px;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s;
-  }
-  
-  .location-button:hover {
-    background-color: #4d573f;
-  }
-  
-  .location-map {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
-  
-  .location-map-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-  
-  .location-map-placeholder {
-    background-color: var(--color-secondary);
-    width: 100%;
-    padding-bottom: 75%;
-    position: relative;
-  }
-  
-  .location-map-placeholder .placeholder-svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
-  
-  @media screen and (min-width: 750px) {
-    .location-container {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: var(--spacing-section);
-    }
-    
-    .location-content {
-      width: 40%;
-      flex-shrink: 0;
-    }
-    
-    .location-map {
-      width: 60%;
-      flex-grow: 1;
-    }
-    
-    .location-heading {
-      font-size: calc(3rem * var(--font-heading-scale));
-    }
-  }
-</style>
 
 {% schema %}
 {
@@ -227,28 +234,60 @@
       "label": "Map Image"
     },
     {
-      "type": "select",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "options": [
-        {
-          "value": "color-background-1",
-          "label": "Background 1"
-        },
-        {
-          "value": "color-background-2",
-          "label": "Background 2"
-        },
-        {
-          "value": "color-accent-1",
-          "label": "Accent 1"
-        },
-        {
-          "value": "color-accent-2",
-          "label": "Accent 2"
-        }
-      ],
-      "default": "color-background-1"
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#9E5048"
+    },
+    {
+      "type": "color",
+      "id": "info_title_color",
+      "label": "Info title color",
+      "default": "#9E5048"
+    },
+    {
+      "type": "color",
+      "id": "info_text_color",
+      "label": "Info text color",
+      "default": "#42302C"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background color",
+      "default": "#5e694f"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#EEE8DE"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button hover color",
+      "default": "#4d573f"
+    },
+    {
+      "type": "color",
+      "id": "map_placeholder_color",
+      "label": "Map placeholder color",
+      "default": "#E0D4C8"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
     },
     {
       "type": "range",

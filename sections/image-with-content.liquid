@@ -792,6 +792,94 @@ Figma design:
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#E0D4C8"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#9E5048"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#E0D4C8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#42302C"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_background",
+      "label": "Primary button background",
+      "default": "#5E6A39"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_text",
+      "label": "Primary button text",
+      "default": "#EEEBE6"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_background",
+      "label": "Secondary button background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_text",
+      "label": "Secondary button text",
+      "default": "#E0D4C8"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_border",
+      "label": "Secondary button border",
+      "default": "#E0D4C8"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
     }
   ],
   "presets": [
@@ -803,7 +891,7 @@ Figma design:
 }
 {% endschema %}
 
-<div class="color-background-1 isolate">
+<div class="color-background-1 isolate" style="background-color: {{ section.settings.background_color }};">
   <div class="page-width section-{{ section.id }}-padding">
     <div class="image-with-content-container {% if section.settings.layout == 'image-right' %}image-right{% else %}image-left{% endif %}">
       <div class="image-with-content__image-wrapper">
@@ -821,33 +909,33 @@ Figma design:
       <div class="image-with-content__content-wrapper">
         <div class="image-with-content__content">
           {% if section.settings.subheading != blank %}
-            <p class="image-with-content__subheading">{{ section.settings.subheading }}</p>
+            <p class="image-with-content__subheading" style="color: {{ section.settings.subheading_color }};">{{ section.settings.subheading }}</p>
           {% endif %}
           
           <div class="image-with-content__headline-container">
             {% if section.settings.heading != blank %}
-              <h2 class="image-with-content__heading">{{ section.settings.heading }}</h2>
+              <h2 class="image-with-content__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
             {% endif %}
             {% if section.settings.subtitle != blank %}
-              <p class="image-with-content__subtitle">{{ section.settings.subtitle }}</p>
+              <p class="image-with-content__subtitle" style="color: {{ section.settings.subtitle_color }};">{{ section.settings.subtitle }}</p>
             {% endif %}
           </div>
 
           {% if section.settings.text != blank %}
-            <div class="image-with-content__text rte">
+            <div class="image-with-content__text rte" style="color: {{ section.settings.text_color }};">
               {{ section.settings.text }}
             </div>
           {% endif %}
 
           <div class="image-with-content__buttons">
             {% if section.settings.button_label != blank %}
-              <a href="{{ section.settings.button_link }}" class="button button--primary">
+              <a href="{{ section.settings.button_link }}" class="button button--primary" style="background-color: {{ section.settings.primary_button_background }}; color: {{ section.settings.primary_button_text }};">
                 {{ section.settings.button_label }}
               </a>
             {% endif %}
             
             {% if section.settings.secondary_button_label != blank %}
-              <a href="{{ section.settings.secondary_button_link }}" class="button button--secondary">
+              <a href="{{ section.settings.secondary_button_link }}" class="button button--secondary" style="background-color: {{ section.settings.secondary_button_background }}; color: {{ section.settings.secondary_button_text }}; border-color: {{ section.settings.secondary_button_border }};">
                 {{ section.settings.secondary_button_label }}
               </a>
             {% endif %}
@@ -859,6 +947,18 @@ Figma design:
 </div>
 
 <style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
   .image-with-content-container {
     display: flex;
     flex-direction: column;
@@ -911,7 +1011,6 @@ Figma design:
 
   .image-with-content__subheading {
     font-size: var(--font-size-base);
-    color: var(--color-tan);
     margin: 0;
   }
 
@@ -923,7 +1022,6 @@ Figma design:
 
   .image-with-content__heading {
     font-size: var(--font-size-heading-1);
-    color: var(--color-terracotta);
     margin: 0;
     font-weight: 400;
     line-height: 1.2;
@@ -931,13 +1029,11 @@ Figma design:
 
   .image-with-content__subtitle {
     font-size: var(--font-size-base);
-    color: var(--color-tan);
     margin: 0;
   }
 
   .image-with-content__text {
     font-size: var(--font-size-base);
-    color: var(--color-brown);
     line-height: 1.6;
   }
 
@@ -948,8 +1044,6 @@ Figma design:
   }
 
   .button--primary {
-    background-color: var(--color-green);
-    color: var(--color-light-tan);
     border: none;
     padding: 1rem 2rem;
     font-size: var(--font-size-base);
@@ -965,9 +1059,7 @@ Figma design:
   }
 
   .button--secondary {
-    background-color: transparent;
-    color: var(--color-tan);
-    border: 1px solid var(--color-tan);
+    border: 1px solid;
     padding: 1rem 2rem;
     font-size: var(--font-size-base);
     text-decoration: none;
@@ -978,7 +1070,7 @@ Figma design:
   }
 
   .button--secondary:hover {
-    background-color: var(--color-tan);
-    color: var(--color-dark-brown);
+    background-color: {{ section.settings.secondary_button_border }};
+    color: {{ section.settings.background_color }};
   }
 </style>

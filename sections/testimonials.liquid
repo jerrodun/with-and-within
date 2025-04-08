@@ -2,7 +2,13 @@
 
 <style>
 .testimonials-section {
-  padding: 6rem 0;
+  padding: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+@media screen and (min-width: 750px) {
+  .testimonials-section {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
 }
 
 .testimonials-container {
@@ -84,14 +90,14 @@
 }
 
 .testimonial-button--active {
-  background-color: #9F5028;
-  border-color: #9F5028;
+  background-color: {{ section.settings.button_active_color }};
+  border-color: {{ section.settings.button_active_color }};
 }
 
 .testimonial-button:hover,
 .testimonial-button:focus {
-  background-color: #9F5028;
-  border-color: #9F5028;
+  background-color: {{ section.settings.button_active_color }};
+  border-color: {{ section.settings.button_active_color }};
 }
 
 .visually-hidden {
@@ -162,10 +168,10 @@
     <div class="testimonials-container">
       <div class="testimonials-header">
         {% if section.settings.heading != blank %}
-          <h2 class="testimonials-heading">{{ section.settings.heading }}</h2>
+          <h2 class="testimonials-heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
         {% endif %}
         {% if section.settings.subheading != blank %}
-          <p class="testimonials-subheading">{{ section.settings.subheading }}</p>
+          <p class="testimonials-subheading" style="color: {{ section.settings.subheading_color }};">{{ section.settings.subheading }}</p>
         {% endif %}
       </div>
 
@@ -175,13 +181,13 @@
             <div class="swiper-slide testimonial-slide" {{ block.shopify_attributes }}>
               <div class="testimonial-content">
                 {% if block.settings.quote_highlight != blank %}
-                  <h3 class="testimonial-highlight">{{ block.settings.quote_highlight }}</h3>
+                  <h3 class="testimonial-highlight" style="color: {{ section.settings.highlight_color }};">{{ block.settings.quote_highlight }}</h3>
                 {% endif %}
                 {% if block.settings.quote_text != blank %}
-                  <div class="testimonial-text">{{ block.settings.quote_text }}</div>
+                  <div class="testimonial-text" style="color: {{ section.settings.quote_text_color }};">{{ block.settings.quote_text }}</div>
                 {% endif %}
                 {% if block.settings.author_name != blank %}
-                  <p class="testimonial-author">{{ block.settings.author_name }}</p>
+                  <p class="testimonial-author" style="color: {{ section.settings.author_color }};">{{ block.settings.author_name }}</p>
                 {% endif %}
               </div>
             </div>
@@ -190,13 +196,13 @@
       </div>
 
       <div class="testimonials-navigation">
-        <button class="testimonial-button testimonial-button--prev" style="border-color: {{ section.settings.text_color }}; color: {{ section.settings.text_color }};" aria-label="Previous testimonial">
+        <button class="testimonial-button testimonial-button--prev" style="border-color: {{ section.settings.button_border_color }}; color: {{ section.settings.button_color }};" aria-label="Previous testimonial">
           <span class="visually-hidden">Previous testimonial</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <button class="testimonial-button testimonial-button--next" style="border-color: {{ section.settings.text_color }}; color: {{ section.settings.text_color }};" aria-label="Next testimonial">
+        <button class="testimonial-button testimonial-button--next" style="border-color: {{ section.settings.button_border_color }}; color: {{ section.settings.button_color }};" aria-label="Next testimonial">
           <span class="visually-hidden">Next testimonial</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 7H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -275,6 +281,10 @@
       "label": "Subheading"
     },
     {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
       "type": "color",
       "id": "background_color",
       "default": "#AF8370",
@@ -284,7 +294,79 @@
       "type": "color",
       "id": "text_color",
       "default": "#EEE8DE",
-      "label": "Text color"
+      "label": "Default text color"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#EEE8DE",
+      "label": "Heading color"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "default": "#EEE8DE",
+      "label": "Subheading color"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "default": "#EEE8DE",
+      "label": "Quote highlight color"
+    },
+    {
+      "type": "color",
+      "id": "quote_text_color",
+      "default": "#EEE8DE",
+      "label": "Quote text color"
+    },
+    {
+      "type": "color",
+      "id": "author_color",
+      "default": "#EEE8DE",
+      "label": "Author name color"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "default": "#EEE8DE",
+      "label": "Button icon color"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "default": "#EEE8DE",
+      "label": "Button border color"
+    },
+    {
+      "type": "color",
+      "id": "button_active_color",
+      "default": "#9E5048",
+      "label": "Button active color"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
     }
   ],
   "blocks": [

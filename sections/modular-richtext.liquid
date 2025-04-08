@@ -1,7 +1,7 @@
 {{ 'global-new-theme.css' | asset_url | stylesheet_tag }}
 {{ 'section-modular-richtext.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
+<style>
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -13,9 +13,67 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-{%- endstyle -%}
 
-<div class="modular-richtext color-{{ section.settings.color_scheme }}">
+  .modular-richtext {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .modular-richtext__wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .modular-richtext__wrapper--center {
+    text-align: center;
+  }
+
+  .modular-richtext__heading {
+    margin-bottom: 2rem;
+    color: {{ section.settings.heading_color }};
+  }
+
+  .modular-richtext__text {
+    margin-bottom: 2rem;
+    color: {{ section.settings.text_color }};
+  }
+
+  .modular-richtext__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: {% if section.settings.text_alignment == 'center' %}center{% else %}flex-start{% endif %};
+  }
+
+  .button {
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .button--primary {
+    background-color: {{ section.settings.button1_background_color }};
+    color: {{ section.settings.button1_text_color }};
+    border: 1px solid {{ section.settings.button1_background_color }};
+  }
+
+  .button--primary:hover {
+    background-color: {{ section.settings.button1_hover_color }};
+    border-color: {{ section.settings.button1_hover_color }};
+  }
+
+  .button--secondary {
+    background-color: transparent;
+    color: {{ section.settings.button2_text_color }};
+    border: 1px solid {{ section.settings.button2_border_color }};
+  }
+
+  .button--secondary:hover {
+    background-color: {{ section.settings.button2_hover_color }};
+    color: {{ section.settings.background_color }};
+  }
+</style>
+
+<div class="modular-richtext">
   <div class="page-width section-{{ section.id }}-padding">
     <div class="modular-richtext__wrapper{% if section.settings.text_alignment == 'center' %} modular-richtext__wrapper--center{% endif %}">
       {%- for block in section.blocks -%}
@@ -43,7 +101,7 @@
                 {%- endif -%}
                 {%- if block.settings.button_label_2 != blank -%}
                   <a href="{{ block.settings.button_link_2 }}" 
-                     class="button{% if block.settings.button_style_2 == 'secondary' %} button--outline{% else %} button--primary{% endif %}">
+                     class="button{% if block.settings.button_style_2 == 'secondary' %} button--secondary{% else %} button--primary{% endif %}">
                     {{ block.settings.button_label_2 | escape }}
                   </a>
                 {%- endif -%}
@@ -67,39 +125,77 @@
       "options": [
         {
           "value": "left",
-          "label": "t:sections.rich-text.settings.text_alignment.options__1.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.rich-text.settings.text_alignment.options__2.label"
+          "label": "Center"
         }
       ],
       "default": "center",
-      "label": "t:sections.rich-text.settings.text_alignment.label"
+      "label": "Text alignment"
     },
     {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        {
-          "value": "background-1",
-          "label": "Background 1"
-        },
-        {
-          "value": "background-2",
-          "label": "Background 2"
-        },
-        {
-          "value": "accent-1",
-          "label": "Accent 1"
-        },
-        {
-          "value": "accent-2",
-          "label": "Accent 2"
-        }
-      ],
-      "default": "background-1",
-      "label": "Color scheme"
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#9E5048"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#42302C"
+    },
+    {
+      "type": "color",
+      "id": "button1_background_color",
+      "label": "Primary button background",
+      "default": "#5E6A39"
+    },
+    {
+      "type": "color",
+      "id": "button1_text_color",
+      "label": "Primary button text",
+      "default": "#EEEBE6"
+    },
+    {
+      "type": "color",
+      "id": "button1_hover_color",
+      "label": "Primary button hover",
+      "default": "#4D573F"
+    },
+    {
+      "type": "color",
+      "id": "button2_text_color",
+      "label": "Secondary button text",
+      "default": "#5E6A39"
+    },
+    {
+      "type": "color",
+      "id": "button2_border_color",
+      "label": "Secondary button border",
+      "default": "#5E6A39"
+    },
+    {
+      "type": "color",
+      "id": "button2_hover_color",
+      "label": "Secondary button hover",
+      "default": "#5E6A39"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
     },
     {
       "type": "range",
@@ -108,7 +204,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Padding top",
       "default": 40
     },
     {
@@ -118,7 +214,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Padding bottom",
       "default": 40
     }
   ],
@@ -132,7 +228,7 @@
           "type": "text",
           "id": "heading",
           "default": "Heading",
-          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+          "label": "Heading"
         }
       ]
     },
@@ -145,7 +241,7 @@
           "type": "richtext",
           "id": "text",
           "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+          "label": "Text"
         }
       ]
     },
