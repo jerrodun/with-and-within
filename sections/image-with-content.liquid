@@ -891,7 +891,7 @@ Figma design:
 }
 {% endschema %}
 
-<div class="color-background-1 isolate" style="background-color: {{ section.settings.background_color }};">
+<div class="color-background-1 isolate" style="background-color: {{ section.settings.background_color }};" {{ section.shopify_attributes }}>
   <div class="page-width section-{{ section.id }}-padding">
     <div class="image-with-content-container {% if section.settings.layout == 'image-right' %}image-right{% else %}image-left{% endif %}">
       <div class="image-with-content__image-wrapper">

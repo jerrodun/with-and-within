@@ -102,7 +102,7 @@
   }
 </style>
 
-<div class="faq" id="Faq-{{ section.id }}">
+<div class="faq" id="Faq-{{ section.id }}" {{ section.shopify_attributes }}>
   {% if section.settings.title != blank %}
     <h2 class="faq__title">{{ section.settings.title }}</h2>
   {% endif %}

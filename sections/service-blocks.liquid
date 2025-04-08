@@ -130,7 +130,7 @@
 }
 </style>
 
-<div class="service-blocks {% if section.settings.full_width == false %}page-width{% endif %}">
+<div class="service-blocks {% if section.settings.full_width == false %}page-width{% endif %}" {{ section.shopify_attributes }}>
   <div class="service-blocks__container">
     {% for block in section.blocks %}
       {% if forloop.index <= 2 %}

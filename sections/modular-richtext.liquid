@@ -69,7 +69,7 @@
   }
 </style>
 
-<div class="modular-richtext">
+<div class="modular-richtext" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="modular-richtext__wrapper{% if section.settings.text_alignment == 'center' %} modular-richtext__wrapper--center{% endif %}">
       {%- for block in section.blocks -%}
