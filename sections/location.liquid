@@ -18,12 +18,12 @@
             <p class="info-text">{{ section.settings.contact_text }}</p>
           </div>
           
-          <div class="info-block">
+          <div class="info-block"> 
             <h3 class="info-title">{{ section.settings.parking_heading }}</h3>
             <div class="info-text">{{ section.settings.parking_text }}</div>
           </div>
         </div>
-        
+         
         {% if section.settings.button_text != blank and section.settings.button_url != blank %}
           <div class="location-button-container">
             <a href="{{ section.settings.button_url }}" class="location-button">
@@ -219,8 +219,7 @@
     {
       "type": "url",
       "id": "button_url",
-      "label": "Button URL",
-      "default": "https://goo.gl/maps/YourLocationLink"
+      "label": "Button URL"
     },
     {
       "type": "image_picker",
