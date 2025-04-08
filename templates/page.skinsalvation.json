@@ -217,6 +217,53 @@
         "padding_bottom": 0
       }
     },
+    "modular_richtext_7B4AWQ": {
+      "type": "modular-richtext",
+      "blocks": {
+        "heading_XyhMjF": {
+          "type": "heading",
+          "settings": {
+            "heading": "You got questions?  We’ve got answers"
+          }
+        },
+        "text_Gd4g76": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We do things quite differently at skinSALVATION, so we've put this page of frequently asked questions together. Learn about our working style and see if we're a good fit for you before embarking on your clear skin journey with us.</p>"
+          }
+        },
+        "buttons_W49yrf": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Guidance for New Clients",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XyhMjF",
+        "text_Gd4g76",
+        "buttons_W49yrf"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "background_color": "#f6f3ef",
+        "heading_color": "#9E5048",
+        "text_color": "#42302C",
+        "button1_background_color": "#5E6A39",
+        "button1_text_color": "#EEEBE6",
+        "button1_hover_color": "#4D573F",
+        "button2_text_color": "#5E6A39",
+        "button2_border_color": "#5E6A39",
+        "button2_hover_color": "#5E6A39",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "faq_Ee9cK4": {
       "type": "faq",
       "blocks": {
@@ -256,15 +303,15 @@
         "faq_Ld9fdp"
       ],
       "settings": {
-        "title": "Frequently Asked Questions",
-        "background_color": "#FFFFFF",
+        "title": "",
+        "background_color": "#f6f3ef",
         "text_color": "#42302c",
         "question_color": "#9e5048",
         "answer_color": "#42302c",
         "border_color": "#e0d4c8",
         "icon_color": "#9E5048",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "location_VKcKt7": {
@@ -298,6 +345,7 @@
     "service_blocks_hgh4bp",
     "testimonials_zU9gnx",
     "image_with_content_Y94WpV",
+    "modular_richtext_7B4AWQ",
     "faq_Ee9cK4",
     "location_VKcKt7"
   ]
