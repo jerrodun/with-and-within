@@ -1,11 +1,6 @@
 {{ 'global-new-theme.css' | asset_url | stylesheet_tag }}
 
 <style>
-.service-blocks {
-  padding: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  background-color: {{ section.settings.background_color }};
-}
-
 .section-{{ section.id }} {
   background-color: {{ section.settings.background_color }};
 }
