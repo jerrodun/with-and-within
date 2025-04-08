@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "hero_slideshow_TUH7Ep": {
       "type": "hero-slideshow",
@@ -221,7 +221,7 @@
         "heading_XyhMjF": {
           "type": "heading",
           "settings": {
-            "heading": "You got questions?  We’ve got answers"
+            "heading": "You got questions? <br> We’ve got answers"
           }
         },
         "text_Gd4g76": {
