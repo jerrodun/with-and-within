@@ -247,6 +247,9 @@
         "text_Gd4g76",
         "buttons_W49yrf"
       ],
+      "custom_css": [
+        "@media (min-width: 749px) {.modular-richtext__heading {max-width: 50%; margin-left: auto; margin-right: auto; }}"
+      ],
       "settings": {
         "text_alignment": "center",
         "heading_size": 36,
