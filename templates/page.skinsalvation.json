@@ -261,7 +261,7 @@
         "button2_border_color": "#5E6A39",
         "button2_hover_color": "#5E6A39",
         "padding_top": 40,
-        "padding_bottom": 40
+        "padding_bottom": 12
       }
     },
     "faq_Ee9cK4": {
@@ -310,7 +310,7 @@
         "answer_color": "#42302c",
         "border_color": "#e0d4c8",
         "icon_color": "#9E5048",
-        "padding_top": 100,
+        "padding_top": 24,
         "padding_bottom": 100
       }
     },
@@ -321,11 +321,12 @@
         "address_heading": "Our address",
         "address_text": "<p>431 30th street, suite 100a • oakland, ca 94609</p>",
         "contact_heading": "Contact us",
-        "contact_text": "<p>email: sfclinic@withandwithin.com<br>google voice text: 415-638-9191</p>",
+        "contact_text": "<p>email: sfclinic@withandwithin.com<br/>google voice text: 415-638-9191</p>",
         "parking_heading": "Car Parking",
-        "parking_text": "<p>• free street parking west of telegraph street<br>• metered street parking near the building<br>• paid garages on summit and 31st street servicing alta bates hospital, summit campus</p>",
+        "parking_text": "<p>• free street parking west of telegraph street<br/>• metered street parking near the building<br/>• paid garages on summit and 31st street servicing alta bates hospital, summit campus</p>",
         "button_text": "DIRECTIONS",
         "button_url": "",
+        "map_image": "shopify://shop_images/Frame_24.png",
         "background_color": "#FFFFFF",
         "heading_color": "#9E5048",
         "info_title_color": "#9E5048",
