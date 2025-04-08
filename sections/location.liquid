@@ -1,0 +1,282 @@
+{% comment %}
+ This section features a PNG map (block), and content (block). Add all settings accordingly and match the Figma design.
+{% endcomment %}
+
+<div class="location-section section-padding">
+  <div class="page-width">
+    <div class="location-container">
+      <div class="location-content">
+        <h2 class="location-heading">{{ section.settings.heading }}</h2>
+        <div class="location-info">
+          <div class="info-block">
+            <h3 class="info-title">{{ section.settings.address_heading }}</h3>
+            <p class="info-text">{{ section.settings.address_text }}</p>
+          </div>
+          
+          <div class="info-block">
+            <h3 class="info-title">{{ section.settings.contact_heading }}</h3>
+            <p class="info-text">{{ section.settings.contact_text }}</p>
+          </div>
+          
+          <div class="info-block">
+            <h3 class="info-title">{{ section.settings.parking_heading }}</h3>
+            <div class="info-text">{{ section.settings.parking_text }}</div>
+          </div>
+        </div>
+        
+        {% if section.settings.button_text != blank and section.settings.button_url != blank %}
+          <div class="location-button-container">
+            <a href="{{ section.settings.button_url }}" class="location-button">
+              {{ section.settings.button_text }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="location-map">
+        {% if section.settings.map_image != blank %}
+          {{ section.settings.map_image | image_url: width: 1200 | image_tag: 
+            class: 'location-map-image',
+            loading: 'lazy',
+            sizes: '(min-width: 750px) 50vw, 100vw',
+            widths: '550, 720, 990, 1100, 1500, 2200'
+          }}
+        {% else %}
+          <div class="location-map-placeholder">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .location-section {
+    padding: var(--spacing-section) 0;
+  }
+  
+  .location-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-extra-loose);
+  }
+  
+  .location-heading {
+    color: var(--color-primary);
+    font-size: calc(2.4rem * var(--font-heading-scale));
+    margin-bottom: var(--spacing-extra-loose);
+    line-height: 1.25;
+  }
+  
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-extra-loose);
+  }
+  
+  .info-block {
+    margin-bottom: var(--spacing-loose);
+  }
+  
+  .info-title {
+    color: var(--color-primary);
+    font-size: calc(1.2rem * var(--font-heading-scale));
+    margin-bottom: var(--spacing-base);
+  }
+  
+  .info-text {
+    color: var(--color-text);
+    font-size: calc(1rem * var(--font-body-scale));
+    line-height: 1.5;
+  }
+  
+  .location-button-container {
+    margin-top: var(--spacing-extra-loose);
+  }
+  
+  .location-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5e694f;
+    color: var(--color-tertiary);
+    padding: 14px 20px;
+    min-width: 315px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .location-button:hover {
+    background-color: #4d573f;
+  }
+  
+  .location-map {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .location-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .location-map-placeholder {
+    background-color: var(--color-secondary);
+    width: 100%;
+    padding-bottom: 75%;
+    position: relative;
+  }
+  
+  .location-map-placeholder .placeholder-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  @media screen and (min-width: 750px) {
+    .location-container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--spacing-section);
+    }
+    
+    .location-content {
+      width: 40%;
+      flex-shrink: 0;
+    }
+    
+    .location-map {
+      width: 60%;
+      flex-grow: 1;
+    }
+    
+    .location-heading {
+      font-size: calc(3rem * var(--font-heading-scale));
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Location",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See us in Oakland's Pill Hill District"
+    },
+    {
+      "type": "text",
+      "id": "address_heading",
+      "label": "Address Heading",
+      "default": "Our address"
+    },
+    {
+      "type": "richtext",
+      "id": "address_text",
+      "label": "Address Text",
+      "default": "<p>431 30th street, suite 100a • oakland, ca 94609</p>"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact Heading",
+      "default": "Contact us"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_text",
+      "label": "Contact Text",
+      "default": "<p>email: sfclinic@withandwithin.com<br>google voice text: 415-638-9191</p>"
+    },
+    {
+      "type": "text",
+      "id": "parking_heading",
+      "label": "Parking Heading",
+      "default": "Car Parking"
+    },
+    {
+      "type": "richtext",
+      "id": "parking_text",
+      "label": "Parking Text",
+      "default": "<p>• free street parking west of telegraph street<br>• metered street parking near the building<br>• paid garages on summit and 31st street servicing alta bates hospital, summit campus</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "DIRECTIONS"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "https://goo.gl/maps/YourLocationLink"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Map Image"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "color-background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "color-background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "color-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "color-accent-2",
+          "label": "Accent 2"
+        }
+      ],
+      "default": "color-background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location",
+      "category": "Contact"
+    }
+  ]
+}
+{% endschema %}

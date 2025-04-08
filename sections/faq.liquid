@@ -1,0 +1,171 @@
+{% comment %}
+  FAQ section: This is a FAQ section, where each FAQ item is a block. Clicking an item should expand the block, showing the answer below the question.
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'component-faq.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-faq.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- style -%}
+  .faq {
+    padding: var(--space-4) 0;
+    color: {{ section.settings.text_color }};
+  }
+  
+  .faq__item {
+    border-bottom: 1px solid {{ section.settings.border_color }};
+  }
+  
+  .faq__question {
+    color: {{ section.settings.question_color }};
+  }
+  
+  .faq__answer {
+    color: {{ section.settings.answer_color }};
+  }
+  
+  .faq__toggle-icon {
+    border: 1px solid {{ section.settings.border_color }};
+  }
+{%- endstyle -%}
+
+<div class="page-width faq" id="Faq-{{ section.id }}">
+  {% if section.settings.title != blank %}
+    <h2 class="faq__title">{{ section.settings.title }}</h2>
+  {% endif %}
+  
+  <div class="faq__wrapper">
+    <div class="faq__grid grid grid--1-col grid--2-col-tablet">
+      {%- for block in section.blocks -%}
+        <div class="faq__grid-item grid__item" {{ block.shopify_attributes }}>
+          <details class="faq__item" id="FAQ-{{ block.id }}">
+            <summary class="faq__question-wrapper">
+              <h3 class="faq__question">{{ block.settings.question }}</h3>
+              <div class="faq__toggle-icon">
+                <span class="icon-plus">+</span>
+                <span class="icon-minus">-</span>
+              </div>
+            </summary>
+            <div class="faq__answer">{{ block.settings.answer }}</div>
+          </details>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section section-faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#42302C"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question color",
+      "default": "#9E5048"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer color",
+      "default": "#42302C"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#E0D4C8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Frequently asked question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is this program really going to work, even if I don't get facials?",
+            "answer": "<p>For most cases, yes. Over the years we've had dozens of clients use our online resources, use our products and clear their acne on their own. However, some clients did need some professional help. We are happy to help assist you in finding someone local, to administer chemical peels, extractions and support alongside the skinSALVATION program. Additionally, we're always available in case questions that aren't covered on our site come up, so take advantage and contact us if need be.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long will it take me to get my products?",
+            "answer": "<p>Our products typically ship within 1-2 business days. Delivery times depend on your location, but most orders arrive within 3-5 business days after shipping.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What makes skinSALVATION different?",
+            "answer": "<p>We focus exclusively on acne treatment with a holistic approach. Our products are formulated specifically for acne-prone skin, and our program addresses lifestyle factors, diet, and skincare routines to provide a comprehensive solution.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How can I become a skinSALVATION client?",
+            "answer": "<p>Simply purchase one of our starter kits or book a consultation through our website. We'll guide you through our process and create a personalized plan for your specific needs.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const details = document.querySelectorAll('#Faq-{{ section.id }} details');
+    
+    details.forEach(detail => {
+      detail.addEventListener('click', (e) => {
+        // Only run if the click is directly on the summary element or one of its children
+        if (e.target.closest('summary')) {
+          // Close all other details when one is opened
+          if (!detail.hasAttribute('open')) {
+            details.forEach(otherDetail => {
+              if (otherDetail !== detail && otherDetail.hasAttribute('open')) {
+                otherDetail.removeAttribute('open');
+              }
+            });
+          }
+        }
+      });
+    });
+  });
+</script>
