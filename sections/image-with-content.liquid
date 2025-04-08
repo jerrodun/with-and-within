@@ -817,12 +817,6 @@ Figma design:
     },
     {
       "type": "color",
-      "id": "subtitle_color",
-      "label": "Subtitle color",
-      "default": "#E0D4C8"
-    },
-    {
-      "type": "color",
       "id": "text_color",
       "label": "Text color",
       "default": "#42302C"
@@ -917,7 +911,7 @@ Figma design:
               <h2 class="image-with-content__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
             {% endif %}
             {% if section.settings.subtitle != blank %}
-              <p class="image-with-content__subtitle" style="color: {{ section.settings.subtitle_color }};">{{ section.settings.subtitle }}</p>
+              <p class="image-with-content__subtitle" style="color: {{ section.settings.subheading_color }};">{{ section.settings.subtitle }}</p>
             {% endif %}
           </div>
 
@@ -981,11 +975,14 @@ Figma design:
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
   }
 
   .image-with-content__image {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
   }
 

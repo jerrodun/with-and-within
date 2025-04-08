@@ -81,7 +81,7 @@
 .service-block__description {
   font-size: calc(1rem * var(--font-body-scale));
   line-height: 1.5;
-  text-align: left;
+  text-align: center;
 }
 
 .service-block__button-container {
@@ -100,6 +100,11 @@
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.service-block__button:hover {
+  opacity: 0.9;
 }
 
 @media screen and (min-width: 750px) {
@@ -166,7 +171,7 @@
                   {% endif %}
                   
                   {% if block.settings.duration != blank or block.settings.price != blank %}
-                    <div class="service-block__meta" style="color: {{ section.settings.meta_color }};">
+                    <div class="service-block__meta" style="color: {{ section.settings.title_color }};">
                       {% if block.settings.duration != blank %}{{ block.settings.duration }}{% endif %}
                       {% if block.settings.duration != blank and block.settings.price != blank %} | {% endif %}
                       {% if block.settings.price != blank %}{{ block.settings.price }}{% endif %}
@@ -229,12 +234,6 @@
       "id": "title_color",
       "label": "Title color",
       "default": "#9e503c"
-    },
-    {
-      "type": "color",
-      "id": "meta_color",
-      "label": "Duration/price color",
-      "default": "#e0d4c8"
     },
     {
       "type": "color",

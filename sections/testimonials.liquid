@@ -183,13 +183,13 @@
                 <div class="swiper-slide testimonial-slide" {{ block.shopify_attributes }}>
                   <div class="testimonial-content">
                     {% if block.settings.quote_highlight != blank %}
-                      <h3 class="testimonial-highlight" style="color: {{ section.settings.highlight_color }};">{{ block.settings.quote_highlight }}</h3>
+                      <h3 class="testimonial-highlight" style="color: {{ section.settings.text_color }};">{{ block.settings.quote_highlight }}</h3>
                     {% endif %}
                     {% if block.settings.quote_text != blank %}
-                      <div class="testimonial-text" style="color: {{ section.settings.quote_text_color }};">{{ block.settings.quote_text }}</div>
+                      <div class="testimonial-text" style="color: {{ section.settings.text_color }};">{{ block.settings.quote_text }}</div>
                     {% endif %}
                     {% if block.settings.author_name != blank %}
-                      <p class="testimonial-author" style="color: {{ section.settings.author_color }};">{{ block.settings.author_name }}</p>
+                      <p class="testimonial-author" style="color: {{ section.settings.text_color }};">{{ block.settings.author_name }}</p>
                     {% endif %}
                   </div>
                 </div>
@@ -199,17 +199,15 @@
       </div>
 
       <div class="testimonials-navigation">
-        <button class="testimonial-button testimonial-button--prev" style="border-color: {{ section.settings.button_border_color }}; color: {{ section.settings.button_color }};" aria-label="Previous testimonial">
+        <button class="testimonial-button testimonial-button--prev" style="border-color: {{ section.settings.button_color }}; color: {{ section.settings.button_color }};" aria-label="Previous testimonial">
           <span class="visually-hidden">Previous testimonial</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          {% render 'testimonial-arrow' %}
         </button>
-        <button class="testimonial-button testimonial-button--next" style="border-color: {{ section.settings.button_border_color }}; color: {{ section.settings.button_color }};" aria-label="Next testimonial">
+        <button class="testimonial-button testimonial-button--next" style="border-color: {{ section.settings.button_color }}; color: {{ section.settings.button_color }};" aria-label="Next testimonial">
           <span class="visually-hidden">Next testimonial</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 7H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <div style="transform: rotate(180deg);">
+            {% render 'testimonial-arrow' %}
+          </div>
         </button>
       </div>
     </div>
@@ -297,7 +295,7 @@
       "type": "color",
       "id": "text_color",
       "default": "#EEE8DE",
-      "label": "Default text color"
+      "label": "Text color"
     },
     {
       "type": "color",
@@ -313,33 +311,9 @@
     },
     {
       "type": "color",
-      "id": "highlight_color",
-      "default": "#EEE8DE",
-      "label": "Quote highlight color"
-    },
-    {
-      "type": "color",
-      "id": "quote_text_color",
-      "default": "#EEE8DE",
-      "label": "Quote text color"
-    },
-    {
-      "type": "color",
-      "id": "author_color",
-      "default": "#EEE8DE",
-      "label": "Author name color"
-    },
-    {
-      "type": "color",
       "id": "button_color",
       "default": "#EEE8DE",
-      "label": "Button icon color"
-    },
-    {
-      "type": "color",
-      "id": "button_border_color",
-      "default": "#EEE8DE",
-      "label": "Button border color"
+      "label": "Button color"
     },
     {
       "type": "color",

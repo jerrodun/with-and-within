@@ -26,6 +26,7 @@
   .modular-richtext__heading {
     margin-bottom: 2rem;
     color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
   }
 
   .modular-richtext__text {
@@ -44,6 +45,10 @@
     padding: 0.8rem 1.5rem;
     text-decoration: none;
     display: inline-block;
+    min-width: 138px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
   }
 
   .button--primary {
@@ -77,7 +82,7 @@
           {% when 'heading' %}
             {%- if block.settings.heading != blank -%}
               <div {{ block.shopify_attributes }}>
-                <h2 class="modular-richtext__heading h1">
+                <h2 class="modular-richtext__heading h1" style="font-size: {{ section.settings.heading_size }}px;">
                   {{ block.settings.heading | escape }}
                 </h2>
               </div>
@@ -134,6 +139,16 @@
       ],
       "default": "center",
       "label": "Text alignment"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 36
     },
     {
       "type": "header",
