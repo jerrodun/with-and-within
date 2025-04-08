@@ -1,0 +1,194 @@
+/**
+ * Global Design System for New Theme
+ * Based on Shopify's Dawn best practices for Online Store 2.0
+ */
+
+:root {
+  /* Color System */
+  --color-primary: #9e503c; /* Brown/amber color from Figma */
+  --color-primary-hover: #8a4535;
+  --color-secondary: #e0d4c8; /* Beige/light brown from Figma */
+  --color-secondary-hover: #d0c4b8;
+  --color-tertiary: #eee8de; /* Light beige/off-white from Figma */
+  --color-text: #422f23; /* Dark brown text color from Figma */
+  --color-text-light: #6b5040;
+  --color-background-1: #ffffff;
+  --color-background-2: #f7f3ee;
+
+  /* Typography */
+  --font-heading-family: var(--font-stack-heading);
+  --font-body-family: var(--font-stack-body);
+  --font-heading-scale: 1;
+  --font-body-scale: 1;
+  
+  /* Spacing System */
+  --spacing-unit: 8px;
+  --spacing-extra-tight: calc(var(--spacing-unit) * 0.5); /* 4px */
+  --spacing-tight: var(--spacing-unit); /* 8px */
+  --spacing-base: calc(var(--spacing-unit) * 2); /* 16px */
+  --spacing-loose: calc(var(--spacing-unit) * 3); /* 24px */
+  --spacing-extra-loose: calc(var(--spacing-unit) * 5); /* 40px */
+  --spacing-section: calc(var(--spacing-unit) * 8); /* 64px */
+  
+  /* Border Radius */
+  --border-radius-none: 0;
+  --border-radius-sm: 2px;
+  --border-radius-base: 4px;
+  --border-radius-lg: 8px;
+  
+  /* Shadows */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Container */
+  --page-width: 1200px;
+  --page-gutter: 16px;
+}
+
+/* Color scheme classes for section settings */
+.color-background-1 {
+  background-color: var(--color-background-1);
+  color: var(--color-text);
+}
+
+.color-background-2 {
+  background-color: var(--color-background-2);
+  color: var(--color-text);
+}
+
+.color-accent-1 {
+  background-color: var(--color-primary);
+  color: var(--color-tertiary);
+}
+
+.color-accent-2 {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* Global Layout Classes */
+.page-width {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+}
+
+/* Global Typography Reset */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-body-family);
+  margin: 0;
+}
+
+.h1 {
+  font-size: calc(3rem * var(--font-heading-scale));
+}
+
+.h2 {
+  font-size: calc(2.4rem * var(--font-heading-scale));
+}
+
+.h3 {
+  font-size: calc(1.8rem * var(--font-heading-scale));
+}
+
+.text-base {
+  font-size: calc(1rem * var(--font-body-scale));
+}
+
+.text-lg {
+  font-size: calc(1.2rem * var(--font-body-scale));
+}
+
+.text-sm {
+  font-size: calc(0.875rem * var(--font-body-scale));
+}
+
+/* Global Helper Classes */
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-base);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.rte {
+  line-height: 1.5;
+}
+
+.rte a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.rte a:hover {
+  color: var(--color-primary-hover);
+}
+
+.rte p:not(:last-child),
+.rte ul:not(:last-child),
+.rte ol:not(:last-child),
+.rte blockquote:not(:last-child) {
+  margin-bottom: var(--spacing-base);
+}
+
+/* Global Responsive Helper Classes */
+@media screen and (min-width: 750px) {
+  :root {
+    --page-gutter: 40px;
+  }
+  
+  .h1 {
+    font-size: calc(3.5rem * var(--font-heading-scale));
+  }
+  
+  .h2 {
+    font-size: calc(2.8rem * var(--font-heading-scale));
+  }
+  
+  .h3 {
+    font-size: calc(2rem * var(--font-heading-scale));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .hidden-tablet-and-up {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+} 
