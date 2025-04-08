@@ -174,7 +174,7 @@
         "testimonial_x3XgMN"
       ],
       "settings": {
-        "heading": "Testimonials",
+        "heading": "TESTIMONIALS",
         "subheading": "Real love from real clients",
         "background_color": "#af8370",
         "text_color": "#eee8de",
@@ -186,15 +186,15 @@
         "button_color": "#EEE8DE",
         "button_border_color": "#EEE8DE",
         "button_active_color": "#9E5048",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "image_with_content_Y94WpV": {
       "type": "image-with-content",
       "settings": {
         "layout": "image-left",
-        "subheading": "Meet your expert",
+        "subheading": "MEET YOUR EXPERT",
         "heading": "Kimberly Yap Tan",
         "subtitle": "Aesthetician",
         "text": "<p>Licensed as an esthetician since 2004, Kim started with & within, San Francisco's first adult acne clinic (then called skinsalvation) in 2008. Book any treatment with her and experience the expertise that thousands of other clients have relied on and trusted to help them get clear.</p>",
@@ -202,6 +202,7 @@
         "button_link": "",
         "secondary_button_label": "",
         "secondary_button_link": "",
+        "image": "shopify://shop_images/Frame_30.png",
         "background_color": "#FFFFFF",
         "subheading_color": "#E0D4C8",
         "heading_color": "#9E5048",
@@ -212,8 +213,8 @@
         "secondary_button_background": "transparent",
         "secondary_button_text": "#E0D4C8",
         "secondary_button_border": "#E0D4C8",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "faq_Ee9cK4": {
