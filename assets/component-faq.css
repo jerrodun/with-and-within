@@ -16,6 +16,8 @@
 .faq__grid {
   row-gap: var(--space-4);
   column-gap: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  
 }
 
 .faq__grid-item {
