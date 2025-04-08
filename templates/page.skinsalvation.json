@@ -82,7 +82,15 @@
       ],
       "settings": {
         "text_alignment": "center",
-        "color_scheme": "background-1",
+        "background_color": "#FFFFFF",
+        "heading_color": "#9E5048",
+        "text_color": "#42302C",
+        "button1_background_color": "#5E6A39",
+        "button1_text_color": "#EEEBE6",
+        "button1_hover_color": "#4D573F",
+        "button2_text_color": "#5E6A39",
+        "button2_border_color": "#5E6A39",
+        "button2_hover_color": "#5E6A39",
         "padding_top": 100,
         "padding_bottom": 40
       }
@@ -93,7 +101,7 @@
         "service_DeiipK": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/close_a49d274b-7dc4-44f9-be36-f8aad1ffcd27.jpg",
+            "image": "shopify://shop_images/fleur-kaan-e7jpGYe7OtU-unsplash_1.png",
             "title": "Consultation",
             "duration": "35-60 Minutes",
             "price": "$200",
@@ -105,6 +113,7 @@
         "service_gaEkqA": {
           "type": "service",
           "settings": {
+            "image": "shopify://shop_images/rosa-rafael-Pe9IXUuC6QU-unsplash_1.png",
             "title": "Follow-up check-in call",
             "duration": "30-60 Minutes",
             "price": "$200/hr in half-hour increments",
@@ -120,12 +129,91 @@
       ],
       "settings": {
         "full_width": true,
+        "background_color": "#FFFFFF",
         "border_color": "#422f23",
         "title_color": "#9e503c",
         "meta_color": "#e0d4c8",
         "description_color": "#422f23",
         "button_background": "#5e6a39",
-        "button_text_color": "#eeebe6"
+        "button_text_color": "#eeebe6",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "testimonials_zU9gnx": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_BwVXKz": {
+          "type": "testimonial",
+          "settings": {
+            "quote_highlight": "I've never experienced skincare this personalized before!",
+            "quote_text": "Kimberly took the time to understand my skin's unique needs and recommended treatments that made a real difference. My skin feels healthier, more radiant, and truly cared for. Highly recommend!",
+            "author_name": "Client Name"
+          }
+        },
+        "testimonial_nN7JJD": {
+          "type": "testimonial",
+          "settings": {
+            "quote_highlight": "The facial treatments are divine!",
+            "quote_text": "Every visit feels like a luxurious escape. The attention to detail and personalized approach has completely transformed my skincare routine. I leave feeling refreshed and glowing every time.",
+            "author_name": "Happy Client"
+          }
+        },
+        "testimonial_x3XgMN": {
+          "type": "testimonial",
+          "settings": {
+            "quote_highlight": "Professional and knowledgeable!",
+            "quote_text": "I was struggling with recurring skin issues for years until I found this amazing studio. The expert advice and targeted treatments have made such a difference. My skin has never looked better!",
+            "author_name": "Satisfied Customer"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_BwVXKz",
+        "testimonial_nN7JJD",
+        "testimonial_x3XgMN"
+      ],
+      "settings": {
+        "heading": "Testimonials",
+        "subheading": "Real love from real clients",
+        "background_color": "#af8370",
+        "text_color": "#eee8de",
+        "heading_color": "#EEE8DE",
+        "subheading_color": "#EEE8DE",
+        "highlight_color": "#EEE8DE",
+        "quote_text_color": "#EEE8DE",
+        "author_color": "#EEE8DE",
+        "button_color": "#EEE8DE",
+        "button_border_color": "#EEE8DE",
+        "button_active_color": "#9E5048",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_content_Y94WpV": {
+      "type": "image-with-content",
+      "settings": {
+        "layout": "image-left",
+        "subheading": "Meet your expert",
+        "heading": "Kimberly Yap Tan",
+        "subtitle": "Aesthetician",
+        "text": "<p>Licensed as an esthetician since 2004, Kim started with & within, San Francisco's first adult acne clinic (then called skinsalvation) in 2008. Book any treatment with her and experience the expertise that thousands of other clients have relied on and trusted to help them get clear.</p>",
+        "button_label": "Book an appointment",
+        "button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "background_color": "#FFFFFF",
+        "subheading_color": "#E0D4C8",
+        "heading_color": "#9E5048",
+        "subtitle_color": "#E0D4C8",
+        "text_color": "#42302C",
+        "primary_button_background": "#5E6A39",
+        "primary_button_text": "#EEEBE6",
+        "secondary_button_background": "transparent",
+        "secondary_button_text": "#E0D4C8",
+        "secondary_button_border": "#E0D4C8",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "faq_Ee9cK4": {
@@ -168,64 +256,14 @@
       ],
       "settings": {
         "title": "Frequently Asked Questions",
-        "text_color": "#42302C",
-        "question_color": "#9E5048",
-        "answer_color": "#42302C",
-        "border_color": "#E0D4C8"
-      }
-    },
-    "testimonials_zU9gnx": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_BwVXKz": {
-          "type": "testimonial",
-          "settings": {
-            "quote_highlight": "I've never experienced skincare this personalized before!",
-            "quote_text": "Kimberly took the time to understand my skin's unique needs and recommended treatments that made a real difference. My skin feels healthier, more radiant, and truly cared for. Highly recommend!",
-            "author_name": "Client Name"
-          }
-        },
-        "testimonial_nN7JJD": {
-          "type": "testimonial",
-          "settings": {
-            "quote_highlight": "The facial treatments are divine!",
-            "quote_text": "Every visit feels like a luxurious escape. The attention to detail and personalized approach has completely transformed my skincare routine. I leave feeling refreshed and glowing every time.",
-            "author_name": "Happy Client"
-          }
-        },
-        "testimonial_x3XgMN": {
-          "type": "testimonial",
-          "settings": {
-            "quote_highlight": "Professional and knowledgeable!",
-            "quote_text": "I was struggling with recurring skin issues for years until I found this amazing studio. The expert advice and targeted treatments have made such a difference. My skin has never looked better!",
-            "author_name": "Satisfied Customer"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_BwVXKz",
-        "testimonial_nN7JJD",
-        "testimonial_x3XgMN"
-      ],
-      "settings": {
-        "heading": "Testimonials",
-        "subheading": "Real love from real clients",
-        "background_color": "#af8370",
-        "text_color": "#eee8de"
-      }
-    },
-    "image_with_content_Y94WpV": {
-      "type": "image-with-content",
-      "settings": {
-        "layout": "image-left",
-        "subheading": "Meet your expert",
-        "heading": "Kimberly Yap Tan",
-        "subtitle": "Aesthetician",
-        "text": "<p>Licensed as an esthetician since 2004, Kim started with & within, San Francisco's first adult acne clinic (then called skinsalvation) in 2008. Book any treatment with her and experience the expertise that thousands of other clients have relied on and trusted to help them get clear.</p>",
-        "button_label": "Book an appointment",
-        "button_link": "",
-        "secondary_button_label": "",
-        "secondary_button_link": ""
+        "background_color": "#FFFFFF",
+        "text_color": "#42302c",
+        "question_color": "#9e5048",
+        "answer_color": "#42302c",
+        "border_color": "#e0d4c8",
+        "icon_color": "#9E5048",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "location_VKcKt7": {
@@ -240,7 +278,14 @@
         "parking_text": "<p>• free street parking west of telegraph street<br>• metered street parking near the building<br>• paid garages on summit and 31st street servicing alta bates hospital, summit campus</p>",
         "button_text": "DIRECTIONS",
         "button_url": "",
-        "color_scheme": "color-background-1",
+        "background_color": "#FFFFFF",
+        "heading_color": "#9E5048",
+        "info_title_color": "#9E5048",
+        "info_text_color": "#42302C",
+        "button_background_color": "#5e694f",
+        "button_text_color": "#EEE8DE",
+        "button_hover_color": "#4d573f",
+        "map_placeholder_color": "#E0D4C8",
         "padding_top": 64,
         "padding_bottom": 64
       }
