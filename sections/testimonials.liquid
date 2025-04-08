@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+.section-{{ section.id }} {
+  background-color: {{ section.settings.background_color }};
+  color: {{ section.settings.text_color }};
+}
+
 .section-{{ section.id }}-padding {
   padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
   padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -27,15 +32,17 @@
   margin-bottom: 3rem;
 }
 
-.testimonials-heading {
+.section-{{ section.id }} .testimonials-heading {
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  color: {{ section.settings.heading_color }};
 }
 
-.testimonials-subheading {
+.section-{{ section.id }} .testimonials-subheading {
   font-size: 1.5rem;
   font-weight: 400;
+  color: {{ section.settings.subheading_color }};
 }
 
 .testimonial-slide {
@@ -48,22 +55,25 @@
   text-align: center;
 }
 
-.testimonial-highlight {
+.section-{{ section.id }} .testimonial-highlight {
   font-size: 3rem;
   line-height: 1.2;
   font-weight: 400;
   margin-bottom: 1.5rem;
+  color: {{ section.settings.text_color }};
 }
 
-.testimonial-text {
+.section-{{ section.id }} .testimonial-text {
   font-size: 1.125rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  color: {{ section.settings.text_color }};
 }
 
-.testimonial-author {
+.section-{{ section.id }} .testimonial-author {
   font-size: 1rem;
   font-weight: 500;
+  color: {{ section.settings.text_color }};
 }
 
 .testimonials-navigation {
@@ -79,20 +89,18 @@
 }
 
 .testimonial-button {
-  width: 3.4rem;
-  height: 3.4rem;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   background: transparent;
   pointer-events: auto;
-  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  padding: 0;
 }
 
-.testimonial-button--next {
-  transform: rotate(180deg);
+.testimonial-button--prev {
+  transform: scaleX(-1);
 }
 
 .testimonial-button--active {
@@ -104,6 +112,14 @@
 .testimonial-button:focus {
   background-color: {{ section.settings.button_active_color }};
   border-color: {{ section.settings.button_active_color }};
+}
+
+.section-{{ section.id }} svg circle {
+  stroke: {{ section.settings.button_color }};
+}
+
+.section-{{ section.id }} svg path {
+  fill: {{ section.settings.button_color }};
 }
 
 .visually-hidden {
@@ -165,7 +181,7 @@
 }
 </style>
 
-<div class="testimonials-section section-{{ section.id }}-padding" id="Testimonials-{{ section.id }}" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};" {{ section.shopify_attributes }}>
+<div class="testimonials-section section-{{ section.id }} section-{{ section.id }}-padding" id="Testimonials-{{ section.id }}" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="testimonials-container">
       <div class="testimonials-header">
@@ -201,13 +217,11 @@
       </div>
 
       <div class="testimonials-navigation">
-        <button class="testimonial-button testimonial-button--prev" style="border-color: {{ section.settings.button_color }}; color: {{ section.settings.button_color }};" aria-label="Previous testimonial">
+        <button class="testimonial-button testimonial-button--prev" aria-label="Previous testimonial">
           <span class="visually-hidden">Previous testimonial</span>
-          <div style="transform: rotate(180deg);">
-            {% render 'testimonial-arrow' %}
-          </div>
+          {% render 'testimonial-arrow' %}
         </button>
-        <button class="testimonial-button testimonial-button--next" style="border-color: {{ section.settings.button_color }}; color: {{ section.settings.button_color }};" aria-label="Next testimonial">
+        <button class="testimonial-button testimonial-button--next" aria-label="Next testimonial">
           <span class="visually-hidden">Next testimonial</span>
           {% render 'testimonial-arrow' %}
         </button>

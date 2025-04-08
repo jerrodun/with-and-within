@@ -5,6 +5,10 @@
     background-color: {{ section.settings.background_color }};
   }
 
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -26,13 +30,13 @@
     text-align: center;
   }
 
-  .modular-richtext__heading {
+  .section-{{ section.id }} .modular-richtext__heading {
     margin-bottom: 2rem;
     color: {{ section.settings.heading_color }};
     font-size: {{ section.settings.heading_size }}px;
   }
 
-  .modular-richtext__text {
+  .section-{{ section.id }} .modular-richtext__text {
     margin-bottom: 2rem;
     color: {{ section.settings.text_color }};
   }
@@ -54,30 +58,30 @@
     cursor: pointer;
   }
 
-  .button--primary {
+  .section-{{ section.id }} .button--primary {
     background-color: {{ section.settings.button1_background_color }};
     color: {{ section.settings.button1_text_color }};
     border: 1px solid {{ section.settings.button1_background_color }};
   }
 
-  .button--primary:hover {
+  .section-{{ section.id }} .button--primary:hover {
     background-color: {{ section.settings.button1_hover_color }};
     border-color: {{ section.settings.button1_hover_color }};
   }
 
-  .button--secondary {
+  .section-{{ section.id }} .button--secondary {
     background-color: transparent;
     color: {{ section.settings.button2_text_color }};
     border: 1px solid {{ section.settings.button2_border_color }};
   }
 
-  .button--secondary:hover {
+  .section-{{ section.id }} .button--secondary:hover {
     background-color: {{ section.settings.button2_hover_color }};
     color: {{ section.settings.background_color }};
   }
 </style>
 
-<div class="modular-richtext section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+<div class="modular-richtext section-{{ section.id }} section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="modular-richtext__wrapper{% if section.settings.text_alignment == 'center' %} modular-richtext__wrapper--center{% endif %}">
       {%- for block in section.blocks -%}

@@ -885,51 +885,51 @@ Figma design:
 }
 {% endschema %}
 
-<div class="color-background-1 isolate section-{{ section.id }}-padding" style="background-color: {{ section.settings.background_color }};" {{ section.shopify_attributes }}>
-  <div class="page-width" style="position: relative;">
-    <div class="image-with-content-container {% if section.settings.layout == 'image-right' %}image-right{% else %}image-left{% endif %}">
-      <div class="image-with-content__image-wrapper">
-        {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 1500 | image_tag:
-            loading: 'lazy',
-            sizes: '(min-width: 750px) 50vw, 100vw',
-            widths: '375, 550, 750, 1100, 1500, 2200',
-            class: 'image-with-content__image'
-          }}
-        {% else %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
-      </div>
-      <div class="image-with-content__content-wrapper">
+<div class="color-background-1 isolate section-{{ section.id }} section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+  <div class="image-with-content-container {% if section.settings.layout == 'image-right' %}image-right{% else %}image-left{% endif %}">
+    <div class="image-with-content__image-wrapper">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1500 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 750px) 50vw, 100vw',
+          widths: '375, 550, 750, 1100, 1500, 2200',
+          class: 'image-with-content__image'
+        }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+    <div class="image-with-content__content-wrapper">
+      <div class="page-width">
         <div class="image-with-content__content">
           {% if section.settings.subheading != blank %}
-            <p class="image-with-content__subheading" style="color: {{ section.settings.subheading_color }};">{{ section.settings.subheading }}</p>
+            <p class="image-with-content__subheading">{{ section.settings.subheading }}</p>
           {% endif %}
           
           <div class="image-with-content__headline-container">
             {% if section.settings.heading != blank %}
-              <h2 class="image-with-content__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+              <h2 class="image-with-content__heading">{{ section.settings.heading }}</h2>
             {% endif %}
             {% if section.settings.subtitle != blank %}
-              <p class="image-with-content__subtitle" style="color: {{ section.settings.subheading_color }};">{{ section.settings.subtitle }}</p>
+              <p class="image-with-content__subtitle">{{ section.settings.subtitle }}</p>
             {% endif %}
           </div>
 
           {% if section.settings.text != blank %}
-            <div class="image-with-content__text rte" style="color: {{ section.settings.text_color }};">
+            <div class="image-with-content__text rte">
               {{ section.settings.text }}
             </div>
           {% endif %}
 
           <div class="image-with-content__buttons">
             {% if section.settings.button_label != blank %}
-              <a href="{{ section.settings.button_link }}" class="button button--primary" style="background-color: {{ section.settings.primary_button_background }}; color: {{ section.settings.primary_button_text }};">
+              <a href="{{ section.settings.button_link }}" class="button button--primary">
                 {{ section.settings.button_label }}
               </a>
             {% endif %}
             
             {% if section.settings.secondary_button_label != blank %}
-              <a href="{{ section.settings.secondary_button_link }}" class="button button--secondary" style="background-color: {{ section.settings.secondary_button_background }}; color: {{ section.settings.secondary_button_text }}; border-color: {{ section.settings.secondary_button_border }};">
+              <a href="{{ section.settings.secondary_button_link }}" class="button button--secondary">
                 {{ section.settings.secondary_button_label }}
               </a>
             {% endif %}
@@ -941,6 +941,10 @@ Figma design:
 </div>
 
 <style>
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -956,13 +960,11 @@ Figma design:
   .image-with-content-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
   }
 
   @media screen and (min-width: 750px) {
     .image-with-content-container {
       flex-direction: row;
-      gap: 0;
       align-items: stretch;
     }
 
@@ -972,40 +974,21 @@ Figma design:
   }
 
   .image-with-content__image-wrapper {
-    flex: 1;
-    display: flex;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
     position: relative;
+    width: 100%;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 750px) {
     .image-with-content__image-wrapper {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 50vw;
-      height: 100%;
-    }
-
-    .image-left .image-with-content__image-wrapper {
-      left: 0;
-    }
-
-    .image-right .image-with-content__image-wrapper {
-      right: 0;
+      flex: 0 0 50%;
+      width: 50%;
     }
 
     .image-with-content__content-wrapper {
       flex: 0 0 50%;
-      margin-left: auto;
+      width: 50%;
       padding: 0 3rem;
-    }
-
-    .image-right .image-with-content__content-wrapper {
-      margin-right: auto;
-      margin-left: 0;
     }
   }
 
@@ -1014,10 +997,10 @@ Figma design:
     height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
   }
 
   .image-with-content__content-wrapper {
-    flex: 1;
     display: flex;
     align-items: center;
   }
@@ -1036,9 +1019,10 @@ Figma design:
     }
   }
 
-  .image-with-content__subheading {
+  .section-{{ section.id }} .image-with-content__subheading {
     font-size: var(--font-size-base);
     margin: 0;
+    color: {{ section.settings.subheading_color }};
   }
 
   .image-with-content__headline-container {
@@ -1047,21 +1031,24 @@ Figma design:
     gap: 1rem;
   }
 
-  .image-with-content__heading {
+  .section-{{ section.id }} .image-with-content__heading {
     font-size: var(--font-size-heading-1);
     margin: 0;
     font-weight: 400;
     line-height: 1.2;
+    color: {{ section.settings.heading_color }};
   }
 
-  .image-with-content__subtitle {
+  .section-{{ section.id }} .image-with-content__subtitle {
     font-size: var(--font-size-base);
     margin: 0;
+    color: {{ section.settings.subheading_color }};
   }
 
-  .image-with-content__text {
+  .section-{{ section.id }} .image-with-content__text {
     font-size: var(--font-size-base);
     line-height: 1.6;
+    color: {{ section.settings.text_color }};
   }
 
   .image-with-content__buttons {
@@ -1070,7 +1057,7 @@ Figma design:
     gap: 2rem;
   }
 
-  .button--primary {
+  .section-{{ section.id }} .button--primary {
     border: none;
     padding: 1rem 2rem;
     font-size: var(--font-size-base);
@@ -1079,13 +1066,15 @@ Figma design:
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
+    background-color: {{ section.settings.primary_button_background }};
+    color: {{ section.settings.primary_button_text }};
   }
 
-  .button--primary:hover {
+  .section-{{ section.id }} .button--primary:hover {
     background-color: var(--color-dark-green);
   }
 
-  .button--secondary {
+  .section-{{ section.id }} .button--secondary {
     border: 1px solid;
     padding: 1rem 2rem;
     font-size: var(--font-size-base);
@@ -1094,9 +1083,12 @@ Figma design:
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: {{ section.settings.secondary_button_background }};
+    color: {{ section.settings.secondary_button_text }};
+    border-color: {{ section.settings.secondary_button_border }};
   }
 
-  .button--secondary:hover {
+  .section-{{ section.id }} .button--secondary:hover {
     background-color: {{ section.settings.secondary_button_border }};
     color: {{ section.settings.background_color }};
   }

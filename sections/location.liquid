@@ -7,6 +7,10 @@
     background-color: {{ section.settings.background_color }};
   }
   
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+  
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -25,7 +29,7 @@
     gap: var(--spacing-extra-loose);
   }
   
-  .location-heading {
+  .section-{{ section.id }} .location-heading {
     color: {{ section.settings.heading_color }};
     font-size: {{ section.settings.heading_size }}px;
     margin-bottom: var(--spacing-extra-loose);
@@ -42,13 +46,13 @@
     margin-bottom: var(--spacing-loose);
   }
   
-  .info-title {
+  .section-{{ section.id }} .info-title {
     color: {{ section.settings.info_title_color }};
     font-size: calc(1.2rem * var(--font-heading-scale));
     margin-bottom: var(--spacing-base);
   }
   
-  .info-text {
+  .section-{{ section.id }} .info-text {
     color: {{ section.settings.info_text_color }};
     font-size: calc(1rem * var(--font-body-scale));
     line-height: 1.5;
@@ -58,7 +62,7 @@
     margin-top: var(--spacing-extra-loose);
   }
   
-  .location-button {
+  .section-{{ section.id }} .location-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +75,7 @@
     transition: background-color 0.3s;
   }
   
-  .location-button:hover {
+  .section-{{ section.id }} .location-button:hover {
     background-color: {{ section.settings.button_hover_color }};
   }
   
@@ -88,14 +92,14 @@
     object-fit: cover;
   }
   
-  .location-map-placeholder {
+  .section-{{ section.id }} .location-map-placeholder {
     background-color: {{ section.settings.map_placeholder_color }};
     width: 100%;
     padding-bottom: 75%;
     position: relative;
   }
   
-  .location-map-placeholder .placeholder-svg {
+  .section-{{ section.id }} .location-map-placeholder .placeholder-svg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -119,14 +123,10 @@
       width: 60%;
       flex-grow: 1;
     }
-    
-    .location-heading {
-      font-size: calc(3rem * var(--font-heading-scale));
-    }
   }
 </style>
 
-<div class="location-section section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
+<div class="location-section section-{{ section.id }} section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="location-container">
       <div class="location-content">
@@ -187,6 +187,16 @@
       "default": "See us in Oakland's Pill Hill District"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 36
+    },
+    {
       "type": "text",
       "id": "address_heading",
       "label": "Address Heading",
@@ -237,16 +247,6 @@
       "type": "image_picker",
       "id": "map_image",
       "label": "Map Image"
-    },
-    {
-      "type": "range",
-      "id": "heading_size",
-      "min": 20,
-      "max": 60,
-      "step": 2,
-      "unit": "px",
-      "label": "Heading size",
-      "default": 36
     },
     {
       "type": "header",

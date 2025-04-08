@@ -4,10 +4,13 @@
 
 <style>
   .faq {
-    color: {{ section.settings.text_color }};
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+  }
+  
+  .section-{{ section.id }} {
+    color: {{ section.settings.text_color }};
     background-color: {{ section.settings.background_color }};
   }
   
@@ -38,7 +41,7 @@
     flex-wrap: wrap;
   }
   
-  .faq__grid-item {
+  .section-{{ section.id }} .faq__grid-item {
     width: 100%;
     padding: 0;
     border-bottom: 1px solid {{ section.settings.border_color }};
@@ -57,14 +60,14 @@
     list-style: none;
   }
   
-  .faq__question {
+  .section-{{ section.id }} .faq__question {
     color: {{ section.settings.question_color }};
     font-weight: normal;
     margin: 0;
     width: 85%;
   }
   
-  .faq__toggle-icon {
+  .section-{{ section.id }} .faq__toggle-icon {
     position: relative;
     width: 54px;
     height: 54px;
@@ -75,25 +78,25 @@
     justify-content: center;
   }
   
-  .icon-plus, .icon-minus {
+  .section-{{ section.id }} .icon-plus, .section-{{ section.id }} .icon-minus {
     position: absolute;
     transition: opacity 0.3s ease;
     color: {{ section.settings.icon_color }};
   }
   
-  .icon-minus {
+  .section-{{ section.id }} .icon-minus {
     opacity: 0;
   }
   
-  details[open] .icon-plus {
+  .section-{{ section.id }} details[open] .icon-plus {
     opacity: 0;
   }
   
-  details[open] .icon-minus {
+  .section-{{ section.id }} details[open] .icon-minus {
     opacity: 1;
   }
   
-  .faq__answer {
+  .section-{{ section.id }} .faq__answer {
     color: {{ section.settings.text_color }};
     padding: 0 66px 40px 66px;
     width: 85%;
@@ -101,13 +104,13 @@
   }
   
   @media screen and (min-width: 750px) {
-    .faq__grid-item {
+    .section-{{ section.id }} .faq__grid-item {
       width: 50%;
     }
   }
 </style>
 
-<div class="faq section-{{ section.id }}-padding" id="Faq-{{ section.id }}" {{ section.shopify_attributes }}>
+<div class="faq section-{{ section.id }} section-{{ section.id }}-padding" id="Faq-{{ section.id }}" {{ section.shopify_attributes }}>
   {% if section.settings.title != blank %}
     <h2 class="faq__title">{{ section.settings.title }}</h2>
   {% endif %}

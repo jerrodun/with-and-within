@@ -6,6 +6,10 @@
   background-color: {{ section.settings.background_color }};
 }
 
+.section-{{ section.id }} {
+  background-color: {{ section.settings.background_color }};
+}
+
 .section-{{ section.id }}-padding {
   padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
   padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -24,7 +28,7 @@
   gap: 0;
 }
 
-.service-block {
+.section-{{ section.id }} .service-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,6 +37,7 @@
   border-style: solid;
   height: 680px;
   box-sizing: border-box;
+  border-color: {{ section.settings.border_color }};
 }
 
 .service-block__content {
@@ -46,7 +51,7 @@
   max-width: 540px;
 }
 
-.service-block__image-container {
+.section-{{ section.id }} .service-block__image-container {
   width: 368px;
   height: 130px;
   border-radius: 1000px;
@@ -54,6 +59,7 @@
   border-style: solid;
   overflow: hidden;
   position: relative;
+  border-color: {{ section.settings.border_color }};
 }
 
 .service-block__image {
@@ -73,21 +79,24 @@
   text-align: center;
 }
 
-.service-block__title {
+.section-{{ section.id }} .service-block__title {
   font-size: calc(2.4rem * var(--font-heading-scale));
   margin-bottom: 15px;
+  color: {{ section.settings.title_color }};
 }
 
-.service-block__meta {
+.section-{{ section.id }} .service-block__meta {
   font-size: calc(1.1rem * var(--font-body-scale));
   margin-bottom: var(--spacing-base);
   text-align: center;
+  color: {{ section.settings.meta_color }};
 }
 
-.service-block__description {
+.section-{{ section.id }} .service-block__description {
   font-size: calc(1rem * var(--font-body-scale));
   line-height: 1.5;
   text-align: center;
+  color: {{ section.settings.description_color }};
 }
 
 .service-block__button-container {
@@ -96,7 +105,7 @@
   justify-content: center;
 }
 
-.service-block__button {
+.section-{{ section.id }} .service-block__button {
   padding: 14px 20px;
   min-width: 138px;
   min-height: 48px;
@@ -107,9 +116,11 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease, opacity 0.3s ease;
+  background-color: {{ section.settings.button_background }};
+  color: {{ section.settings.button_text_color }};
 }
 
-.service-block__button:hover {
+.section-{{ section.id }} .service-block__button:hover {
   opacity: 0.9;
 }
 
@@ -118,41 +129,40 @@
     flex-direction: row;
   }
   
-  .service-block {
+  .section-{{ section.id }} .service-block {
     flex: 1;
     min-width: 0;
   }
 }
 
 @media screen and (max-width: 749px) {
-  .service-block {
+  .section-{{ section.id }} .service-block {
     height: auto;
     padding-bottom: var(--spacing-section);
   }
   
-  .service-block__image-container {
+  .section-{{ section.id }} .service-block__image-container {
     width: 300px;
     height: 110px;
   }
   
-  .service-block__content {
+  .section-{{ section.id }} .service-block__content {
     margin-top: 60px;
   }
 }
 </style>
 
-<div class="service-blocks section-{{ section.id }}-padding {% if section.settings.full_width == false %}page-width{% endif %}" {{ section.shopify_attributes }}>
+<div class="service-blocks section-{{ section.id }} section-{{ section.id }}-padding {% if section.settings.full_width == false %}page-width{% endif %}" {{ section.shopify_attributes }}>
   <div class="service-blocks__container">
     {% for block in section.blocks %}
       {% if forloop.index <= 2 %}
         {% case block.type %}
           {% when 'service' %}
             <div class="service-block" 
-                {{ block.shopify_attributes }}
-                style="border-color: {{ section.settings.border_color }};">
+                {{ block.shopify_attributes }}>
               <div class="service-block__content">
                 {% if block.settings.image != blank %}
-                  <div class="service-block__image-container" style="border-color: {{ section.settings.border_color }};">
+                  <div class="service-block__image-container">
                     {%- assign img_url = block.settings.image | image_url: width: 1500 -%}
                     <img 
                       srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -173,11 +183,11 @@
                 
                 <div class="service-block__text-container">
                   {% if block.settings.title != blank %}
-                    <h2 class="service-block__title" style="color: {{ section.settings.title_color }};">{{ block.settings.title }}</h2>
+                    <h2 class="service-block__title">{{ block.settings.title }}</h2>
                   {% endif %}
                   
                   {% if block.settings.duration != blank or block.settings.price != blank %}
-                    <div class="service-block__meta" style="color: {{ section.settings.meta_color }};">
+                    <div class="service-block__meta">
                       {% if block.settings.duration != blank %}{{ block.settings.duration }}{% endif %}
                       {% if block.settings.duration != blank and block.settings.price != blank %} | {% endif %}
                       {% if block.settings.price != blank %}{{ block.settings.price }}{% endif %}
@@ -185,7 +195,7 @@
                   {% endif %}
                   
                   {% if block.settings.description != blank %}
-                    <div class="service-block__description" style="color: {{ section.settings.description_color }};">{{ block.settings.description }}</div>
+                    <div class="service-block__description">{{ block.settings.description }}</div>
                   {% endif %}
                 </div>
               </div>
@@ -193,8 +203,7 @@
               {% if block.settings.button_label != blank and block.settings.button_link != blank %}
                 <div class="service-block__button-container">
                   <a href="{{ block.settings.button_link }}" 
-                    class="service-block__button" 
-                    style="background-color: {{ section.settings.button_background }}; color: {{ section.settings.button_text_color }};">
+                    class="service-block__button">
                     {{ block.settings.button_label }}
                   </a>
                 </div>
