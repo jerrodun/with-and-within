@@ -1,0 +1,147 @@
+.service-blocks {
+  padding: var(--spacing-section) 0;
+} 
+
+.service-blocks__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-section);
+}
+
+.service-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-loose);
+  border: 1px solid var(--color-text);
+}
+
+.service-block__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-extra-loose);
+  margin-bottom: var(--spacing-loose);
+  width: 100%;
+}
+
+.service-block__image-container {
+  width: 368px;
+  height: 130px;
+  border-radius: 1000px;
+  border: 1px solid var(--color-text);
+  overflow: hidden;
+  position: relative;
+}
+
+.service-block__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.service-block__text-container {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+  text-align: left;
+}
+
+.service-block__title {
+  font-size: calc(2.4rem * var(--font-heading-scale));
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-tight);
+}
+
+.service-block__meta {
+  font-size: calc(1.1rem * var(--font-body-scale));
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-base);
+  text-align: center;
+}
+
+.service-block__description {
+  font-size: calc(1rem * var(--font-body-scale));
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.service-block__button-container {
+  margin-top: auto;
+}
+
+.service-block__button {
+  background-color: #5E6A39; /* Green button from Figma */
+  color: #EEEBE6; /* Light color for button text */
+  padding: 14px 20px;
+  min-width: 138px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.service-block__button:hover {
+  background-color: #4B5A29;
+}
+
+.button--primary {
+  background-color: #5E6A39;
+  color: #EEEBE6;
+}
+
+.button--primary:hover {
+  background-color: #4B5A29;
+}
+
+.button--secondary {
+  background-color: var(--color-primary);
+  color: #EEEBE6;
+}
+
+.button--secondary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+@media screen and (min-width: 750px) {
+  .service-blocks__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .service-block {
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+  
+  .service-block__meta {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .service-blocks {
+    padding: calc(var(--spacing-section) * 1.5) 0;
+  }
+  
+  .service-block {
+    padding: var(--spacing-extra-loose);
+  }
+  
+  .service-block__image-container {
+    width: 368px;
+    height: 130px;
+  }
+  
+  .service-block__title {
+    font-size: calc(2.8rem * var(--font-heading-scale));
+  }
+} 
