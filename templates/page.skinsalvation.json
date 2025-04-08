@@ -55,23 +55,23 @@
         "heading_xTdHxg": {
           "type": "heading",
           "settings": {
-            "heading": "Heading"
+            "heading": "Our Services"
           }
         },
         "text_jyBHwg": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p>Our personalized skincare services are designed to enhance your routine with expert guidance, tailored treatments, and customized solutions that cater to your unique skin needs. From in-depth consultations to targeted treatments, we focus on delivering results that leave your skin healthy, radiant, and balanced.</p>"
           }
         },
         "buttons_NNHXDq": {
           "type": "buttons",
           "settings": {
             "button_label_1": "In-person",
-            "button_link_1": "",
+            "button_link_1": "#",
             "button_style_1": "primary",
             "button_label_2": "Virtual",
-            "button_link_2": "",
+            "button_link_2": "#",
             "button_style_2": "secondary"
           }
         }
@@ -83,16 +83,16 @@
       ],
       "settings": {
         "text_alignment": "center",
-        "heading_size": 36,
+        "heading_size": 46,
         "background_color": "#ffffff",
         "heading_color": "#9e5048",
         "text_color": "#42302c",
-        "button1_background_color": "#5e6a39",
-        "button1_text_color": "#eeebe6",
-        "button1_hover_color": "#4d573f",
-        "button2_text_color": "#5e6a39",
+        "button1_background_color": "#efe9df",
+        "button1_text_color": "#5e6939",
+        "button1_hover_color": "#efe9df",
+        "button2_text_color": "#5e6939",
         "button2_border_color": "#5e6a39",
-        "button2_hover_color": "#5e6a39",
+        "button2_hover_color": "#efe9df",
         "padding_top": 100,
         "padding_bottom": 100
       }
