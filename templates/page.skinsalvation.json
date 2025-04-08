@@ -1,0 +1,73 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_slideshow_TUH7Ep": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "slide_HabJ8r": {
+          "type": "slide",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image_scale": 50,
+            "image_position": "bottom_left",
+            "heading": "Slide Heading",
+            "heading_underlined": "Underlined Text",
+            "richtext": "<p>Slide content goes here.</p>",
+            "button_one_text": "Button One",
+            "button_one_link": "",
+            "button_two_text": "Button Two",
+            "button_two_link": "",
+            "overlay_opacity": 50,
+            "text_background_color": "#FFFFFF",
+            "heading_color": "#000000",
+            "richtext_color": "#000000",
+            "button_one_bg_color": "#000000",
+            "button_one_text_color": "#FFFFFF",
+            "button_two_bg_color": "#000000",
+            "button_two_text_color": "#FFFFFF",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_HabJ8r"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_speed": 5,
+        "show_dots": true,
+        "height": 100,
+        "height_mobile": 50
+      }
+    },
+    "custom_37ETrz": {
+      "type": "custom",
+      "custom_css": [
+        ".custom .grid {display: flex; flex-direction: column;}",
+        ".custom .grid .grid__item {width: 100%;}",
+        ".custom .grid .f--heading {color: #5e6939;}",
+        ".custom .section-with-padding {padding-top: 25px; padding-bottom: 25px;}"
+      ],
+      "settings": {
+        "title": "Follow us @withandwithin.co",
+        "subheading": "",
+        "cta_url": "",
+        "cta_text": "",
+        "custom_html": "<div id=\"insta-feed\"></div>",
+        "color_scheme": "primary"
+      }
+    }
+  },
+  "order": [
+    "hero_slideshow_TUH7Ep",
+    "custom_37ETrz"
+  ]
+}
