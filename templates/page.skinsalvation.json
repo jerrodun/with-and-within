@@ -128,6 +128,52 @@
         "button_text_color": "#eeebe6"
       }
     },
+    "faq_Ee9cK4": {
+      "type": "faq",
+      "blocks": {
+        "faq_Jimbkk": {
+          "type": "faq",
+          "settings": {
+            "question": "Is this program really going to work, even if I don't get facials?",
+            "answer": "<p>For most cases, yes. Over the years we've had dozens of clients use our online resources, use our products and clear their acne on their own. However, some clients did need some professional help. We are happy to help assist you in finding someone local, to administer chemical peels, extractions and support alongside the skinSALVATION program. Additionally, we're always available in case questions that aren't covered on our site come up, so take advantage and contact us if need be.</p>"
+          }
+        },
+        "faq_wrKe63": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will it take me to get my products?",
+            "answer": "<p>Our products typically ship within 1-2 business days. Delivery times depend on your location, but most orders arrive within 3-5 business days after shipping.</p>"
+          }
+        },
+        "faq_x7QV3c": {
+          "type": "faq",
+          "settings": {
+            "question": "What makes skinSALVATION different?",
+            "answer": "<p>We focus exclusively on acne treatment with a holistic approach. Our products are formulated specifically for acne-prone skin, and our program addresses lifestyle factors, diet, and skincare routines to provide a comprehensive solution.</p>"
+          }
+        },
+        "faq_Ld9fdp": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I become a skinSALVATION client?",
+            "answer": "<p>Simply purchase one of our starter kits or book a consultation through our website. We'll guide you through our process and create a personalized plan for your specific needs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_Jimbkk",
+        "faq_wrKe63",
+        "faq_x7QV3c",
+        "faq_Ld9fdp"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "text_color": "#42302C",
+        "question_color": "#9E5048",
+        "answer_color": "#42302C",
+        "border_color": "#E0D4C8"
+      }
+    },
     "testimonials_zU9gnx": {
       "type": "testimonials",
       "blocks": {
@@ -198,52 +244,6 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
-    },
-    "faq_Ee9cK4": {
-      "type": "faq",
-      "blocks": {
-        "faq_Jimbkk": {
-          "type": "faq",
-          "settings": {
-            "question": "Is this program really going to work, even if I don't get facials?",
-            "answer": "<p>For most cases, yes. Over the years we've had dozens of clients use our online resources, use our products and clear their acne on their own. However, some clients did need some professional help. We are happy to help assist you in finding someone local, to administer chemical peels, extractions and support alongside the skinSALVATION program. Additionally, we're always available in case questions that aren't covered on our site come up, so take advantage and contact us if need be.</p>"
-          }
-        },
-        "faq_wrKe63": {
-          "type": "faq",
-          "settings": {
-            "question": "How long will it take me to get my products?",
-            "answer": "<p>Our products typically ship within 1-2 business days. Delivery times depend on your location, but most orders arrive within 3-5 business days after shipping.</p>"
-          }
-        },
-        "faq_x7QV3c": {
-          "type": "faq",
-          "settings": {
-            "question": "What makes skinSALVATION different?",
-            "answer": "<p>We focus exclusively on acne treatment with a holistic approach. Our products are formulated specifically for acne-prone skin, and our program addresses lifestyle factors, diet, and skincare routines to provide a comprehensive solution.</p>"
-          }
-        },
-        "faq_Ld9fdp": {
-          "type": "faq",
-          "settings": {
-            "question": "How can I become a skinSALVATION client?",
-            "answer": "<p>Simply purchase one of our starter kits or book a consultation through our website. We'll guide you through our process and create a personalized plan for your specific needs.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_Jimbkk",
-        "faq_wrKe63",
-        "faq_x7QV3c",
-        "faq_Ld9fdp"
-      ],
-      "settings": {
-        "title": "Frequently Asked Questions",
-        "text_color": "#42302C",
-        "question_color": "#9E5048",
-        "answer_color": "#42302C",
-        "border_color": "#E0D4C8"
-      }
     }
   },
   "order": [
@@ -252,7 +252,7 @@
     "service_blocks_hgh4bp",
     "testimonials_zU9gnx",
     "image_with_content_Y94WpV",
-    "location_VKcKt7",
-    "faq_Ee9cK4"
+    "faq_Ee9cK4",
+    "location_VKcKt7"
   ]
 }
