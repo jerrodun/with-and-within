@@ -2,7 +2,8 @@
   "general": {
     "accessibility": {
       "skip_to_content": "Skip to content",
-      "unit_price_separator": "per"
+      "unit_price_separator": "per",
+      "close_modal": "Close"
     },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
@@ -274,7 +275,7 @@
       "product_title": "Example Product Title",
       "collection_title": "Example Collection Title",
       "newsletter_title": "Sign up to our newsletter",
-      "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar.",
+      "no_content": "This section doesn't currently include any content. Add content to this section using the sidebar.",
       "blog_title": "Your post's title",
       "blog_section_title": "Example blog title"
     }
@@ -361,5 +362,11 @@
   "date_formats": {
     "month_day_year": "%B %d, %Y"
   },
-  "socialshopwave": {}
+  "socialshopwave": {},
+  "sections": {
+    "testimonials": {
+      "previous_testimonial": "Previous testimonial",
+      "next_testimonial": "Next testimonial"
+    }
+  }
 }
