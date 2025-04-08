@@ -1,5 +1,5 @@
 General:
-[x] Consolodate some of the color settings for TEXT. Keep separate options button labels, headings, subheading, text. But we don't need to be excessive (e.g. Author name color, Quote text color, Button border color, etc.) Just keep it normal! That includes settings in:
+[ ] The padding top and bottom need to be targetted to the section.id, to account for when more than one section exists on the page:
   [x] testimonials.liquid
   [x] modular-richtext.liquid
   [x] image-with-content.liquid
@@ -7,18 +7,18 @@ General:
   [x] location.liquid
   [x] service-blocks.liquid
 
-modular-richtext.liquid:
-[x] Button's are not displaying
-[x] Add a heading size setting
 
 service-blocks.liquid:
-[x] Button's are not displaying
+[x] Add back in a color setting for .service-block__meta
 
 testimonials.liquid:
-[x] Update arrow with snippet testimonial-arrow.liquid (need to flip for next/prev accordingly)
+[x] Update the arrow icons. I'm seeing remenants of the old icon/buttons and the new combined. Double check this work.
+[x] The previous button/icon is facing the wrong way. It needs to be flipped. 
 
 image-with-content.liquid: 
-[x] Make the image take up the full container
+[x] The image isn't taking up full height. Additionally, I want the image to ignore the wrapper/container and always take up 50% of the browser width (touching the left/right side of the browser based on its position setting). The content should still respect the container.
 
+location.liquid:
+[x] Adding a heading size setting here as well
 
 

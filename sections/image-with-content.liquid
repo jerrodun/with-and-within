@@ -885,12 +885,12 @@ Figma design:
 }
 {% endschema %}
 
-<div class="color-background-1 isolate" style="background-color: {{ section.settings.background_color }};" {{ section.shopify_attributes }}>
-  <div class="page-width section-{{ section.id }}-padding">
+<div class="color-background-1 isolate section-{{ section.id }}-padding" style="background-color: {{ section.settings.background_color }};" {{ section.shopify_attributes }}>
+  <div class="page-width" style="position: relative;">
     <div class="image-with-content-container {% if section.settings.layout == 'image-right' %}image-right{% else %}image-left{% endif %}">
       <div class="image-with-content__image-wrapper">
         {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 1000 | image_tag:
+          {{ section.settings.image | image_url: width: 1500 | image_tag:
             loading: 'lazy',
             sizes: '(min-width: 750px) 50vw, 100vw',
             widths: '375, 550, 750, 1100, 1500, 2200',
@@ -962,7 +962,8 @@ Figma design:
   @media screen and (min-width: 750px) {
     .image-with-content-container {
       flex-direction: row;
-      gap: 3rem;
+      gap: 0;
+      align-items: stretch;
     }
 
     .image-with-content-container.image-right {
@@ -973,17 +974,46 @@ Figma design:
   .image-with-content__image-wrapper {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     height: 100%;
     width: 100%;
+    position: relative;
+  }
+
+  @media screen and (min-width: 750px) {
+    .image-with-content__image-wrapper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50vw;
+      height: 100%;
+    }
+
+    .image-left .image-with-content__image-wrapper {
+      left: 0;
+    }
+
+    .image-right .image-with-content__image-wrapper {
+      right: 0;
+    }
+
+    .image-with-content__content-wrapper {
+      flex: 0 0 50%;
+      margin-left: auto;
+      padding: 0 3rem;
+    }
+
+    .image-right .image-with-content__content-wrapper {
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
   .image-with-content__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
 
   .image-with-content__content-wrapper {

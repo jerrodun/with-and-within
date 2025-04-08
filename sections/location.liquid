@@ -4,13 +4,18 @@
 
 <style>
   .location-section {
-    padding: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     background-color: {{ section.settings.background_color }};
   }
   
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  
   @media screen and (min-width: 750px) {
-    .location-section {
-      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
   
@@ -22,7 +27,7 @@
   
   .location-heading {
     color: {{ section.settings.heading_color }};
-    font-size: calc(2.4rem * var(--font-heading-scale));
+    font-size: {{ section.settings.heading_size }}px;
     margin-bottom: var(--spacing-extra-loose);
     line-height: 1.25;
   }
@@ -121,7 +126,7 @@
   }
 </style>
 
-<div class="location-section section-padding" {{ section.shopify_attributes }}>
+<div class="location-section section-{{ section.id }}-padding" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="location-container">
       <div class="location-content">
@@ -232,6 +237,16 @@
       "type": "image_picker",
       "id": "map_image",
       "label": "Map Image"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 36
     },
     {
       "type": "header",
