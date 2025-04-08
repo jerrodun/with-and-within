@@ -1,21 +1,17 @@
 {{ 'global-new-theme.css' | asset_url | stylesheet_tag }}
-{{ 'section-modular-richtext.css' | asset_url | stylesheet_tag }}
 
 <style>
-  .section-{{ section.id }}-padding {
+  .modular-richtext {
+    background-color: {{ section.settings.background_color }};
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
+    .modular-richtext {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  }
-
-  .modular-richtext {
-    background-color: {{ section.settings.background_color }};
   }
 
   .modular-richtext__wrapper {
@@ -74,7 +70,7 @@
 </style>
 
 <div class="modular-richtext">
-  <div class="page-width section-{{ section.id }}-padding">
+  <div class="page-width">
     <div class="modular-richtext__wrapper{% if section.settings.text_alignment == 'center' %} modular-richtext__wrapper--center{% endif %}">
       {%- for block in section.blocks -%}
         {% case block.type %}
