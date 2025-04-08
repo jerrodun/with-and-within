@@ -110,13 +110,15 @@
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   background-color: {{ section.settings.button_background }};
   color: {{ section.settings.button_text_color }};
 }
 
 .section-{{ section.id }} .service-block__button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
+  background-color: {{ section.settings.button_background }};
+  color: {{ section.settings.button_text_color }};
 }
 
 @media screen and (min-width: 750px) {
@@ -127,6 +129,10 @@
   .section-{{ section.id }} .service-block {
     flex: 1;
     min-width: 0;
+  }
+  
+  .section-{{ section.id }} .service-block:first-child {
+    border-right: none;
   }
 }
 

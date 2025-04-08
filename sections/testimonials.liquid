@@ -83,7 +83,7 @@
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 1;
   pointer-events: none;
   padding: 0 1rem;
 }
@@ -97,6 +97,11 @@
   pointer-events: auto;
   border: none;
   padding: 0;
+  transition: opacity 0.3s ease;
+}
+
+.testimonial-button:hover {
+  opacity: 0.7;
 }
 
 .testimonial-button--prev {
@@ -108,7 +113,6 @@
   border-color: {{ section.settings.button_active_color }};
 }
 
-.testimonial-button:hover,
 .testimonial-button:focus {
   background-color: {{ section.settings.button_active_color }};
   border-color: {{ section.settings.button_active_color }};

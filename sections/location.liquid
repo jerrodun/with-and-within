@@ -68,11 +68,13 @@
     min-width: 315px;
     text-decoration: none;
     text-align: center;
-    transition: background-color 0.3s;
+    transition: opacity 0.3s;
   }
   
   .section-{{ section.id }} .location-button:hover {
-    background-color: {{ section.settings.button_hover_color }};
+    opacity: 0.8;
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
   }
   
   .location-map {

@@ -744,6 +744,16 @@ Figma design:
       "default": "Kimberly Yap Tan"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 36
+    },
+    {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
@@ -1032,7 +1042,7 @@ Figma design:
   }
 
   .section-{{ section.id }} .image-with-content__heading {
-    font-size: var(--font-size-heading-1);
+    font-size: {{ section.settings.heading_size }}px;
     margin: 0;
     font-weight: 400;
     line-height: 1.2;
@@ -1071,7 +1081,8 @@ Figma design:
   }
 
   .section-{{ section.id }} .button--primary:hover {
-    background-color: var(--color-dark-green);
+    background-color: darken({{ section.settings.primary_button_background }}, 10%);
+    color: {{ section.settings.primary_button_text }};
   }
 
   .section-{{ section.id }} .button--secondary {
@@ -1089,7 +1100,9 @@ Figma design:
   }
 
   .section-{{ section.id }} .button--secondary:hover {
-    background-color: {{ section.settings.secondary_button_border }};
-    color: {{ section.settings.background_color }};
+    opacity: 0.8;
+    background-color: {{ section.settings.secondary_button_background }};
+    color: {{ section.settings.secondary_button_text }};
+    border-color: {{ section.settings.secondary_button_border }};
   }
 </style>

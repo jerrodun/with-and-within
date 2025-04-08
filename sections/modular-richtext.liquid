@@ -63,6 +63,7 @@
   .section-{{ section.id }} .button--primary:hover {
     background-color: {{ section.settings.button1_hover_color }};
     border-color: {{ section.settings.button1_hover_color }};
+    color: {{ section.settings.button1_text_color }};
   }
 
   .section-{{ section.id }} .button--secondary {
@@ -73,7 +74,8 @@
 
   .section-{{ section.id }} .button--secondary:hover {
     background-color: {{ section.settings.button2_hover_color }};
-    color: {{ section.settings.background_color }};
+    border-color: {{ section.settings.button2_border_color }};
+    color: {{ section.settings.button2_text_color }};
   }
 </style>
 
