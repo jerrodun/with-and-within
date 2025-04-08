@@ -2,41 +2,106 @@
   FAQ section: This is a FAQ section, where each FAQ item is a block. Clicking an item should expand the block, showing the answer below the question.
 {% endcomment %}
 
-<link rel="stylesheet" href="{{ 'component-faq.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'component-faq.css' | asset_url | stylesheet_tag }}</noscript>
- 
-{%- style -%}
+<style>
   .faq {
-    padding: var(--space-4) 0;
+    padding: 60px 0;
     color: {{ section.settings.text_color }};
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  .faq__title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: {{ section.settings.question_color }};
+  }
+  
+  .faq__wrapper {
+    width: 100%;
+  }
+  
+  .faq__grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .faq__grid-item {
+    width: 100%;
+    padding: 0;
   }
   
   .faq__item {
     border-bottom: 1px solid {{ section.settings.border_color }};
   }
   
+  .faq__question-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 66px;
+    cursor: pointer;
+    list-style: none;
+  }
+  
   .faq__question {
     color: {{ section.settings.question_color }};
+    font-weight: normal;
+    margin: 0;
+    width: 85%;
+  }
+  
+  .faq__toggle-icon {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid {{ section.settings.border_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-plus, .icon-minus {
+    position: absolute;
+    transition: opacity 0.3s ease;
+  }
+  
+  .icon-minus {
+    opacity: 0;
+  }
+  
+  details[open] .icon-plus {
+    opacity: 0;
+  }
+  
+  details[open] .icon-minus {
+    opacity: 1;
   }
   
   .faq__answer {
     color: {{ section.settings.answer_color }};
+    padding: 0 66px 40px 66px;
+    width: 85%;
+    max-width: 588px;
   }
   
-  .faq__toggle-icon {
-    border: 1px solid {{ section.settings.border_color }};
+  @media screen and (min-width: 750px) {
+    .faq__grid-item {
+      width: 50%;
+    }
   }
-{%- endstyle -%}
+</style>
 
-<div class="page-width faq" id="Faq-{{ section.id }}">
+<div class="faq" id="Faq-{{ section.id }}">
   {% if section.settings.title != blank %}
     <h2 class="faq__title">{{ section.settings.title }}</h2>
   {% endif %}
   
   <div class="faq__wrapper">
-    <div class="faq__grid grid grid--1-col grid--2-col-tablet">
+    <div class="faq__grid">
       {%- for block in section.blocks -%}
-        <div class="faq__grid-item grid__item" {{ block.shopify_attributes }}>
+        <div class="faq__grid-item" {{ block.shopify_attributes }}>
           <details class="faq__item" id="FAQ-{{ block.id }}">
             <summary class="faq__question-wrapper">
               <h3 class="faq__question">{{ block.settings.question }}</h3>
@@ -73,7 +138,7 @@
     },
     {
       "type": "color",
-      "id": "question_color",
+      "id": "question_color", 
       "label": "Question color",
       "default": "#9E5048"
     },
