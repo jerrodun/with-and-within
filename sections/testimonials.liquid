@@ -178,19 +178,22 @@
       <div class="swiper testimonials-swiper">
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
-            <div class="swiper-slide testimonial-slide" {{ block.shopify_attributes }}>
-              <div class="testimonial-content">
-                {% if block.settings.quote_highlight != blank %}
-                  <h3 class="testimonial-highlight" style="color: {{ section.settings.highlight_color }};">{{ block.settings.quote_highlight }}</h3>
-                {% endif %}
-                {% if block.settings.quote_text != blank %}
-                  <div class="testimonial-text" style="color: {{ section.settings.quote_text_color }};">{{ block.settings.quote_text }}</div>
-                {% endif %}
-                {% if block.settings.author_name != blank %}
-                  <p class="testimonial-author" style="color: {{ section.settings.author_color }};">{{ block.settings.author_name }}</p>
-                {% endif %}
-              </div>
-            </div>
+            {% case block.type %}
+              {% when 'testimonial' %}
+                <div class="swiper-slide testimonial-slide" {{ block.shopify_attributes }}>
+                  <div class="testimonial-content">
+                    {% if block.settings.quote_highlight != blank %}
+                      <h3 class="testimonial-highlight" style="color: {{ section.settings.highlight_color }};">{{ block.settings.quote_highlight }}</h3>
+                    {% endif %}
+                    {% if block.settings.quote_text != blank %}
+                      <div class="testimonial-text" style="color: {{ section.settings.quote_text_color }};">{{ block.settings.quote_text }}</div>
+                    {% endif %}
+                    {% if block.settings.author_name != blank %}
+                      <p class="testimonial-author" style="color: {{ section.settings.author_color }};">{{ block.settings.author_name }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endcase %}
           {% endfor %}
         </div>
       </div>

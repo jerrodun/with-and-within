@@ -134,59 +134,62 @@
   <div class="service-blocks__container">
     {% for block in section.blocks %}
       {% if forloop.index <= 2 %}
-        <div class="service-block" 
-             {{ block.shopify_attributes }}
-             style="border-color: {{ section.settings.border_color }};">
-          <div class="service-block__content">
-            {% if block.settings.image != blank %}
-              <div class="service-block__image-container" style="border-color: {{ section.settings.border_color }};">
-                {%- assign img_url = block.settings.image | image_url: width: 1500 -%}
-                <img 
-                  srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
-                    {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
-                    {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
-                    {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
-                    {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}"
-                  src="{{ block.settings.image | image_url: width: 535 }}"
-                  sizes="(min-width: 990px) calc(50vw - 80px), (min-width: 750px) calc(50vw - 30px), calc(100vw - 30px)"
-                  alt="{{ block.settings.image.alt | escape }}"
-                  loading="lazy"
-                  width="{{ block.settings.image.width }}"
-                  height="{{ block.settings.image.height }}"
-                  class="service-block__image"
-                >
+        {% case block.type %}
+          {% when 'service' %}
+            <div class="service-block" 
+                {{ block.shopify_attributes }}
+                style="border-color: {{ section.settings.border_color }};">
+              <div class="service-block__content">
+                {% if block.settings.image != blank %}
+                  <div class="service-block__image-container" style="border-color: {{ section.settings.border_color }};">
+                    {%- assign img_url = block.settings.image | image_url: width: 1500 -%}
+                    <img 
+                      srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+                        {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}"
+                      src="{{ block.settings.image | image_url: width: 535 }}"
+                      sizes="(min-width: 990px) calc(50vw - 80px), (min-width: 750px) calc(50vw - 30px), calc(100vw - 30px)"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      loading="lazy"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      class="service-block__image"
+                    >
+                  </div>
+                {% endif %}
+                
+                <div class="service-block__text-container">
+                  {% if block.settings.title != blank %}
+                    <h2 class="service-block__title" style="color: {{ section.settings.title_color }};">{{ block.settings.title }}</h2>
+                  {% endif %}
+                  
+                  {% if block.settings.duration != blank or block.settings.price != blank %}
+                    <div class="service-block__meta" style="color: {{ section.settings.meta_color }};">
+                      {% if block.settings.duration != blank %}{{ block.settings.duration }}{% endif %}
+                      {% if block.settings.duration != blank and block.settings.price != blank %} | {% endif %}
+                      {% if block.settings.price != blank %}{{ block.settings.price }}{% endif %}
+                    </div>
+                  {% endif %}
+                  
+                  {% if block.settings.description != blank %}
+                    <div class="service-block__description" style="color: {{ section.settings.description_color }};">{{ block.settings.description }}</div>
+                  {% endif %}
+                </div>
               </div>
-            {% endif %}
-            
-            <div class="service-block__text-container">
-              {% if block.settings.title != blank %}
-                <h2 class="service-block__title" style="color: {{ section.settings.title_color }};">{{ block.settings.title }}</h2>
-              {% endif %}
               
-              {% if block.settings.duration != blank or block.settings.price != blank %}
-                <div class="service-block__meta" style="color: {{ section.settings.meta_color }};">
-                  {% if block.settings.duration != blank %}{{ block.settings.duration }}{% endif %}
-                  {% if block.settings.duration != blank and block.settings.price != blank %} | {% endif %}
-                  {% if block.settings.price != blank %}{{ block.settings.price }}{% endif %}
+              {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                <div class="service-block__button-container">
+                  <a href="{{ block.settings.button_link }}" 
+                    class="service-block__button" 
+                    style="background-color: {{ section.settings.button_background }}; color: {{ section.settings.button_text_color }};">
+                    {{ block.settings.button_label }}
+                  </a>
                 </div>
               {% endif %}
-              
-              {% if block.settings.description != blank %}
-                <div class="service-block__description" style="color: {{ section.settings.description_color }};">{{ block.settings.description }}</div>
-              {% endif %}
             </div>
-          </div>
-          
-          {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-            <div class="service-block__button-container">
-              <a href="{{ block.settings.button_link }}" 
-                 class="service-block__button" 
-                 style="background-color: {{ section.settings.button_background }}; color: {{ section.settings.button_text_color }};">
-                {{ block.settings.button_label }}
-              </a>
-            </div>
-          {% endif %}
-        </div>
+        {% endcase %}
       {% endif %}
     {% endfor %}
   </div>
