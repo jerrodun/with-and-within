@@ -181,6 +181,23 @@
         "secondary_button_label": "",
         "secondary_button_link": ""
       }
+    },
+    "location_VKcKt7": {
+      "type": "location",
+      "settings": {
+        "heading": "See us in Oakland's Pill Hill District",
+        "address_heading": "Our address",
+        "address_text": "<p>431 30th street, suite 100a • oakland, ca 94609</p>",
+        "contact_heading": "Contact us",
+        "contact_text": "<p>email: sfclinic@withandwithin.com<br>google voice text: 415-638-9191</p>",
+        "parking_heading": "Car Parking",
+        "parking_text": "<p>• free street parking west of telegraph street<br>• metered street parking near the building<br>• paid garages on summit and 31st street servicing alta bates hospital, summit campus</p>",
+        "button_text": "DIRECTIONS",
+        "button_url": "",
+        "color_scheme": "color-background-1",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
@@ -188,6 +205,7 @@
     "modular_richtext_GWxzwi",
     "service_blocks_hgh4bp",
     "testimonials_zU9gnx",
-    "image_with_content_Y94WpV"
+    "image_with_content_Y94WpV",
+    "location_VKcKt7"
   ]
 }
