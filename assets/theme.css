@@ -7065,6 +7065,7 @@ select.color--tertiary-text,
 .input-group {
   display: table;
   border-collapse: separate;
+  width: 100%;
 }
 
 .input-group.search > input::placeholder {
@@ -7087,6 +7088,7 @@ select.color--tertiary-text,
   display: table-cell;
   vertical-align: middle;
   margin: 0;
+  width: 100%;
 }
 
 .input-group .input-group-field {
@@ -8610,8 +8612,15 @@ Footer
   }
 }
 
+@media(max-width: 749px) {
+  footer .grid__item.font-size__basic.md--up--one-whole.lg--up--one-third.lg-up--mb0 {
+    padding-left: 0 !important;
+  }
+}
+
 .footer--aw-wrapper button.aw-btn--sky_blue {
   font-size: 0.813rem;
+  margin-top: 10px;
 }
 
 .footer--aw-wrapper .newsletter__submit {

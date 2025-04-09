@@ -58,6 +58,11 @@
 
 {% endif %}
 
+<style>
+footer .input-group .input-group-field {
+  border: 1px solid #fff;
+}
+</style>
 
 
 <footer class="section-with-padding section-with-padding--smaller color--{{ section_color }}-text footer--aw-wrapper"
@@ -423,13 +428,12 @@ style="background-color: {{section.settings.footer-color}};"
                         value="{% if customer %}{{ customer.email }}{% endif %}"
                         autocorrect="off"
                         autocapitalize="off">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn border--none newsletter__submit px2 py1 aw-btn--sky_blue" name="commit" id="Subscribe"
-                          data-action='submit'>
-                          <span class="newsletter__submit">{{ 'general.newsletter_form.submit' | t }}</span>
-                        </button>
-                      </span>
                     </div>
+
+                    <button type="submit" class="btn border--none newsletter__submit px2 py1 aw-btn--sky_blue" name="commit" id="Subscribe"
+                    data-action='submit'>
+                    <span class="newsletter__submit">{{ 'general.newsletter_form.submit' | t }}</span>
+                  </button>
 
                     {% endif %}
 

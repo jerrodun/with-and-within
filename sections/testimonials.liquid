@@ -93,24 +93,14 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: transparent;
   pointer-events: auto;
   border: none;
   padding: 0;
-  transition: opacity 0.3s ease;
-}
-
-.testimonial-button:hover {
-  opacity: 0.7;
+  background: transparent !important;
 }
 
 .testimonial-button--prev {
   transform: scaleX(-1);
-}
-
-.testimonial-button--active {
-  background-color: {{ section.settings.button_active_color }};
-  border-color: {{ section.settings.button_active_color }};
 }
 
 .testimonial-button:focus {

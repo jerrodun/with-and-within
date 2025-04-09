@@ -72,17 +72,10 @@
   justify-content: center;
   cursor: pointer;
   background: transparent;
-  pointer-events: auto;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .testimonial-button--next {
   transform: rotate(180deg);
-}
-
-.testimonial-button--active {
-  background-color: #9F5028;
-  border-color: #9F5028;
 }
 
 .visually-hidden {

@@ -413,9 +413,10 @@
     <main role="main" id="MainContent">
       <!-- All Templates and the pages/products connected to them render HERE -->
       {{ content_for_layout }}
-      {% if page.handle != 'diy' %}
+      
+      {% unless page.handle contains 'salvation' or page.handle == 'diy' %}
         {% section 'image-text-nav' %}
-      {% endif %}
+      {% endunless %}
     </main>
 
     <!-- FOOTERS -->
