@@ -104,12 +104,12 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/fleur-kaan-e7jpGYe7OtU-unsplash_1.png",
-            "title": "Consultation",
-            "duration": "35-60 Minutes",
-            "price": "$200",
-            "description": "<p>After reviewing your intake form, we'll discover what your personal acne-triggering imbalances are, how to correct them, what products to use and how to use them, that'll clear you ASAP.</p>",
+            "title": "Acne Consultation",
+            "duration": "2 hours",
+            "price": "$250",
+            "description": "<p>After reviewing your intake form and detailed hands-on skin analysis, we'll discover what your personal acne-triggering imbalances are, how to correct them, what products to use and how to use them, that'll clear you ASAP. </p>",
             "button_label": "Book Now",
-            "button_link": ""
+            "button_link": "https://skinsalvation.janeapp.com/"
           }
         },
         "service_gaEkqA": {
