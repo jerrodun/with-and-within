@@ -19,10 +19,10 @@
             "background_image": "shopify://shop_images/Frame_1_d6e5a423-267c-4f3b-9b85-37c7a15bc6a4.png",
             "image_scale": 30,
             "image_position": "bottom_left",
-            "heading": "Your Journey to Clear, Radiant Skin Starts Here",
-            "heading_underlined": "",
+            "heading": "your journey to clear skin for good, for real, starts here.",
+            "heading_underlined": "skinSALVATION",
             "richtext": "<p>Personalized skincare services that address individual needs. We provide tailored solutions, and ensure optimal results for healthier, radiant skin.</p>",
-            "button_one_text": "BOOK a consultation",
+            "button_one_text": "BOOK a free discovery call",
             "button_one_link": "",
             "button_two_text": "",
             "button_two_link": "",
@@ -116,12 +116,12 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/rosa-rafael-Pe9IXUuC6QU-unsplash_1.png",
-            "title": "Follow-up check-in call",
-            "duration": "30-60 Minutes",
-            "price": "$200/hr in half-hour increments",
-            "description": "<p>A date with your personal acne expert. A one-on-one face washing tutorial, in-depth diet guidance, or an extended catch-up to figure out what your new breakouts are about. Take your pick or dream up your learning topic of choice! Recommended at least twice post-virtual consult spaced 2 and then 4 weeks apart.</p>",
+            "title": "Follow-up Skin Treatments",
+            "duration": "45-60 Minutes",
+            "price": "$250/hr (sliding scale available)",
+            "description": "<p>Our signature expert skin analysis, thorough extractions, high frequency and LED face treatment with exfoliation and nourishing as needed. <br/><br/>Clients usually need around 6 treatments total, 2 weeks apart to get their skin clear and acne under control. Treatment frequency reduces as the skin progresses, to maintain skin clarity vs actively clearing it.</p>",
             "button_label": "Book Now",
-            "button_link": ""
+            "button_link": "https://skinsalvation.janeapp.com/"
           }
         }
       },
