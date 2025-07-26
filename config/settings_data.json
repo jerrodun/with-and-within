@@ -2745,9 +2745,9 @@
             "disabled": true,
             "settings": {
               "background_color": "#808c24",
-              "image": "shopify://shop_images/greenbookingm_c5407c0c-cc20-4685-a6bd-70767868faea.webp",
+              "image": "shopify://shop_images/3.png",
               "image_scale": 60,
-              "image_position": "center_right",
+              "image_position": "bottom_right",
               "heading": "Add a heading about the book here.",
               "heading_underlined": "",
               "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. DIY your own clear skin starting today!</p>",
