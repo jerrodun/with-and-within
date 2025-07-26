@@ -2718,7 +2718,7 @@
             "settings": {
               "background_color": "#ffffff",
               "image": "shopify://shop_images/2_23d2d9ad-db8f-4688-a8bb-ae339bb54f1f.png",
-              "image_scale": 60,
+              "image_scale": 52,
               "image_position": "bottom_right",
               "heading": "Add overlap images",
               "heading_underlined": "Plus other features",
