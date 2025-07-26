@@ -318,10 +318,10 @@
     "location_VKcKt7": {
       "type": "location",
       "settings": {
-        "heading": "See us in Oakland's Pill Hill District",
+        "heading": "See us in Oakland or San Francisco",
         "heading_size": 48,
         "address_heading": "Our address",
-        "address_text": "<p>431 30th street, suite 100a • oakland, ca 94609</p>",
+        "address_text": "<p>431 30th street, suite 100a • oakland, ca 94609</p><p>1538 pacific avenue, suite 110 • san francisco, ca 94109</p>",
         "contact_heading": "Contact us",
         "contact_text": "<p>email: sfclinic@withandwithin.com<br/>google voice text: 415-638-9191</p>",
         "parking_heading": "Car Parking",
