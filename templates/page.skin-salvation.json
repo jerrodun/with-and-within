@@ -269,18 +269,11 @@
     "faq_Ee9cK4": {
       "type": "faq",
       "blocks": {
-        "faq_Jimbkk": {
+        "faq_Ld9fdp": {
           "type": "faq",
           "settings": {
-            "question": "Is this program really going to work, even if I don't get facials?",
-            "answer": "<p>For most cases, yes. Over the years we've had dozens of clients use our online resources, use our products and clear their acne on their own. However, some clients did need some professional help. We are happy to help assist you in finding someone local, to administer chemical peels, extractions and support alongside the skinSALVATION program. Additionally, we're always available in case questions that aren't covered on our site come up, so take advantage and contact us if need be.</p>"
-          }
-        },
-        "faq_wrKe63": {
-          "type": "faq",
-          "settings": {
-            "question": "How long will it take me to get my products?",
-            "answer": "<p>Our products typically ship within 1-2 business days from our Northern California warehouse via USPS Priority. Delivery times depend on your location, but most orders arrive within 2-5 business days after shipping. Expedited shipping and other carrier options are available at checkout.</p>"
+            "question": "How can I become a skinSALVATION client?",
+            "answer": "<p>We have many approaches to make our work accessible to the community. <br/><br/>One can book an in-person or virtual consultation through our scheduling website. You can also book a free 20 minute discovery call to learn how we'll guide you through our process and create a personalized plan for your specific needs. <br/><br/>Or, one can DIY their clear skin by simply purchasing one of our starter skincare kits along with Kim's book \"Clear Skin for Everyone\" with all the practical know-how to clear one's own complexion.</p>"
           }
         },
         "faq_x7QV3c": {
@@ -290,19 +283,26 @@
             "answer": "<p>As San Francisco's first acne clinic established in 2008, we are professional esthetician industry pioneers with our honest, compassionate, comprehensive and effective holistic approach. <br/><br/>From our studio, we've successfully helped thousands of clients from all ages, backgrounds, ethnicities, acne types and other skin concerns with proven methods we've seen work time and time again. <br/><br/>Our products are our own fragrance- and cruelty-free formulations specifically designed for acne-prone skin (but beneficial for all skin types), and our program emphasizes lifestyle, diet, and skincare routine education and guidance to provide a comprehensive, long-term solution to clear, healthy skin.<br/><br/>We care deeply about our community and earth, and stand for human rights of all oppressed and marginalized groups. We give donate monthly to grass roots activist organizations and strive to keep our business operations and supply chains ethical, recycled and recyclable. (Some examples: we do not buy from Uline, we use 100% recycled PCR paper cartons and aluminum/glass for our skincare packaging).</p>"
           }
         },
-        "faq_Ld9fdp": {
+        "faq_Jimbkk": {
           "type": "faq",
           "settings": {
-            "question": "How can I become a skinSALVATION client?",
-            "answer": "<p>We have many approaches to make our work accessible to the community. <br/><br/>One can book an in-person or virtual consultation through our scheduling website. You can also book a free 20 minute discovery call to learn how we'll guide you through our process and create a personalized plan for your specific needs. <br/><br/>Or, one can DIY their clear skin by simply purchasing one of our starter skincare kits along with Kim's book \"Clear Skin for Everyone\" with all the practical know-how to clear one's own complexion.</p>"
+            "question": "I can't come to the clinic. Does this program really work, even if I don't get facials?",
+            "answer": "<p>For most cases, yes. Over the years we've had dozens of clients use our online resources, use our products and clear their acne on their own. However, some clients did need some professional help. </p><p>We are happy to help assist you in finding someone local, to administer chemical peels, extractions and support alongside the skinSALVATION program. (We have a whole chapter dedicated to this in our book, \"Clear Skin for Everyone.\"</p><p>Additionally, we're always available in case questions that aren't covered on our site come up, so take advantage and contact us if need be.</p>"
+          }
+        },
+        "faq_wrKe63": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will it take me to get my products?",
+            "answer": "<p>Our products typically ship within 1-2 business days from our Northern California warehouse via USPS Priority. Delivery times depend on your location, but most orders arrive within 2-5 business days after shipping. Expedited shipping and other carrier options are available at checkout.</p>"
           }
         }
       },
       "block_order": [
-        "faq_Jimbkk",
-        "faq_wrKe63",
+        "faq_Ld9fdp",
         "faq_x7QV3c",
-        "faq_Ld9fdp"
+        "faq_Jimbkk",
+        "faq_wrKe63"
       ],
       "settings": {
         "title": "",
