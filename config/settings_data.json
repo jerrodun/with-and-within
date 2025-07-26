@@ -9,11 +9,11 @@
  */
 {
   "current": {
-    "popup_image": "shopify://shop_images/1.png",
-    "popup_heading": "Clear Skin For Everyone has finally been released!",
-    "popup_text": "Over 10 years in the making, everything esthetician and founder Kimberly Yap Tan learned and teaches clients about keeping skin its' clearest is in this book.",
-    "button_label": "Learn more",
-    "button_link": "shopify://pages/book",
+    "popup_image": "shopify://shop_images/SAN_FRANCISCO_OAKLAND_CA_ACNE_CLINICS_NOW_OPEN.png",
+    "popup_heading": "APPOINTMENTS NOW AVAILABLE FOR BOOKING",
+    "popup_text": "Clear up for good and for real with guidance in person at our Oakland and San Francisco acne clinics, or virtually online. \n\nBook a free 20 minute discovery call (under the \"oakland location\") to learn more and get your actionable plan towards clear skin today!",
+    "button_label": "BOOK NOW",
+    "button_link": "https://skinsalvation.janeapp.com/",
     "section_padding": "default",
     "type_heading_font": "helvetica_n4",
     "heading_text_transform": "none",
