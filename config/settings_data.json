@@ -2715,10 +2715,8 @@
           },
           "slide_fjDHHR": {
             "type": "slide",
-            "disabled": true,
             "settings": {
               "background_color": "#ffffff",
-              "background_image": "shopify://shop_images/2_23d2d9ad-db8f-4688-a8bb-ae339bb54f1f.png",
               "image": "shopify://shop_images/2_23d2d9ad-db8f-4688-a8bb-ae339bb54f1f.png",
               "image_scale": 60,
               "image_position": "bottom_right",
