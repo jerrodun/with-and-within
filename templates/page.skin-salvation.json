@@ -115,11 +115,11 @@
         "service_gaEkqA": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/rosa-rafael-Pe9IXUuC6QU-unsplash_1.png",
+            "image": "shopify://shop_images/spa-facial-treatment.jpg",
             "title": "Follow-up Skin Treatments",
             "duration": "45-60 Minutes",
-            "price": "$250/hr Oakland / $275 San Francisco <br>(sliding scale available upon request)",
-            "description": "<p>Our signature expert skin analysis, thorough extractions, high frequency and LED face treatment with exfoliation and nourishing as needed. <br/><br/>Clients usually need around 6 treatments total, 2 weeks apart to get their skin clear and acne under control. Treatment frequency reduces as the skin clears, to maintain skin clarity vs actively clearing it.</p>",
+            "price": "$250/hr Oakland / $275 San Francisco (sliding scale available upon request)",
+            "description": "<p>Our signature expert skin analysis, thorough extractions, high frequency and LED face treatment with exfoliation and nourishing as needed. <br/><br/>Clients need an average 6 treatments, 2 weeks apart to get skin clear and acne under control. </p>",
             "button_label": "Book Now",
             "button_link": "https://skinsalvation.janeapp.com/"
           }
