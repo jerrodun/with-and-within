@@ -2665,9 +2665,9 @@
         "type": "testimonial",
         "disabled": true,
         "settings": {
-          "heading": "Happy Customer",
-          "quote": "Add a testimonial here",
-          "author": "Happy Reader",
+          "heading": "Wow, Wow, Wow!",
+          "quote": "I have been battling skin breakouts since adolescence. It's never been an ACNE problem where I could use prescriptions for, but sporadic breakouts that always popped up in a new place. \n\nAfter about 5 treatments and about 2 months of my regimen...my skin was clear!\n\nI now have a new understanding of skin care, which is that it goes beyond the surface and this knowledge will be with me for life! Thank you Kim for making my skin beautiful!",
+          "author": "FT",
           "color_scheme": "secondary"
         }
       },
@@ -2713,31 +2713,6 @@
               "text_alignment": "left"
             }
           },
-          "slide_qdgzV9": {
-            "type": "slide",
-            "settings": {
-              "background_color": "#808c24",
-              "image": "shopify://shop_images/3.png",
-              "image_scale": 60,
-              "image_position": "bottom_right",
-              "heading": "Three months to clear skin.",
-              "heading_underlined": "",
-              "richtext": "<p>Simple, straightforward, effective techniques from a professional that really cares.</p>",
-              "button_one_text": "Learn How",
-              "button_one_link": "https://withandwithin.co/pages/diy",
-              "button_two_text": "Shop Now",
-              "button_two_link": "https://withandwithin.co/collections/all",
-              "overlay_opacity": 0,
-              "text_background_color": "rgba(0,0,0,0)",
-              "heading_color": "#ffffff",
-              "richtext_color": "#ffffff",
-              "button_one_bg_color": "#ffffff",
-              "button_one_text_color": "#808c24",
-              "button_two_bg_color": "#ffffff",
-              "button_two_text_color": "#808c24",
-              "text_alignment": "left"
-            }
-          },
           "slide_fjDHHR": {
             "type": "slide",
             "settings": {
@@ -2745,9 +2720,9 @@
               "image": "shopify://shop_images/2_23d2d9ad-db8f-4688-a8bb-ae339bb54f1f.png",
               "image_scale": 52,
               "image_position": "bottom_right",
-              "heading": "Honest expert guidance.",
-              "heading_underlined": "",
-              "richtext": "<p>No more internet research confusion or wasted money on products that only make your acne worse. Clear up with skinSALVATION'S consistent, time-proven results.</p>",
+              "heading": "Add overlap images",
+              "heading_underlined": "Plus other features",
+              "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. DIY your own clear skin starting today!</p>",
               "button_one_text": "Learn How",
               "button_one_link": "https://withandwithin.co/pages/diy",
               "button_two_text": "Shop Now",
@@ -2762,12 +2737,37 @@
               "button_two_text_color": "#ffffff",
               "text_alignment": "left"
             }
+          },
+          "slide_qdgzV9": {
+            "type": "slide",
+            "settings": {
+              "background_color": "#808c24",
+              "image": "shopify://shop_images/3.png",
+              "image_scale": 51,
+              "image_position": "bottom_right",
+              "heading": "Add a heading about the book here.",
+              "heading_underlined": "",
+              "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. DIY your own clear skin starting today!</p>",
+              "button_one_text": "Learn How",
+              "button_one_link": "https://withandwithin.co/pages/diy",
+              "button_two_text": "Shop Now",
+              "button_two_link": "https://withandwithin.co/collections/all",
+              "overlay_opacity": 0,
+              "text_background_color": "rgba(0,0,0,0)",
+              "heading_color": "#ffffff",
+              "richtext_color": "#ffffff",
+              "button_one_bg_color": "#ffffff",
+              "button_one_text_color": "#808c24",
+              "button_two_bg_color": "#ffffff",
+              "button_two_text_color": "#808c24",
+              "text_alignment": "left"
+            }
           }
         },
         "block_order": [
           "slide_FndYz6",
-          "slide_qdgzV9",
-          "slide_fjDHHR"
+          "slide_fjDHHR",
+          "slide_qdgzV9"
         ],
         "custom_css": [
           ".slideshow {margin-top: 200px;}"
