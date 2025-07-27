@@ -2713,34 +2713,8 @@
               "text_alignment": "left"
             }
           },
-          "slide_fjDHHR": {
-            "type": "slide",
-            "settings": {
-              "background_color": "#ffffff",
-              "image": "shopify://shop_images/2_23d2d9ad-db8f-4688-a8bb-ae339bb54f1f.png",
-              "image_scale": 52,
-              "image_position": "bottom_right",
-              "heading": "Clear up your skin.",
-              "heading_underlined": "For good. For real.",
-              "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. DIY your own clear skin starting today!</p>",
-              "button_one_text": "Learn How",
-              "button_one_link": "https://withandwithin.co/pages/diy",
-              "button_two_text": "Shop Now",
-              "button_two_link": "https://withandwithin.co/collections/all",
-              "overlay_opacity": 0,
-              "text_background_color": "#ffffff",
-              "heading_color": "#5e6939",
-              "richtext_color": "#000000",
-              "button_one_bg_color": "#5e6939",
-              "button_one_text_color": "#ffffff",
-              "button_two_bg_color": "#5e6939",
-              "button_two_text_color": "#ffffff",
-              "text_alignment": "left"
-            }
-          },
           "slide_qdgzV9": {
             "type": "slide",
-            "disabled": true,
             "settings": {
               "background_color": "#808c24",
               "image": "shopify://shop_images/3.png",
@@ -2763,12 +2737,37 @@
               "button_two_text_color": "#808c24",
               "text_alignment": "left"
             }
+          },
+          "slide_fjDHHR": {
+            "type": "slide",
+            "settings": {
+              "background_color": "#ffffff",
+              "image": "shopify://shop_images/2_23d2d9ad-db8f-4688-a8bb-ae339bb54f1f.png",
+              "image_scale": 52,
+              "image_position": "bottom_right",
+              "heading": "Honest expert guidance.",
+              "heading_underlined": "No more internet research confusion. Clear up with consistent, time-proven results.",
+              "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. DIY your own clear skin starting today!</p>",
+              "button_one_text": "Learn How",
+              "button_one_link": "https://withandwithin.co/pages/diy",
+              "button_two_text": "Shop Now",
+              "button_two_link": "https://withandwithin.co/collections/all",
+              "overlay_opacity": 0,
+              "text_background_color": "#ffffff",
+              "heading_color": "#5e6939",
+              "richtext_color": "#000000",
+              "button_one_bg_color": "#5e6939",
+              "button_one_text_color": "#ffffff",
+              "button_two_bg_color": "#5e6939",
+              "button_two_text_color": "#ffffff",
+              "text_alignment": "left"
+            }
           }
         },
         "block_order": [
           "slide_FndYz6",
-          "slide_fjDHHR",
-          "slide_qdgzV9"
+          "slide_qdgzV9",
+          "slide_fjDHHR"
         ],
         "custom_css": [
           ".slideshow {margin-top: 200px;}"
