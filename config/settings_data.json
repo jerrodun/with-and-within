@@ -2696,7 +2696,7 @@
               "image_position": "bottom_right",
               "heading": "Clear up your skin.",
               "heading_underlined": "For good. For real.",
-              "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. DIY your own clear skin starting today!</p>",
+              "richtext": "<p>Whether you’ve been battling acne for a short time or forever, this is your last stop. <br/><br/>DIY your own clear skin starting today!</p>",
               "button_one_text": "Learn How",
               "button_one_link": "https://withandwithin.co/pages/diy",
               "button_two_text": "Shop Now",
